@@ -5,7 +5,7 @@
 
 @font-face {
 	font-family: 'SHS-XN';
-	src: url('/SourceHanSansXN-Regular.woff');
+	src: url(/SourceHanSansXN-Regular.woff);
 }
 body {
     font-family: 'SHS-XN';
