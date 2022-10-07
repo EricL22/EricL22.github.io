@@ -4,10 +4,8 @@
 //@import "minima";
 
 @font-face {
-font-family: 'SHS-XN';
-src:
-	url('//EricL22.github.io/SourceHanSansXN-Regular.woff') format('woff')
-	;
+	font-family: 'SHS-XN';
+	src: url('/SourceHanSansXN-Regular.woff');
 }
 body {
     font-family: 'SHS-XN';
