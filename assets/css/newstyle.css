@@ -1,6 +1,6 @@
 @font-face {
 	font-family: 'SHS-XN';
-	src: url('SourceHanSansXN-Regular.woff') format('woff');
+	src: url('//SourceHanSansXN-Regular.woff') format('woff');
 }
 body {
     font-family: 'SHS-XN';
