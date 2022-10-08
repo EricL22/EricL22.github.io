@@ -77,11 +77,11 @@
             var output = "";
             while (checkString.length() > 0)
             {
-                OUTER_LOOP: for (int i = checkString.length(); i > 0; i--)
+                OUTER_LOOP: for (let i = checkString.length(); i > 0; i--)
                 {
-                    for (int j = 0; j < dataArray.length; j++)
+                    for (let j = 0; j < dataArray.length; j++)
                     {
-                        for (int k = 0; k < dataArray[j].length; k++)
+                        for (let k = 0; k < dataArray[j].length; k++)
                         {
                             if (checkString.substring(0, i).equals(dataArray[j][k]))
                             {
