@@ -83,15 +83,15 @@
                     {
                         for (let k = 0; k < dataArray[j].length; k++)
                         {
+                                console.log(dataArray[j][3]);
                             if (checkString.substring(0, i) == dataArray[j][k])
                             {
-                                /*if (dataArray[j][3] == "1")
+                                if (dataArray[j][3] == "1")
                                     output += dataArray[j][2];
                                 else if (dataArray[j][3] == "" || dataArray[j][3].match(/^[0-9]+$/) != null)
                                     output += dataArray[j][1];
-                                else*/
+                                else
                                     output += dataArray[j][3];
-                                console.log(dataArray[j][3]);
                                 checkString = checkString.substring(i);
                                 break OUTER_LOOP;
                             }
