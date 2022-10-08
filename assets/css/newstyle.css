@@ -3,5 +3,6 @@
 	src: url('../../SourceHanSansXN-Regular.woff') format('woff');
 }
 body {
-    font-family: 'SHS-XN';
+	padding:50px;
+	font-family: 'SHS-XN';
 }
