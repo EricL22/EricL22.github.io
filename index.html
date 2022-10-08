@@ -75,9 +75,9 @@
             const paragraph = document.getElementById("demo");
             var checkString = document.getElementById("fname").value;
             var output = "";
-            while (checkString.length() > 0)
+            while (checkString.length > 0)
             {
-                OUTER_LOOP: for (let i = checkString.length(); i > 0; i--)
+                OUTER_LOOP: for (let i = checkString.length; i > 0; i--)
                 {
                     for (let j = 0; j < dataArray.length; j++)
                     {
