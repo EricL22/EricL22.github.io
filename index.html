@@ -57,7 +57,7 @@
             const paragraph = document.getElementById("demo");
 
             //var csv = '"foo, the column",bar\n2,3\n"4, the value",5',
-            fetch('https://ericl22.github.io/assets/data/xn-dict.csv').then((r)=>{r.text().then((d)=>{let csv = d})})
+            fetch('https://ericl22.github.io/assets/data/xn-dict.csv').then((r)=>{r.text().then((d)=>{var csv = d})})
 
                 // Split the input into lines
                 lines = csv.split('\n'),
