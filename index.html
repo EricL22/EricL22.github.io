@@ -94,6 +94,12 @@
                                 checkString = checkString.substring(i);
                                 break OUTER_LOOP;
                             }
+                            else if (i == 1)
+                            {
+                                output += checkString.substring(0, i);
+                                checkString = checkString.substring(i);
+                                break OUTER_LOOP;
+                            }
                         }
                     }
                 }
