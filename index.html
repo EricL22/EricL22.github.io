@@ -45,7 +45,7 @@
 
                 // Prints [["2","3"],["4, the value","5"]]
                 dataArray = data;
-                console.log(JSON.stringify(dataArray));
+                //console.log(JSON.stringify(dataArray));
             };
         };
         request.send();
@@ -91,6 +91,7 @@
                                     output += dataArray[j][1];
                                 else*/
                                     output += dataArray[j][3];
+                                console.log(dataArray[j][3]);
                                 checkString = checkString.substring(i);
                                 break OUTER_LOOP;
                             }
