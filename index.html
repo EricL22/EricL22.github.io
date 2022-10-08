@@ -18,6 +18,7 @@
     <p id="demo">Enter a value above and click the button to convert it</p>
 
     <script>
+        var csv = "";
         var request = new XMLHttpRequest();
         request.open('GET', 'https://EricL22.github.io/assets/data/xn-dict.csv', true);
         request.responseType = 'blob';
@@ -26,7 +27,7 @@
             reader.readAsText(request.response);
             reader.onload =  function(e){
                 console.log('Text:', e.target.result);
-                var csv = e.target.result;
+                csv = e.target.result;
             };
         };
         request.send();
