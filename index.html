@@ -21,7 +21,7 @@
         function getText(){
             // read text from URL location
             var request = new XMLHttpRequest();
-            request.open('GET', 'assets/data/xn-dict.csv', true);
+            request.open('GET', 'https://ericl22.github.io/assets/data/xn-dict.csv', true);
             request.send(null);
             request.onreadystatechange = function () {
                 if (request.readyState === 4 && request.status === 200) {
