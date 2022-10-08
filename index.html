@@ -17,22 +17,19 @@
     
     <p id="demo">Enter a value above and click the button to convert it</p>
 
-    <script type="module">
-        import {csv} from "https://cdn.skypack.dev/d3-fetch@3";
-            csv("https://ericl22.github.io/assets/data/xn-dict.csv").then((data) => {
-                var csv = data;
-            });
-
-                // Split the input into lines
-                lines = csv.split('\n'),
-
-                // Extract column names from the first line
-                columnNamesLine = lines[0],
-                columnNames = parse(columnNamesLine),
-
-                // Extract data from subsequent lines
-                dataLines = lines.slice(1),
-                data = dataLines.map(parse);
+    <script>
+        var request = new XMLHttpRequest();
+        request.open('GET', 'https://EricL22.github.io/assets/data/xn-dict.csv', true);
+        request.responseType = 'blob';
+        request.onload = function() {
+            var reader = new FileReader();
+            reader.readAsText(request.response);
+            reader.onload =  function(e){
+                console.log('Text:', e.target.result);
+                var csv = e.target.result;
+            };
+        };
+        request.send();
         // Parse a CSV row, accounting for commas inside quotes                   
         function parse(row){
           var insideQuote = false,                                             
@@ -58,6 +55,17 @@
             const paragraph = document.getElementById("demo");
 
             //var csv = '"foo, the column",bar\n2,3\n"4, the value",5',
+
+                // Split the input into lines
+                lines = csv.split('\n'),
+
+                // Extract column names from the first line
+                columnNamesLine = lines[0],
+                columnNames = parse(columnNamesLine),
+
+                // Extract data from subsequent lines
+                dataLines = lines.slice(1),
+                data = dataLines.map(parse);
 
             // Prints [["2","3"],["4, the value","5"]]
             console.log(JSON.stringify(data));
