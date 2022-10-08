@@ -19,6 +19,7 @@
 
     <script>
         var csv = "";
+        var dataArray;
         var request = new XMLHttpRequest();
         request.open('GET', 'https://EricL22.github.io/assets/data/xn-dict.csv', true);
         request.responseType = 'blob';
@@ -43,7 +44,8 @@
                     data = dataLines.map(parse);
 
                 // Prints [["2","3"],["4, the value","5"]]
-                console.log(JSON.stringify(data));
+                dataArray = data;
+                console.log(JSON.stringify(dataArray));
             };
         };
         request.send();
