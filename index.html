@@ -83,6 +83,7 @@
                     {
                         for (let k = 0; k < dataArray[j].length; k++)
                         {
+                            console.log(!/^\d+$/.test(checkString));
                             if (checkString.substring(0, i) == dataArray[j][k] && !/^\d+$/.test(checkString))
                             {
                                 if (dataArray[j][3] == "1")
