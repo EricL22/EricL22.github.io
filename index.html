@@ -109,7 +109,7 @@
                                     checkString = checkString.substring(i);
                                     break OUTER_LOOP;
                                 }
-                                else if (j == dataArray.length - 1 && k == dataArray[j].length - 1 && i == 1)
+                                else if ((j == dataArray.length - 1 && k == dataArray[j].length - 1 || !!checkString.substring(0, i).match(/^[。，：！？]/)) && i == 1)
                                 {
                                     output += checkString.substring(0, i);
                                     checkString = checkString.substring(i);
