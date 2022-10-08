@@ -83,8 +83,6 @@
                     {
                         for (let k = 0; k < dataArray[j].length; k++)
                         {
-                                console.log(dataArray[j][3]);
-                            console.log(checkString.substring(0, i));
                             if (checkString.substring(0, i) == dataArray[j][k])
                             {
                                 if (dataArray[j][3] == "1")
@@ -96,7 +94,7 @@
                                 checkString = checkString.substring(i);
                                 break OUTER_LOOP;
                             }
-                            else if (i == 1)
+                            else if (j == dataArray.length - 1 && k == dataArray[j].length - 1 && i == 1)
                             {
                                 output += checkString.substring(0, i);
                                 checkString = checkString.substring(i);
