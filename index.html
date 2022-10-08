@@ -15,12 +15,12 @@
       <input type="button" value="Convert" onclick="msg()">
     </form>
     
-    <p>Enter a value above and click the button to convert it</p>
+    <p id="demo">Enter a value above and click the button to convert it</p>
 
     <script>
     function msg() {
         const button = document.querySelector('input');
-        const paragraph = document.querySelector('p');
+        const paragraph = document.getElementById("demo");
         paragraph.textContent = document.getElementById("fname").value;
     }
     </script>
