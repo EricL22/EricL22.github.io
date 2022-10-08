@@ -21,7 +21,35 @@
     function msg() {
         const button = document.querySelector('input');
         const paragraph = document.getElementById("demo");
-        paragraph.textContent = document.getElementById("fname").value;
+        
+        $(document).ready(function() {
+            $.ajax({
+                type: "GET",
+                url: "assets/data/xn-dict.csv",
+                dataType: "text",
+                success: function(data) {processData(data);}
+             });
+        });
+
+        function processData(allText) {
+            var allTextLines = allText.split(/\r\n|\n/);
+            var headers = allTextLines[0].split(',');
+            var lines = [];
+
+            for (var i=1; i<allTextLines.length; i++) {
+                var data = allTextLines[i].split(',');
+                if (data.length == headers.length) {
+
+                    var tarr = [];
+                    for (var j=0; j<headers.length; j++) {
+                        tarr.push(data[j]);
+                    }
+                    lines.push(tarr);
+                }
+            }
+            // alert(lines);
+        }
+        paragraph.textContent = lines[0][0]; //document.getElementById("fname").value;
     }
     </script>
 
