@@ -100,9 +100,9 @@
                             {
                                 if (checkString.substring(0, i) == dataArray[j][k] && isNaN(checkString.substring(0, i)))
                                 {
-                                    if (dataArray[j][3] == "1")
+                                    if (dataArray[j][3] == "1" || compats && dataArray[j][4] == "1")
                                         output += dataArray[j][2];
-                                    else if (dataArray[j][3] == "" || dataArray[j][3].match(/^[0-9]+$/) != null)
+                                    else if (dataArray[j][3] == "" || dataArray[j][3].match(/^[0-9]+$/) != null || compats && dataArray[j][4] == "0")
                                         output += dataArray[j][1];
                                     else
                                         output += dataArray[j][3];
