@@ -75,6 +75,7 @@
             const paragraph = document.getElementById("demo");
             var checkString = document.getElementById("fname").value;
             var output = "";
+            paragraph.textContent = "Working...";
             while (checkString.length > 0)
             {
                 OUTER_LOOP: for (let i = checkString.length; i > 0; i--)
@@ -83,8 +84,7 @@
                     {
                         for (let k = 0; k < dataArray[j].length; k++)
                         {
-                            console.log(!/^\d+$/.test(checkString));
-                            if (checkString.substring(0, i) == dataArray[j][k] && !/^\d+$/.test(checkString))
+                            if (checkString.substring(0, i) == dataArray[j][k] && isNaN(checkString.substring(0, i)))
                             {
                                 if (dataArray[j][3] == "1")
                                     output += dataArray[j][2];
