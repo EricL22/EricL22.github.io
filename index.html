@@ -18,6 +18,20 @@
     <p id="demo">Enter a value above and click the button to convert it</p>
 
     <script type="text/javascript">
+        function getText(){
+            // read text from URL location
+            var request = new XMLHttpRequest();
+            request.open('GET', 'assets/data/xn-dict.csv', true);
+            request.send(null);
+            request.onreadystatechange = function () {
+                if (request.readyState === 4 && request.status === 200) {
+                    var type = request.getResponseHeader('Content-Type');
+                    if (type.indexOf("text") !== 1) {
+                        return request.responseText;
+                    }
+                }
+            }
+        }
         // Parse a CSV row, accounting for commas inside quotes                   
         function parse(row){
           var insideQuote = false,                                             
@@ -43,11 +57,7 @@
             const paragraph = document.getElementById("demo");
 
             //var csv = '"foo, the column",bar\n2,3\n"4, the value",5',
-            
-            var fs = require("fs");
-            fs.readFile("assets/data/xn-dict.csv", function(text){
-                var csv = text
-            });
+            var csv = getText();
 
                 // Split the input into lines
                 lines = csv.split('\n'),
