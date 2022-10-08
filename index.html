@@ -26,7 +26,7 @@
             var reader = new FileReader();
             reader.readAsText(request.response);
             reader.onload =  function(e){
-                console.log('Text:', e.target.result);
+                //console.log('Text:', e.target.result);
                 csv = e.target.result;
             };
         };
