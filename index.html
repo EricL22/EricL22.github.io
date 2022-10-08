@@ -13,11 +13,14 @@
     <form>
       <input type="text" id="fname" name="fname"><br><br>
       <input type="button" value="Convert" onclick="msg()">
+      <input type="button" value="Compatibility Mode" onclick="compat()">
     </form>
     
+    <p id="compmode" display="none"><i>Compatibility Mode Enabled</i></p>
     <p id="demo">Enter a value above and click the button to convert it</p>
 
     <script>
+        var compat = false;
         var csv = "";
         var dataArray;
         var request = new XMLHttpRequest();
@@ -69,6 +72,15 @@
           });
           entries.push(entry.join(''));                                        
           return entries;                                                      
+        }
+        function compat() {
+            var x = document.getElementById("compmode");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+            compat = !compat;
         }
         function msg() {
             const button = document.querySelector('input');
