@@ -109,6 +109,11 @@
                 paragraph.textContent = output;
             }, 1);
         }
+        function define() {
+            const paragraph = document.getElementById("termout");
+            paragraph.textContent = "No reading found";
+            //paragraph.textContent = new String("No definitions found").italics();
+        }
     </script>
 
     <h2>Multilingual Dictionary</h2>
@@ -116,8 +121,10 @@
 
     <form>
       <input type="text" id="termin" name="termin"><br><br>
-      <input type="button" value="Lookup" onclick="msg()">
+      <input type="button" value="Lookup" onclick="define()">
     </form>
+    
+    <p id="termout">Enter a single term to be defined</p>
     
     <h3><a href="https://fareast-english.fandom.com/wiki/Xinjianti">Learn more about Xinjianti</a></h3>
 </body>
