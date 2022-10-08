@@ -9,6 +9,21 @@
     <h1>Hanzi Converters</h1>
     <p>Input Simplified or Xinjianti characters into these converters. Note that Simplified characters have a "default" traditional form on which they fall back when they have multiple definitions, so it is recommended to first convert these specific characters into the intended traditional form before inputting. <a href="https://fareast-english.fandom.com/wiki/List_of_New_Simplified_Forms_of_Chinese_Characters">Here is a list of traditional characters which the converter recognizes.</a></p>
     <h2>Xinjianti Converter</h2>
+
+    <form>
+      <label for="fname">Enter Hanzi: </label>
+      <input type="text" id="fname" name="fname"><br><br>
+      <input type="button" value="Convert" onclick="msg()">
+    </form>
+
+    <script>
+    function msg() {
+        const button = document.querySelector('input');
+        const paragraph = document.querySelector('p');
+        paragraph.textContent = 'The machine has started!';
+    }
+    </script>
+
     <p>Test font 何故鞦甚榮？</p>
     <h2>Multilingual Dictionary</h2>
     <h3><a href="https://fareast-english.fandom.com/wiki/Xinjianti">Learn more about Xinjianti</a></h3>
