@@ -76,36 +76,38 @@
             var checkString = document.getElementById("fname").value;
             var output = "";
             paragraph.textContent = "Working...";
-            while (checkString.length > 0)
-            {
-                OUTER_LOOP: for (let i = checkString.length; i > 0; i--)
+            setTimeout(function() {
+                while (checkString.length > 0)
                 {
-                    for (let j = 0; j < dataArray.length; j++)
+                    OUTER_LOOP: for (let i = checkString.length; i > 0; i--)
                     {
-                        for (let k = 0; k < dataArray[j].length; k++)
+                        for (let j = 0; j < dataArray.length; j++)
                         {
-                            if (checkString.substring(0, i) == dataArray[j][k] && isNaN(checkString.substring(0, i)))
+                            for (let k = 0; k < dataArray[j].length; k++)
                             {
-                                if (dataArray[j][3] == "1")
-                                    output += dataArray[j][2];
-                                else if (dataArray[j][3] == "" || dataArray[j][3].match(/^[0-9]+$/) != null)
-                                    output += dataArray[j][1];
-                                else
-                                    output += dataArray[j][3];
-                                checkString = checkString.substring(i);
-                                break OUTER_LOOP;
-                            }
-                            else if (j == dataArray.length - 1 && k == dataArray[j].length - 1 && i == 1)
-                            {
-                                output += checkString.substring(0, i);
-                                checkString = checkString.substring(i);
-                                break OUTER_LOOP;
+                                if (checkString.substring(0, i) == dataArray[j][k] && isNaN(checkString.substring(0, i)))
+                                {
+                                    if (dataArray[j][3] == "1")
+                                        output += dataArray[j][2];
+                                    else if (dataArray[j][3] == "" || dataArray[j][3].match(/^[0-9]+$/) != null)
+                                        output += dataArray[j][1];
+                                    else
+                                        output += dataArray[j][3];
+                                    checkString = checkString.substring(i);
+                                    break OUTER_LOOP;
+                                }
+                                else if (j == dataArray.length - 1 && k == dataArray[j].length - 1 && i == 1)
+                                {
+                                    output += checkString.substring(0, i);
+                                    checkString = checkString.substring(i);
+                                    break OUTER_LOOP;
+                                }
                             }
                         }
                     }
                 }
-            }
-            paragraph.textContent = output;
+                paragraph.textContent = output;
+            }, 1);
         }
     </script>
 
