@@ -9,6 +9,7 @@
     <h1>Hanzi Converters</h1>
     <p>Input Simplified characters into these converters; the Multilingual Dictionary also supports Xinjianti. Note that Simplified characters have a "default" traditional form on which they fall back when they have multiple definitions, so it is recommended to first convert these specific characters into the intended traditional form before inputting. <a href="https://fareast-english.fandom.com/wiki/List_of_New_Simplified_Forms_of_Chinese_Characters">Here is a list of traditional characters which the converter recognizes.</a></p>
     <h2>Xinjianti Converter</h2>
+    <p>Warning: the code for this is incredibly inefficient at larger string sizes. Until I fix this, try to limit your inputs to 20 characters or less.</p>
 
     <form>
       <input type="text" id="fname" name="fname"><br><br>
@@ -84,6 +85,7 @@
             compats = !compats;
         }
         function msg() {
+            const MAX_STRING_SIZE = 15;
             const button = document.querySelector('input');
             const paragraph = document.getElementById("demo");
             var checkString = document.getElementById("fname").value;
@@ -94,6 +96,7 @@
                 {
                     OUTER_LOOP: for (let i = checkString.length; i > 0; i--)
                     {
+                        if (checkString.substring(0, i).length > MAX_STRING_SIZE)   continue;
                         for (let j = 0; j < dataArray.length; j++)
                         {
                             for (let k = 0; k < dataArray[j].length; k++)
@@ -109,7 +112,7 @@
                                     checkString = checkString.substring(i);
                                     break OUTER_LOOP;
                                 }
-                                else if ((j == dataArray.length - 1 && k == dataArray[j].length - 1 || !!checkString.substring(0, i).match(/^[。，：！？]/)) && i == 1)
+                                else if (j == dataArray.length - 1 && k == dataArray[j].length - 1 && i == 1)
                                 {
                                     output += checkString.substring(0, i);
                                     checkString = checkString.substring(i);
