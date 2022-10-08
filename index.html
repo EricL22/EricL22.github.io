@@ -83,7 +83,7 @@
                     {
                         for (let k = 0; k < dataArray[j].length; k++)
                         {
-                            if (checkString.substring(0, i) == dataArray[j][k] && checkString.match(/^[0-9]+$/) == null)
+                            if (checkString.substring(0, i) == dataArray[j][k] && !/^\d+$/.test(checkString))
                             {
                                 if (dataArray[j][3] == "1")
                                     output += dataArray[j][2];
