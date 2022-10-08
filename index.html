@@ -31,6 +31,23 @@
             };
         };
         request.send();
+        
+        //var csv = '"foo, the column",bar\n2,3\n"4, the value",5',
+
+            // Split the input into lines
+            lines = csv.split('\n'),
+
+            // Extract column names from the first line
+            columnNamesLine = lines[0],
+            columnNames = parse(columnNamesLine),
+
+            // Extract data from subsequent lines
+            dataLines = lines.slice(1),
+            data = dataLines.map(parse);
+
+        // Prints [["2","3"],["4, the value","5"]]
+        console.log(JSON.stringify(data));
+        
         // Parse a CSV row, accounting for commas inside quotes                   
         function parse(row){
           var insideQuote = false,                                             
@@ -54,22 +71,6 @@
         function msg() {
             const button = document.querySelector('input');
             const paragraph = document.getElementById("demo");
-
-            //var csv = '"foo, the column",bar\n2,3\n"4, the value",5',
-
-                // Split the input into lines
-                lines = csv.split('\n'),
-
-                // Extract column names from the first line
-                columnNamesLine = lines[0],
-                columnNames = parse(columnNamesLine),
-
-                // Extract data from subsequent lines
-                dataLines = lines.slice(1),
-                data = dataLines.map(parse);
-
-            // Prints [["2","3"],["4, the value","5"]]
-            console.log(JSON.stringify(data));
 
             paragraph.textContent = document.getElementById("fname").value;
         }
