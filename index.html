@@ -231,7 +231,15 @@
                     {
                         if (tl)
                         {
-                            output = "Chinese: ";
+                            output += "（";
+                            if (dataArray[j][3] == "1")
+                                output += dataArray[j][2];
+                            else if (dataArray[j][3] == "" || dataArray[j][3].match(/^[0-9]+$/) != null)
+                                output += dataArray[j][1];
+                            else
+                                output += dataArray[j][3];
+                            output += "）\n";
+                            output += "Chinese: ";
                             if (dataArray[j][8] == "") output += "No reading found\n";
                             else output += dataArray[j][8] + "\n";
                             output += "Japanese: ";
