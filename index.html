@@ -220,7 +220,7 @@
             const paragraph2 = document.getElementById("termout2");
             var checkString = document.getElementById("termin").value;
             var output = "";
-            for (let j = 0; j < dataArray.length; j++)
+            OUTER_LOOP: for (let j = 0; j < dataArray.length; j++)
             {
                 for (let k = 0; k < dataArray[j].length; k++)
                 {
@@ -251,6 +251,7 @@
                             paragraph2.textContent = "No definitions found";
                             paragraph2.style.fontStyle = "italic";
                         }
+                        break OUTER_LOOP;
                     }
                     else if (j == dataArray.length - 1 && k == dataArray[j].length - 1)
                     {
