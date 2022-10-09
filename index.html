@@ -253,7 +253,11 @@
                             output2 = "No definitions found";
                             paragraph2.style.fontStyle = "italic";
                         }
-                        else output2 += dataArray[j][10];
+                        else
+                        {
+                            output2 += dataArray[j][10];
+                            paragraph2.style.fontStyle = "normal";
+                        }
                         break OUTER_LOOP;
                     }
                     else if (j == dataArray.length - 1 && k == dataArray[j].length - 1)
