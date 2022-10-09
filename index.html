@@ -21,6 +21,7 @@
 
     <h2>Multilingual Dictionary</h2>
     <!-- <p>Test font 何故鞦甚榮？</p> -->
+    <p>Japanese kun'yomi is supported, but not Vietnamese huấn độc nor Korean hundok.</p>
 
     <form>
       <input type="text" id="termin" name="termin"><br><br>
@@ -251,6 +252,7 @@
                             paragraph2.textContent = "No definitions found";
                             paragraph2.style.fontStyle = "italic";
                         }
+                        else output += "\n" + dataArray[j][10];
                         break OUTER_LOOP;
                     }
                     else if (j == dataArray.length - 1 && k == dataArray[j].length - 1)
