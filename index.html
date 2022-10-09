@@ -248,7 +248,7 @@
                             output += "）";
                         }
                         
-                        if (dataArray[j][10] == "")
+                        if ((viet && dataArray[j][10] == "" || kor && dataArray[j][11] == "" || jap && dataArray[j][12] == "" || chi && dataArray[j][13] == "") && dataArray[j][9] == "")
                         {
                             output2 = "No definitions found";
                             paragraph2.style.fontStyle = "italic";
