@@ -25,11 +25,11 @@
     <form>
       <input type="text" id="termin" name="termin"><br><br>
       <input type="button" id="defbutton" value="Lookup" onclick="define()">
-      <input type="button" value="Vietnamese" onclick="makeViet()">
-      <input type="button" value="Korean" onclick="makeKor()">
-      <input type="button" value="Japanese" onclick="makeJap()">
-      <input type="button" value="Chinese" onclick="makeChi()">
-      <input type="button" value="Sino-Xenic" onclick="makeTl()">
+      <input type="button" id="vbutton" value="Vietnamese" onclick="makeViet()">
+      <input type="button" id="kbutton" value="Korean" onclick="makeKor()">
+      <input type="button" id="jbutton" value="Japanese" onclick="makeJap()">
+      <input type="button" id="cbutton" value="Chinese" onclick="makeChi()">
+      <input type="button" id="tlbutton" value="Sino-Xenic" onclick="makeTl()">
     </form>
     
     <p id="termout">Enter a single term to be defined</p>
@@ -43,6 +43,11 @@
         var chi = false;
         var tl = false;
         const button = document.getElementById("defbutton");
+        const vbutton = document.getElementById("vbutton");
+        const kbutton = document.getElementById("kbutton");
+        const jbutton = document.getElementById("jbutton");
+        const cbutton = document.getElementById("cbutton");
+        const tlbutton = document.getElementById("tlbutton");
         button.disabled = true;
         var csv = "";
         var dataArray;
@@ -152,6 +157,11 @@
             jap = false;
             chi = false;
             tl = false;
+            vbutton.disabled = true;
+            jbutton.disabled = false;
+            kbutton.disabled = false;
+            cbutton.disabled = false;
+            tlbutton.disabled = false;
             button.disabled = false;
         }
         function makeKor() {
@@ -160,6 +170,11 @@
             jap = false;
             chi = false;
             tl = false;
+            vbutton.disabled = false;
+            jbutton.disabled = false;
+            kbutton.disabled = true;
+            cbutton.disabled = false;
+            tlbutton.disabled = false;
             button.disabled = false;
         }
         function makeJap() {
@@ -168,6 +183,11 @@
             kor = false;
             chi = false;
             tl = false;
+            vbutton.disabled = false;
+            jbutton.disabled = true;
+            kbutton.disabled = false;
+            cbutton.disabled = false;
+            tlbutton.disabled = false;
             button.disabled = false;
         }
         function makeChi() {
@@ -175,6 +195,11 @@
             viet = false;
             kor = false;
             jap = false;
+            vbutton.disabled = false;
+            jbutton.disabled = false;
+            kbutton.disabled = false;
+            cbutton.disabled = true;
+            tlbutton.disabled = false;
             button.disabled = false;
         }
         function makeTl() {
@@ -183,6 +208,11 @@
             kor = false;
             jap = false;
             chi = false;
+            vbutton.disabled = false;
+            jbutton.disabled = false;
+            kbutton.disabled = false;
+            cbutton.disabled = false;
+            tlbutton.disabled = true;
             button.disabled = false;
         }
         function define() {
