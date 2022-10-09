@@ -1,7 +1,12 @@
 DOCUMENTATION
 id - the unique id of a simplified character as defined in the Table of General Standard Chinese Characters. Use TERM for anything else.
 simp - the simplified character form.
-trad - the traditional character form. Blank defaults to simplified.
+trad - the traditional character form. Blank defaults to simplified. In compounds, only the ambiguous character is in the traditional form.
 xin - the xinjianti character form. 1 for traditional, blank or any other number defaults to simplified.
-compat - what to use if compatibility mode is on. 0 for simplified, 1 for traditional.
-viet - the Vietnamese reading of the term.
+compat - what to use if compatibility mode is on. 0 for simplified, 1 for traditional, anything else defaults to xinjianti.
+viet - the Vietnamese reading of the term. Use :: to separate multiple readings.
+kor - the Korean reading of the term. Use :: to separate multiple readings.
+jap - the Japanese reading of the term. Use :: to separate multiple readings.
+chi - the Mandarin Chinese reading of the term. Use :: to separate multiple readings.
+tl - translingual definition. Unused at the moment.
+def - definitions of the term. Use ;; to separate multiple definitions. Use :: to separate multiple definitions between multiple readings.
