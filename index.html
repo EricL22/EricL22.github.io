@@ -255,7 +255,11 @@
                         }
                         else
                         {
-                            output2 += dataArray[j][10];
+                            if (viet) output2 += dataArray[j][10];
+                            if (kor) output2 += dataArray[j][11];
+                            if (jap) output2 += dataArray[j][12];
+                            if (chi) output2 += dataArray[j][13];
+                            if (output2 == "") output2 += dataArray[j][9];
                             paragraph2.style.fontStyle = "normal";
                         }
                         break OUTER_LOOP;
