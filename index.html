@@ -252,6 +252,11 @@
                             paragraph2.style.fontStyle = "italic";
                         }
                     }
+                    else if (j == dataArray.length - 1 && k == dataArray[j].length - 1)
+                    {
+                        paragraph2.textContent = "No definitions found";
+                        paragraph2.style.fontStyle = "italic";
+                    }
                 }
             }
             paragraph.textContent = output;
