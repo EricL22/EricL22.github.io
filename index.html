@@ -221,6 +221,7 @@
             const paragraph2 = document.getElementById("termout2");
             var checkString = document.getElementById("termin").value;
             var output = "";
+            var output2 = "";
             OUTER_LOOP: for (let j = 0; j < dataArray.length; j++)
             {
                 for (let k = 0; k < dataArray[j].length; k++)
@@ -249,20 +250,21 @@
                         
                         if (dataArray[j][10] == "")
                         {
-                            paragraph2.textContent = "No definitions found";
+                            output2 = "No definitions found";
                             paragraph2.style.fontStyle = "italic";
                         }
-                        else output += "\n" + dataArray[j][10];
+                        else output2 += dataArray[j][10];
                         break OUTER_LOOP;
                     }
                     else if (j == dataArray.length - 1 && k == dataArray[j].length - 1)
                     {
-                        paragraph2.textContent = "No matches found";
+                        output2 = "No matches found";
                         paragraph2.style.fontStyle = "normal";
                     }
                 }
             }
             paragraph.textContent = output;
+            paragraph2.textContent = output2;
         }
     </script>
     
