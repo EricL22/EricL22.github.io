@@ -21,6 +21,13 @@
 
     <script>
         var compats = false;
+        var viet = false;
+        var kor = false;
+        var jap = false;
+        var chi = false;
+        var tl = false;
+        const button = document.getElementById("defbutton");
+        button.disabled = true;
         var csv = "";
         var dataArray;
         var request = new XMLHttpRequest();
@@ -85,7 +92,6 @@
         }
         function msg() {
             const MAX_STRING_SIZE = 15;
-            const button = document.querySelector('input');
             const paragraph = document.getElementById("demo");
             var checkString = document.getElementById("fname").value;
             var output = "";
@@ -124,11 +130,85 @@
                 paragraph.textContent = output;
             }, 1);
         }
+        function makeViet() {
+            viet = true;
+            kor = false;
+            jap = false;
+            chi = false;
+            tl = false;
+            button.disabled = false;
+        }
+        function makeKor() {
+            kor = true;
+            viet = false;
+            jap = false;
+            chi = false;
+            tl = false;
+            button.disabled = false;
+        }
+        function makeJap() {
+            jap = true;
+            viet = false;
+            kor = false;
+            chi = false;
+            tl = false;
+            button.disabled = false;
+        }
+        function makeChi() {
+            chi = true;
+            viet = false;
+            kor = false;
+            jap = false;
+            button.disabled = false;
+        }
+        function makeTl() {
+            tl = true;
+            viet = false;
+            kor = false;
+            jap = false;
+            chi = false;
+            button.disabled = false;
+        }
         function define() {
             const paragraph = document.getElementById("termout");
-            paragraph.textContent = "No reading found";
-            //paragraph.textContent = new String("No definitions found");
-            //paragraph.style.fontStyle = "italic";
+            const paragraph2 = document.getElementById("termout2");
+            var checkString = document.getElementById("termin").value;
+            var output = "";
+            for (let j = 0; j < dataArray.length; j++)
+            {
+                for (let k = 0; k < dataArray[j].length; k++)
+                {
+                    if (checkString == dataArray[j][k] && isNaN(checkString))
+                    {
+                        if (tl)
+                            output = "Translingual feature coming soon!";
+                        else if (viet && dataArray[j][5] == "" || kor && dataArray[j][6] == "" || jap && dataArray[j][7] == "" || chi && dataArray[j][8] == "")
+                            output = "No reading found";
+                        else
+                        {
+                            if (viet) output += dataArray[j][5];
+                            if (kor) output += dataArray[j][6];
+                            if (jap) output += dataArray[j][7];
+                            if (chi) output += dataArray[j][8];
+                            output += "\t（";
+                            if (dataArray[j][3] == "1")
+                                output += dataArray[j][2];
+                            else if (dataArray[j][3] == "" || dataArray[j][3].match(/^[0-9]+$/) != null)
+                                output += dataArray[j][1];
+                            else
+                                output += dataArray[j][3];
+                            output += "）";
+                        }
+                        
+                        if (dataArray[j][10] == "")
+                        {
+                            paragraph2.textContent = "No definitions found";
+                            paragraph2.style.fontStyle = "italic";
+                        }
+                    }
+                }
+            }
+            paragraph.textContent = output;
         }
     </script>
 
@@ -137,15 +217,16 @@
 
     <form>
       <input type="text" id="termin" name="termin"><br><br>
-      <input type="button" value="Lookup" onclick="define()">
-      <input type="button" value="Vietnamese" onclick="define()">
-      <input type="button" value="Korean" onclick="define()">
-      <input type="button" value="Japanese" onclick="define()">
-      <input type="button" value="Chinese" onclick="define()">
-      <input type="button" value="Sino-Xenic" onclick="define()">
+      <input type="button" id="defbutton" value="Lookup" onclick="define()">
+      <input type="button" value="Vietnamese" onclick="makeViet()">
+      <input type="button" value="Korean" onclick="makeKor()">
+      <input type="button" value="Japanese" onclick="makeJap()">
+      <input type="button" value="Chinese" onclick="makeChi()">
+      <input type="button" value="Sino-Xenic" onclick="makeTl()">
     </form>
     
     <p id="termout">Enter a single term to be defined</p>
+    <p id="termout2"></p>
     
     <h3><a href="https://fareast-english.fandom.com/wiki/Xinjianti">Learn more about Xinjianti</a></h3>
 </body>
