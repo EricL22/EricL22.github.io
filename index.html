@@ -19,6 +19,22 @@
     <h5 id="compmode"><i></i></h5>
     <p id="demo">Enter a value above and click the button to convert it</p>
 
+    <h2>Multilingual Dictionary</h2>
+    <!-- <p>Test font 何故鞦甚榮？</p> -->
+
+    <form>
+      <input type="text" id="termin" name="termin"><br><br>
+      <input type="button" id="defbutton" value="Lookup" onclick="define()">
+      <input type="button" value="Vietnamese" onclick="makeViet()">
+      <input type="button" value="Korean" onclick="makeKor()">
+      <input type="button" value="Japanese" onclick="makeJap()">
+      <input type="button" value="Chinese" onclick="makeChi()">
+      <input type="button" value="Sino-Xenic" onclick="makeTl()">
+    </form>
+    
+    <p id="termout">Enter a single term to be defined</p>
+    <p id="termout2"></p>
+
     <script>
         var compats = false;
         var viet = false;
@@ -27,7 +43,7 @@
         var chi = false;
         var tl = false;
         const button = document.getElementById("defbutton");
-        document.getElementById("defbutton").disabled = true;
+        button.disabled = true;
         var csv = "";
         var dataArray;
         var request = new XMLHttpRequest();
@@ -211,22 +227,6 @@
             paragraph.textContent = output;
         }
     </script>
-
-    <h2>Multilingual Dictionary</h2>
-    <!-- <p>Test font 何故鞦甚榮？</p> -->
-
-    <form>
-      <input type="text" id="termin" name="termin"><br><br>
-      <input type="button" id="defbutton" value="Lookup" onclick="define()">
-      <input type="button" value="Vietnamese" onclick="makeViet()">
-      <input type="button" value="Korean" onclick="makeKor()">
-      <input type="button" value="Japanese" onclick="makeJap()">
-      <input type="button" value="Chinese" onclick="makeChi()">
-      <input type="button" value="Sino-Xenic" onclick="makeTl()">
-    </form>
-    
-    <p id="termout">Enter a single term to be defined</p>
-    <p id="termout2"></p>
     
     <h3><a href="https://fareast-english.fandom.com/wiki/Xinjianti">Learn more about Xinjianti</a></h3>
 </body>
