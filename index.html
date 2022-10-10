@@ -256,7 +256,11 @@
                             else output += dataArray[j][5];
                         }
                         else if (viet && dataArray[j][5] == "" || kor && dataArray[j][6] == "" || jap && dataArray[j][7] == "" || chi && dataArray[j][8] == "")
+                        {
                             output += "No reading found";
+                            if (viet && dataArray[j][10] == "" || kor && dataArray[j][11] == "" || jap && dataArray[j][12] == "" || chi && dataArray[j][13] == "")
+                                output += "<p><i>No definitions found</i></p>";
+                        }
                         else
                         {
                             let readIndex = 0;
@@ -318,9 +322,6 @@
                             }
                         }
                         
-                        if ((viet && dataArray[j][5] == "" || kor && dataArray[j][6] == "" || jap && dataArray[j][7] == "" || chi && dataArray[j][8] == "")
-                            && (viet && dataArray[j][10] != "" || kor && dataArray[j][11] != "" || jap && dataArray[j][12] != "" || chi && dataArray[j][13] != ""))
-                            output += "<p><i>No definitions found</i></p>";
                         if (tl)
                         {
                             if (dataArray[j][9] == "")
