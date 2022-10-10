@@ -271,8 +271,13 @@
                             let termCopy = dataArray[j][readIndex];
                             while (termCopy.indexOf("::") > -1)
                             {
-                                let nthterm = "<p>" + termCopy.substring(0, termCopy.indexOf("::")) + xinterm + "</p>";
-                                rdgs.push(nthterm);
+                                if (termCopy.substring(0, termCopy.indexOf("::")) == "")
+                                    rdgs.push("<p>No reading found</p>");
+                                else
+                                {
+                                    let nthterm = "<p>" + termCopy.substring(0, termCopy.indexOf("::")) + xinterm + "</p>";
+                                    rdgs.push(nthterm);
+                                }
                                 termCopy = termCopy.substring(termCopy.indexOf("::") + 2);
                             }
                             rdgs.push(termCopy + xinterm);
