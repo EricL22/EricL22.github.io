@@ -256,7 +256,7 @@
                             else output += dataArray[j][5];
                         }
                         else if (viet && dataArray[j][5] == "" || kor && dataArray[j][6] == "" || jap && dataArray[j][7] == "" || chi && dataArray[j][8] == "")
-                            output = "No reading found";
+                            output += "No reading found";
                         else
                         {
                             let readIndex = 0;
@@ -294,7 +294,7 @@
                                 {
                                     defs.push("");
                                 }
-                                defs.push(dataArray[j][9]);
+                                defs.push("<p>" + dataArray[j][9] + "</p>");
                             }
                             
                             if (defs.length > rdgs.length)
