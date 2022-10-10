@@ -254,7 +254,7 @@
                             else output += dataArray[j][5] + "<br>";
                         }
                         else if (viet && dataArray[j][5] == "" || kor && dataArray[j][6] == "" || jap && dataArray[j][7] == "" || chi && dataArray[j][8] == "")
-                            output = "No reading found";
+                            output = "No reading found<br>";
                         else
                         {
                             if (viet) output += dataArray[j][5];
@@ -266,7 +266,7 @@
                         
                         if ((viet && dataArray[j][10] == "" || kor && dataArray[j][11] == "" || jap && dataArray[j][12] == "" || chi && dataArray[j][13] == "" || tl) && dataArray[j][9] == "")
                         {
-                            output += "<i>No definitions found</i>";
+                            output += "<br><i>No definitions found</i>";
                         }
                         else
                         {
