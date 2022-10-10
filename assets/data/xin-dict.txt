@@ -9,4 +9,4 @@ kor - the Korean reading of the term. Use :: to separate multiple readings.
 jap - the Japanese reading of the term. Use :: to separate multiple readings.
 chi - the Mandarin Chinese reading of the term. Use :: to separate multiple readings.
 tl - translingual definition. If any unique language definition is blank, defaults to this.
-v/k/j/cdef - definitions of the term. Use ;; to separate multiple definitions. Use :: to separate multiple definitions between multiple readings.
+v/k/j/cdef - definitions of the term. Use :: to separate definitions between multiple readings.
