@@ -294,10 +294,9 @@
                             }
                             else
                             {
-                                for (let r = defs.length; r < rdgs.length - 1; r++)
-                                {
-                                    defs.push("");
-                                }
+                                if (rdgs.length > 1)
+                                    for (let r = defs.length; r < rdgs.length - 1; r++)
+                                        defs.push("");
                                 defs.push("<p>" + dataArray[j][9] + "</p>");
                             }
                             
