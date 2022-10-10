@@ -269,7 +269,7 @@
                             {
                                 let nthterm = "<p>" + termCopy.substring(0, termCopy.indexOf("::")) + xinterm + "</p>";
                                 rdgs.push(nthterm);
-                                termCopy = termCopy.substring(0, termCopy.indexOf("::") + 2);
+                                termCopy = termCopy.substring(termCopy.indexOf("::") + 2);
                             }
                             rdgs.push(termCopy + xinterm);
                             
@@ -284,7 +284,7 @@
                                 {
                                     let nthterm = "<p>" + defCopy.substring(0, defCopy.indexOf("::")) + "</p>";
                                     defs.push(nthterm);
-                                    defCopy = defCopy.substring(0, defCopy.indexOf("::") + 2);
+                                    defCopy = defCopy.substring(defCopy.indexOf("::") + 2);
                                 }
                                 defs.push(defCopy);
                             }
