@@ -229,16 +229,17 @@
                 {
                     if (checkString == dataArray[j][k] && isNaN(checkString))
                     {
+                        let xinterm = "（";
+                        if (dataArray[j][3] == "1")
+                            xinterm += dataArray[j][2];
+                        else if (dataArray[j][3] == "" || dataArray[j][3].match(/^[0-9]+$/) != null)
+                            xinterm += dataArray[j][1];
+                        else
+                            xinterm += dataArray[j][3];
+                        xinterm += "）<br>";
                         if (tl)
                         {
-                            output += "（";
-                            if (dataArray[j][3] == "1")
-                                output += dataArray[j][2];
-                            else if (dataArray[j][3] == "" || dataArray[j][3].match(/^[0-9]+$/) != null)
-                                output += dataArray[j][1];
-                            else
-                                output += dataArray[j][3];
-                            output += "）<br>";
+                            output += xinterm;
                             output += "Chinese: ";
                             if (dataArray[j][8] == "") output += "No reading found<br>";
                             else output += dataArray[j][8] + "<br>";
@@ -260,14 +261,7 @@
                             if (kor) output += dataArray[j][6];
                             if (jap) output += dataArray[j][7];
                             if (chi) output += dataArray[j][8];
-                            output += "（";
-                            if (dataArray[j][3] == "1")
-                                output += dataArray[j][2];
-                            else if (dataArray[j][3] == "" || dataArray[j][3].match(/^[0-9]+$/) != null)
-                                output += dataArray[j][1];
-                            else
-                                output += dataArray[j][3];
-                            output += "）<br>";
+                            output += xinterm;
                         }
                         
                         if ((viet && dataArray[j][10] == "" || kor && dataArray[j][11] == "" || jap && dataArray[j][12] == "" || chi && dataArray[j][13] == "" || tl) && dataArray[j][9] == "")
