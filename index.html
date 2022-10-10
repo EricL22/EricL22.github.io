@@ -267,29 +267,26 @@
                                 output += dataArray[j][1];
                             else
                                 output += dataArray[j][3];
-                            output += "）";
+                            output += "）<br><br>";
                         }
                         
                         if ((viet && dataArray[j][10] == "" || kor && dataArray[j][11] == "" || jap && dataArray[j][12] == "" || chi && dataArray[j][13] == "" || tl) && dataArray[j][9] == "")
                         {
-                            output2 = "No definitions found";
-                            paragraph2.style.fontStyle = "italic";
+                            output += "<i>No definitions found</i>";
                         }
                         else
                         {
-                            if (viet) output2 += dataArray[j][10];
-                            if (kor) output2 += dataArray[j][11];
-                            if (jap) output2 += dataArray[j][12];
-                            if (chi) output2 += dataArray[j][13];
-                            if (output2 == "") output2 += dataArray[j][9];
-                            paragraph2.style.fontStyle = "normal";
+                            if (viet) output += dataArray[j][10];
+                            if (kor) output += dataArray[j][11];
+                            if (jap) output += dataArray[j][12];
+                            if (chi) output += dataArray[j][13];
+                            if (viet && dataArray[j][10] == "" || kor && dataArray[j][11] == "" || jap && dataArray[j][12] == "" || chi && dataArray[j][13] == "" || tl) output += dataArray[j][9];
                         }
                         break OUTER_LOOP;
                     }
                     else if (j == dataArray.length - 1 && k == dataArray[j].length - 1)
                     {
                         output2 = "No matches found";
-                        paragraph2.style.fontStyle = "normal";
                     }
                 }
             }
