@@ -237,6 +237,8 @@
                         else
                             xinterm += dataArray[j][3];
                         xinterm += "）";
+                        let rdgs = [];
+                        let defs = [];
                         if (tl)
                         {
                             output += xinterm + "<br>";
@@ -257,26 +259,78 @@
                             output = "No reading found";
                         else
                         {
-                            if (viet) output += dataArray[j][5];
-                            if (kor) output += dataArray[j][6];
-                            if (jap) output += dataArray[j][7];
-                            if (chi) output += dataArray[j][8];
-                            output += xinterm;
+                            let readIndex = 0;
+                            if (viet) readIndex = 5;
+                            if (kor)  readIndex = 6;
+                            if (jap)  readIndex = 7;
+                            if (chi)  readIndex = 8;
+                            let termCopy = dataArray[j][readIndex];
+                            while (termCopy.indexOf("::") > -1)
+                            {
+                                let nthterm = "<p>" + termCopy.substring(0, termCopy.indexOf("::")) + xinterm + "</p>";
+                                rdgs.push(nthterm);
+                                termCopy = termCopy.substring(0, termCopy.indexOf("::") + 2);
+                            }
+                            rdgs.push(termCopy + xinterm);
+                            
+                            if (viet && dataArray[j][10] != "" || kor && dataArray[j][11] != "" || jap && dataArray[j][12] != "" || chi && dataArray[j][13] != "")
+                            {
+                                if (viet) readIndex = 10;
+                                if (kor)  readIndex = 11;
+                                if (jap)  readIndex = 12;
+                                if (chi)  readIndex = 13;
+                                let defCopy = dataArray[j][readIndex];
+                                while (defCopy.indexOf("::") > -1)
+                                {
+                                    let nthterm = "<p>" + defCopy.substring(0, defCopy.indexOf("::")) + "</p>";
+                                    defs.push(nthterm);
+                                    defCopy = defCopy.substring(0, defCopy.indexOf("::") + 2);
+                                }
+                                defs.push(defCopy);
+                            }
+                            else
+                            {
+                                for (let r = defs.length; r < rdgs.length - 1; r++)
+                                {
+                                    defs.push("");
+                                }
+                                defs.push(dataArray[j][9]);
+                            }
+                            
+                            if (defs.length > rdgs.length)
+                            {
+                                for (let d = rdgs.length; r < defs.length; r++)
+                                {
+                                    rdgs.push("<p>No reading found</p>");
+                                }
+                            }
+                            if (rdgs.length > defs.length)
+                            {
+                                for (let r = defs.length; r < rdgs.length; r++)
+                                {
+                                    defs.push("<p><i>No definitions found</i></p>");
+                                }
+                            }
+                            for (let n = 0; n < rdgs.length; n++)
+                            {
+                                output += rdgs[n];
+                                output += defs[n];
+                            }
                         }
                         
-                        if ((viet && dataArray[j][10] == "" || kor && dataArray[j][11] == "" || jap && dataArray[j][12] == "" || chi && dataArray[j][13] == "" || tl) && dataArray[j][9] == "")
-                        {
+                        if ((viet && dataArray[j][5] == "" || kor && dataArray[j][6] == "" || jap && dataArray[j][7] == "" || chi && dataArray[j][8] == "")
+                            && (viet && dataArray[j][10] != "" || kor && dataArray[j][11] != "" || jap && dataArray[j][12] != "" || chi && dataArray[j][13] != ""))
                             output += "<p><i>No definitions found</i></p>";
-                        }
-                        else
+                        if (tl)
                         {
-                            output += "<p>";
-                            if (viet) output += dataArray[j][10];
-                            if (kor) output += dataArray[j][11];
-                            if (jap) output += dataArray[j][12];
-                            if (chi) output += dataArray[j][13];
-                            if (viet && dataArray[j][10] == "" || kor && dataArray[j][11] == "" || jap && dataArray[j][12] == "" || chi && dataArray[j][13] == "" || tl) output += dataArray[j][9];
-                            output += "</p>";
+                            if (dataArray[j][9] == "")
+                                output += "<p><i>No definitions found</i></p>";
+                            else
+                            {
+                                output += "<p>";
+                                output += dataArray[j][9];
+                                output += "</p>";
+                            }
                         }
                         break OUTER_LOOP;
                     }
