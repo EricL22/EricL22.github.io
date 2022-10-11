@@ -267,7 +267,10 @@
                                         if (i == 0)
                                             splicedString = splicedString.substring(splicedString.indexOf("::") + 2);
                                         else
-                                            splicedString += ", " + splicedString.substring(splicedString.indexOf("::") + 2);
+                                        {
+                                            let skipIndex = splicedString.indexOf("::");
+                                            splicedString = splicedString.substring(0, skipIndex) + ", " + splicedString.substring(splicedString.indexOf("::", skipIndex + 2) + 2);
+                                        }
                                     }
                                 }
                                 output += splicedString + "<br>";
@@ -294,7 +297,10 @@
                                         if (i == 0)
                                             splicedString = splicedString.substring(splicedString.indexOf("::") + 2);
                                         else
-                                            splicedString += ", " + splicedString.substring(splicedString.indexOf("::") + 2);
+                                        {
+                                            let skipIndex = splicedString.indexOf("::");
+                                            splicedString = splicedString.substring(0, skipIndex) + ", " + splicedString.substring(splicedString.indexOf("::", skipIndex + 2) + 2);
+                                        }
                                     }
                                 }
                                 output += splicedString + "<br>";
