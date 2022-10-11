@@ -244,16 +244,64 @@
                             output += "（" + xinterm + "）<br>";
                             output += "Chinese: ";
                             if (dataArray[j][8] == "") output += "No reading found<br>";
-                            else output += dataArray[j][8] + "<br>";
+                            else output += dataArray[j][8].replaceAll("::", ", ") + "<br>";
                             output += "Japanese: ";
                             if (dataArray[j][7] == "") output += "No reading found<br>";
-                            else output += dataArray[j][7] + "<br>";
+                            else
+                            {
+                                let okuCopy = dataArray[j][14];
+                                while (okuCopy.indexOf("::") > -1)
+                                {
+                                    let nthterm = okuCopy.substring(0, okuCopy.indexOf("::"));
+                                    okus.push(nthterm);
+                                    okuCopy = okuCopy.substring(okuCopy.indexOf("::") + 2);
+                                }
+                                okus.push(okuCopy);
+                                let splicedString = dataArray[j][7];
+                                for (let i = 0; i < okus.length; i++)
+                                {
+                                    if (okus[i] == "")
+                                        splicedString = splicedString.replace("::", ", ");
+                                    else
+                                    {
+                                        if (i == 0)
+                                            splicedString = splicedString.substring(splicedString.indexOf("::") + 2);
+                                        else
+                                            splicedString += ", " + splicedString.substring(splicedString.indexOf("::") + 2);
+                                    }
+                                }
+                                output += splicedString + "<br>";
+                            }
                             output += "Korean: ";
                             if (dataArray[j][6] == "") output += "No reading found<br>";
-                            else output += dataArray[j][6] + "<br>";
+                            else
+                            {
+                                let okuCopy = dataArray[j][15];
+                                while (okuCopy.indexOf("::") > -1)
+                                {
+                                    let nthterm = okuCopy.substring(0, okuCopy.indexOf("::"));
+                                    okus.push(nthterm);
+                                    okuCopy = okuCopy.substring(okuCopy.indexOf("::") + 2);
+                                }
+                                okus.push(okuCopy);
+                                let splicedString = dataArray[j][6];
+                                for (let i = 0; i < okus.length; i++)
+                                {
+                                    if (okus[i] == "")
+                                        splicedString = splicedString.replace("::", ", ");
+                                    else
+                                    {
+                                        if (i == 0)
+                                            splicedString = splicedString.substring(splicedString.indexOf("::") + 2);
+                                        else
+                                            splicedString += ", " + splicedString.substring(splicedString.indexOf("::") + 2);
+                                    }
+                                }
+                                output += splicedString + "<br>";
+                            }
                             output += "Vietnamese: ";
                             if (dataArray[j][5] == "") output += "No reading found";
-                            else output += dataArray[j][5];
+                            else output += dataArray[j][5].replaceAll("::", ", ");
                         }
                         else if (viet && dataArray[j][5] == "" || kor && dataArray[j][6] == "" || jap && dataArray[j][7] == "" || chi && dataArray[j][8] == "")
                         {
