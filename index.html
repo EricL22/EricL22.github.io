@@ -229,19 +229,19 @@
                 {
                     if (checkString == dataArray[j][k] && isNaN(checkString))
                     {
-                        let xinterm = "（";
+                        let xinterm = "";
                         if (dataArray[j][3] == "1")
                             xinterm += dataArray[j][2];
                         else if (dataArray[j][3] == "" || dataArray[j][3].match(/^[0-9]+$/) != null)
                             xinterm += dataArray[j][1];
                         else
                             xinterm += dataArray[j][3];
-                        xinterm += "）";
                         let rdgs = [];
                         let defs = [];
+                        let okus = [];
                         if (tl)
                         {
-                            output += xinterm + "<br>";
+                            output += "（" + xinterm + "）<br>";
                             output += "Chinese: ";
                             if (dataArray[j][8] == "") output += "No reading found<br>";
                             else output += dataArray[j][8] + "<br>";
@@ -275,7 +275,7 @@
                                     rdgs.push("<p>No reading found</p>");
                                 else
                                 {
-                                    let nthterm = "<p>" + termCopy.substring(0, termCopy.indexOf("::")) + xinterm + "</p>";
+                                    let nthterm = "<p>" + termCopy.substring(0, termCopy.indexOf("::")) + "（" + xinterm;
                                     rdgs.push(nthterm);
                                 }
                                 termCopy = termCopy.substring(termCopy.indexOf("::") + 2);
@@ -307,6 +307,17 @@
                                     defs.push("<p>" + dataArray[j][9] + "</p>");
                             }
                             
+                            readIndex = 13;
+                            if (kor)  readIndex = 14;
+                            let okuCopy = dataArray[j][readIndex];
+                            while (termCopy.indexOf("::") > -1)
+                            {
+                                let nthterm = okuCopy.substring(0, okuCopy.indexOf("::"));
+                                okus.push(nthterm);
+                                okuCopy = okuCopy.substring(okuCopy.indexOf("::") + 2);
+                            }
+                            okus.push(okuCopy);
+                            
                             if (defs.length > rdgs.length)
                             {
                                 for (let d = rdgs.length; r < defs.length; r++)
@@ -320,6 +331,13 @@
                                 {
                                     defs.push("<p><i>No definitions found</i></p>");
                                 }
+                            }
+                            for (let m = 0; m < rdgs.length; m++)
+                            {
+                                if (m < okus.length)
+                                    rdgs[m] += okus[m] + "）</p>";
+                                else
+                                    rdgs[m] += "）</p>";
                             }
                             for (let n = 0; n < rdgs.length; n++)
                             {
