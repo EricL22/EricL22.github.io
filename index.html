@@ -312,7 +312,7 @@
                             if (jap || kor)
                             {
                                 let okuCopy = dataArray[j][readIndex];
-                                while (termCopy.indexOf("::") > -1)
+                                while (okuCopy.indexOf("::") > -1)
                                 {
                                     let nthterm = okuCopy.substring(0, okuCopy.indexOf("::"));
                                     okus.push(nthterm);
