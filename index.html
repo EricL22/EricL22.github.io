@@ -268,7 +268,7 @@
                                 }
                                 rdgs.push(termCopy);
                                 for (let i = 0; i < rdgs.length; i++)
-                                    if (okus[i] == "")
+                                    if (i >= okus.length || okus[i] == "")
                                         output += rdgs[i] + ", ";
                                 if (output.charAt(output.length - 2) == ",") output = output.substring(0, output.length-2);
                                 output += "<br>";
@@ -296,7 +296,7 @@
                                 }
                                 rdgs.push(termCopy);
                                 for (let i = 0; i < rdgs.length; i++)
-                                    if (okus[i] == "")
+                                    if (i >= okus.length || okus[i] == "")
                                         output += rdgs[i] + ", ";
                                 if (output.charAt(output.length - 2) == ",") output = output.substring(0, output.length-2);
                                 output += "<br>";
