@@ -257,23 +257,23 @@
                                     okuCopy = okuCopy.substring(okuCopy.indexOf("::") + 2);
                                 }
                                 okus.push(okuCopy);
-                                let splicedString = dataArray[j][7];
-                                for (let i = 0; i < okus.length; i++)
+                                let termCopy = dataArray[j][7];
+                                while (termCopy.indexOf("::") > -1)
+                                {
+                                    let nthterm = termCopy.substring(0, termCopy.indexOf("::"));
+                                    rdgs.push(nthterm);
+                                    termCopy = termCopy.substring(termCopy.indexOf("::") + 2);
+                                }
+                                rdgs.push(termCopy);
+                                for (let i = 0; i < rdgs.length; i++)
                                 {
                                     if (okus[i] == "")
-                                        splicedString = splicedString.replace("::", ", ");
-                                    else
                                     {
-                                        if (i == 0)
-                                            splicedString = splicedString.substring(splicedString.indexOf("::") + 2);
-                                        else
-                                        {
-                                            let skipIndex = splicedString.indexOf("::");
-                                            splicedString = splicedString.substring(0, skipIndex) + ", " + splicedString.substring(splicedString.indexOf("::", skipIndex + 2) + 2);
-                                        }
+                                        output += rdgs[i];
+                                        if (i < rdgs.length - 1) output += ", ";
                                     }
                                 }
-                                output += splicedString + "<br>";
+                                output += "<br>";
                             }
                             output += "Korean: ";
                             if (dataArray[j][6] == "") output += "No reading found<br>";
@@ -287,23 +287,23 @@
                                     okuCopy = okuCopy.substring(okuCopy.indexOf("::") + 2);
                                 }
                                 okus.push(okuCopy);
-                                let splicedString = dataArray[j][6];
-                                for (let i = 0; i < okus.length; i++)
+                                let termCopy = dataArray[j][6];
+                                while (termCopy.indexOf("::") > -1)
+                                {
+                                    let nthterm = termCopy.substring(0, termCopy.indexOf("::"));
+                                    rdgs.push(nthterm);
+                                    termCopy = termCopy.substring(termCopy.indexOf("::") + 2);
+                                }
+                                rdgs.push(termCopy);
+                                for (let i = 0; i < rdgs.length; i++)
                                 {
                                     if (okus[i] == "")
-                                        splicedString = splicedString.replace("::", ", ");
-                                    else
                                     {
-                                        if (i == 0)
-                                            splicedString = splicedString.substring(splicedString.indexOf("::") + 2);
-                                        else
-                                        {
-                                            let skipIndex = splicedString.indexOf("::");
-                                            splicedString = splicedString.substring(0, skipIndex) + ", " + splicedString.substring(splicedString.indexOf("::", skipIndex + 2) + 2);
-                                        }
+                                        output += rdgs[i];
+                                        if (i < rdgs.length - 1) output += ", ";
                                     }
                                 }
-                                output += splicedString + "<br>";
+                                output += "<br>";
                             }
                             output += "Vietnamese: ";
                             if (dataArray[j][5] == "") output += "No reading found";
