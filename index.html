@@ -309,7 +309,12 @@
                         {
                             output += "No reading found";
                             if (viet && dataArray[j][10] == "" || kor && dataArray[j][11] == "" || jap && dataArray[j][12] == "" || chi && dataArray[j][13] == "")
-                                output += "<p><i>No definitions found</i></p>";
+                            {
+                                if (dataArray[j][9] == "")
+                                    output += "<p><i>No definitions found</i></p>";
+                                else
+                                    output += dataArray[j][9];
+                            }
                         }
                         else
                         {
