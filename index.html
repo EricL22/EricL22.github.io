@@ -307,16 +307,19 @@
                                     defs.push("<p>" + dataArray[j][9] + "</p>");
                             }
                             
-                            readIndex = 14;
-                            if (kor)  readIndex = 15;
-                            let okuCopy = dataArray[j][readIndex];
-                            while (termCopy.indexOf("::") > -1)
+                            if (jap) readIndex = 14;
+                            if (kor) readIndex = 15;
+                            if (jap || kor)
                             {
-                                let nthterm = okuCopy.substring(0, okuCopy.indexOf("::"));
-                                okus.push(nthterm);
-                                okuCopy = okuCopy.substring(okuCopy.indexOf("::") + 2);
+                                let okuCopy = dataArray[j][readIndex];
+                                while (termCopy.indexOf("::") > -1)
+                                {
+                                    let nthterm = okuCopy.substring(0, okuCopy.indexOf("::"));
+                                    okus.push(nthterm);
+                                    okuCopy = okuCopy.substring(okuCopy.indexOf("::") + 2);
+                                }
+                                okus.push(okuCopy);
                             }
-                            okus.push(okuCopy);
                             
                             if (defs.length > rdgs.length)
                             {
