@@ -250,13 +250,12 @@
                                     alts.push(nthterm);
                                     alts[i] = alts[i].substring(alts[i].indexOf("::") + 2);
                                 }
+                                console.log(alts[i]);
                                 if (checkString == alts[i])
                                     foundAltReading = true;
                             }
                         }
-                        console.log(alts);
                     }
-                    console.log(foundAltReading);
                     if ((checkString == dataArray[j][k] || foundAltReading) && isNaN(checkString))
                     {
                         foundMatch = true;
