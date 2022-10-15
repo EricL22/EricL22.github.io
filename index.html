@@ -418,8 +418,11 @@
                             }
                             for (let n = 0; n < rdgs.length; n++)
                             {
-                                output += rdgs[n];
-                                output += defs[n];
+                                if (!foundAltReading || foundAltReading && rdgs[n] == checkString)
+                                {
+                                    output += rdgs[n];
+                                    output += defs[n];
+                                }
                             }
                         }
                         
