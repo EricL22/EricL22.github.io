@@ -241,9 +241,20 @@
                         }
                         alts.push(altReading);
                         if (alts.length > 1)
+                        {
                             for (let i = 0; i < alts.length; i++)
+                            {
+                                let defCopy = alts[i];
+                                while (defCopy.indexOf("::") > -1)
+                                {
+                                    let nthterm = defCopy.substring(0, defCopy.indexOf("::"));
+                                    alts.push(nthterm);
+                                    defCopy = defCopy.substring(defCopy.indexOf("::") + 2);
+                                }
                                 if (checkString == alts[i])
                                     foundAltReading = true;
+                            }
+                        }
                     }
                     if ((checkString == dataArray[j][k] || foundAltReading) && isNaN(checkString))
                     {
