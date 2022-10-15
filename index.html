@@ -425,7 +425,7 @@
                             }
                             for (let n = 0; n < rdgs.length; n++)
                             {
-                                if (!foundAltReading || foundAltReading && rdgs[n].substring(3, rdgs[n].length - 7) == checkString)
+                                if (!foundAltReading || foundAltReading && rdgs[n].substring(3, rdgs[n].indexOf("（")) == checkString)
                                 {
                                     output += rdgs[n];
                                     output += defs[n];
