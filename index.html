@@ -244,7 +244,8 @@
                         {
                             for (let i = 0; i < alts.length; i++)
                             {
-                                console.log(alts[i].indexOf("::") > -1);
+                                console.log(alts[i]);
+                                console.log(alts[i].indexOf("::"));
                                 while (alts[i].indexOf("::") > -1)
                                 {
                                     let nthterm = alts[i].substring(0, alts[i].indexOf("::"));
