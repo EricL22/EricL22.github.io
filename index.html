@@ -425,8 +425,7 @@
                             }
                             for (let n = 0; n < rdgs.length; n++)
                             {
-                                console.log(rdgs[n].substring(3, rdgs[n].length - 4));
-                                if (!foundAltReading || foundAltReading && rdgs[n].substring(3, rdgs[n].length - 4) == checkString)
+                                if (!foundAltReading || foundAltReading && rdgs[n].substring(3, rdgs[n].length - 7) == checkString)
                                 {
                                     output += rdgs[n];
                                     output += defs[n];
