@@ -229,7 +229,7 @@
                 for (let k = 0; k < dataArray[j].length; k++)
                 {
                     let foundAltReading = false;
-                    if ((k == 5 || k == 6 || k == 7 || k == 8) && dataArray[j][k].indexOf("|") > -1)
+                    if ((k == 5 || k == 6 || k == 7 || k == 8) && (dataArray[j][k].indexOf("|") > -1 || dataArray[j][k].indexOf("::") > -1))
                     {
                         let alts = [];
                         let altReading = dataArray[j][k].replaceAll(" ", "");
@@ -254,7 +254,6 @@
                                     foundAltReading = true;
                             }
                         }
-                        console.log(alts);
                     }
                     if ((checkString == dataArray[j][k] || foundAltReading) && isNaN(checkString))
                     {
