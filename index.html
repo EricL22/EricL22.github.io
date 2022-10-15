@@ -244,12 +244,11 @@
                         {
                             for (let i = 0; i < alts.length; i++)
                             {
-                                let defCopy = alts[i];
-                                while (defCopy.indexOf("::") > -1)
+                                while (alts[i].indexOf("::") > -1)
                                 {
-                                    let nthterm = defCopy.substring(0, defCopy.indexOf("::"));
+                                    let nthterm = alts[i].substring(0, alts[i].indexOf("::"));
                                     alts.push(nthterm);
-                                    defCopy = defCopy.substring(defCopy.indexOf("::") + 2);
+                                    alts[i] = alts[i].substring(alts[i].indexOf("::") + 2);
                                 }
                                 if (checkString == alts[i])
                                     foundAltReading = true;
