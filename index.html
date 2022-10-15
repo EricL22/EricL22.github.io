@@ -240,21 +240,16 @@
                             altReading = altReading.substring(altReading.indexOf("|") + 1);
                         }
                         alts.push(altReading);
-                        if (alts.length > 1)
+                        for (let i = 0; i < alts.length; i++)
                         {
-                            for (let i = 0; i < alts.length; i++)
+                            while (alts[i].indexOf("::") > -1)
                             {
-                                console.log(alts[i]);
-                                console.log(alts[i].indexOf("::"));
-                                while (alts[i].indexOf("::") > -1)
-                                {
-                                    let nthterm = alts[i].substring(0, alts[i].indexOf("::"));
-                                    alts.push(nthterm);
-                                    alts[i] = alts[i].substring(alts[i].indexOf("::") + 2);
-                                }
-                                if (checkString == alts[i])
-                                    foundAltReading = true;
+                                let nthterm = alts[i].substring(0, alts[i].indexOf("::"));
+                                alts.push(nthterm);
+                                alts[i] = alts[i].substring(alts[i].indexOf("::") + 2);
                             }
+                            if (checkString == alts[i])
+                                foundAltReading = true;
                         }
                     }
                     if ((checkString == dataArray[j][k] || foundAltReading) && isNaN(checkString))
