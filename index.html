@@ -244,13 +244,13 @@
                         {
                             for (let i = 0; i < alts.length; i++)
                             {
+                                console.log(alts[i].indexOf("::") > -1);
                                 while (alts[i].indexOf("::") > -1)
                                 {
                                     let nthterm = alts[i].substring(0, alts[i].indexOf("::"));
                                     alts.push(nthterm);
                                     alts[i] = alts[i].substring(alts[i].indexOf("::") + 2);
                                 }
-                                console.log(alts[i]);
                                 if (checkString == alts[i])
                                     foundAltReading = true;
                             }
