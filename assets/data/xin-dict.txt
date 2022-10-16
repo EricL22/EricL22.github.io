@@ -4,10 +4,10 @@ simp - the simplified character form.
 trad - the traditional character form. Blank defaults to simplified. In compounds, only the ambiguous character is in the traditional form.
 xin - the xinjianti character form. 1 for traditional, blank or any other number defaults to simplified.
 compat - what to use if compatibility mode is on. 0 for simplified, 1 for traditional, anything else defaults to xinjianti.
-viet - the Vietnamese reading of the term. Use :: to separate multiple readings.
-kor - the Korean reading of the term. Use :: to separate multiple readings.
-jap - the Japanese reading of the term. Use :: to separate multiple readings.
-chi - the Mandarin Chinese reading of the term. Use :: to separate multiple readings.
+viet - the Vietnamese reading of the term. Use | to separate alternative readings. Use :: to separate multiple readings.
+kor - the Korean reading of the term. Use | to separate alternative readings. Use :: to separate multiple readings.
+jap - the Japanese reading of the term. Use | to separate alternative readings. Use :: to separate multiple readings.
+chi - the Mandarin Chinese reading of the term. Use | to separate alternative readings. Use :: to separate multiple readings.
 tl - translingual definition. If any unique language definition is blank, defaults to this.
 v/k/j/cdef - definitions of the term. Use :: to separate definitions between multiple readings.
 oku - okurigana. Use :: to separate multiple readings.
