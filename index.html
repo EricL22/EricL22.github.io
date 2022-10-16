@@ -425,7 +425,20 @@
                             }
                             for (let n = 0; n < rdgs.length; n++)
                             {
-                                if (!foundAltReading || foundAltReading && rdgs[n].substring(3, rdgs[n].indexOf("（")) == checkString)
+                                let far = false;
+                                let alts = [];
+                                let altReading = rdgs[n].substring(3, rdgs[n].indexOf("（")).replaceAll(" ", "");
+                                while (altReading.indexOf("|") > -1)
+                                {
+                                    let nthterm = altReading.substring(0, altReading.indexOf("|"));
+                                    alts.push(nthterm);
+                                    altReading = altReading.substring(altReading.indexOf("|") + 1);
+                                }
+                                alts.push(altReading);
+                                for (let m = 0; m < alts.length; m++)
+                                    if (alts[m] == checkString)
+                                        far = true;
+                                if (!foundAltReading || foundAltReading && far)
                                 {
                                     output += rdgs[n];
                                     output += defs[n];
