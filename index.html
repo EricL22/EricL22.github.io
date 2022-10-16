@@ -232,7 +232,7 @@
                     if (k == 5 || k == 6 || k == 7 || k == 8)
                     {
                         let alts = [];
-                        let altReading = dataArray[j][k].replaceAll(" ", "");
+                        let altReading = dataArray[j][k].replaceAll(" |", "|").replaceAll("| ", "|");
                         while (altReading.indexOf("|") > -1)
                         {
                             let nthterm = altReading.substring(0, altReading.indexOf("|"));
@@ -427,7 +427,7 @@
                             {
                                 let foundAltReading = false;
                                 let alts = [];
-                                let altReading = rdgs[n].substring(3, rdgs[n].indexOf("（")).replaceAll(" ", "");
+                                let altReading = rdgs[n].substring(3, rdgs[n].indexOf("（")).replaceAll(" |", "|").replaceAll("| ", "|");
                                 while (altReading.indexOf("|") > -1)
                                 {
                                     let nthterm = altReading.substring(0, altReading.indexOf("|"));
