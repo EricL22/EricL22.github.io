@@ -228,8 +228,8 @@
             {
                 for (let k = 0; k < dataArray[j].length; k++)
                 {
-                    let foundAltReading = false;
-                    if ((k == 5 || k == 6 || k == 7 || k == 8) && (dataArray[j][k].indexOf("|") > -1 || dataArray[j][k].indexOf("::") > -1))
+                    let hasInputReading = false;
+                    if (k == 5 || k == 6 || k == 7 || k == 8)
                     {
                         let alts = [];
                         let altReading = dataArray[j][k].replaceAll(" ", "");
@@ -249,10 +249,10 @@
                                 alts[i] = alts[i].substring(alts[i].indexOf("::") + 2);
                             }
                             if (checkString == alts[i])
-                                foundAltReading = true;
+                                hasInputReading = true;
                         }
                     }
-                    if ((checkString == dataArray[j][k] || foundAltReading) && isNaN(checkString))
+                    if ((checkString == dataArray[j][k] || hasInputReading) && isNaN(checkString))
                     {
                         foundMatch = true;
                         let xinterm = "";
@@ -425,7 +425,7 @@
                             }
                             for (let n = 0; n < rdgs.length; n++)
                             {
-                                let far = false;
+                                let foundAltReading = false;
                                 let alts = [];
                                 let altReading = rdgs[n].substring(3, rdgs[n].indexOf("（")).replaceAll(" ", "");
                                 while (altReading.indexOf("|") > -1)
@@ -437,8 +437,8 @@
                                 alts.push(altReading);
                                 for (let m = 0; m < alts.length; m++)
                                     if (alts[m] == checkString)
-                                        far = true;
-                                if (!foundAltReading || foundAltReading && far)
+                                        foundAltReading = true;
+                                if (!hasInputReading || hasInputReading && foundAltReading)
                                 {
                                     output += rdgs[n];
                                     output += defs[n];
