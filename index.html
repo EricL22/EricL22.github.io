@@ -331,7 +331,7 @@
                             if (dataArray[j][5] == "") output += "No reading found";
                             else output += dataArray[j][5].replaceAll("::", ", ");
                         }
-                        else if (viet && dataArray[j][5] == "" || kor && dataArray[j][6] == "" || jap && dataArray[j][7] == "" || chi && dataArray[j][8] == "")
+                        else if (!hasInputReading && (viet && dataArray[j][5] == "" || kor && dataArray[j][6] == "" || jap && dataArray[j][7] == "" || chi && dataArray[j][8] == ""))
                         {
                             output += "No reading found";
                             if (viet && dataArray[j][10] == "" || kor && dataArray[j][11] == "" || jap && dataArray[j][12] == "" || chi && dataArray[j][13] == "")
