@@ -10,5 +10,5 @@ jap - the Japanese reading of the term. Use | to separate alternative readings. 
 chi - the Mandarin Chinese reading of the term. Use | to separate alternative readings. Use :: to separate multiple readings.
 tl - translingual definition. If any unique language definition is blank, defaults to this.
 v/k/j/cdef - definitions of the term. Use :: to separate definitions between multiple readings.
-oku - okurigana. Use :: to separate multiple readings.
-son - song'eonmun. Use :: to separate multiple readings.
+oku - okurigana. Use :: to separate multiple readings. Use ! to completely replace the kanji with the okurigana.
+son - song'eonmun. Use :: to separate multiple readings. Use ! to completely replace the hanja with the okurigana.
