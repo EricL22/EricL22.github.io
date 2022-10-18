@@ -420,9 +420,13 @@
                             {
                                 if (m < okus.length)
                                 {
-                                    if (okus[m].substring(0, 1) == "!")
+                                    if (okus[m].substring(0, 1) == "!" && okus[m].substring(1).length > 0)  // if you put only ! in the field, it will be printed as normal
+                                    {
                                         rdgs[m] = rdgs[m].substring(0, rdgs[m].indexOf("（") + 1);
-                                    rdgs[m] += okus[m] + "）</p>";
+                                        rdgs[m] += okus[m].substring(1) + "）</p>";
+                                    }
+                                    else
+                                        rdgs[m] += okus[m] + "）</p>";
                                 }
                                 else
                                     rdgs[m] += "）</p>";
