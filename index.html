@@ -294,9 +294,10 @@
                                 }
                                 rdgs.push(termCopy);
                                 let chkchk = false;
-                                for (let c = 0; c < okus.length; c++)
-                                    if (okus[c] == "")
-                                        chkchk = true;
+                                if (rdgs.length <= okus.length)
+                                    for (let c = 0; c < rdgs.length; c++)
+                                        if (okus[c] == "")
+                                            chkchk = true;
                                 for (let i = 0; i < rdgs.length; i++)
                                     if (i >= okus.length || okus[i] == "" || !chkchk && rdgs.length <= okus.length && i == 0)
                                         output += rdgs[i] + ", ";
@@ -326,9 +327,10 @@
                                 }
                                 rdgs.push(termCopy);
                                 let chkchk = false;
-                                for (let c = 0; c < okus.length; c++)
-                                    if (okus[c] == "")
-                                        chkchk = true;
+                                if (rdgs.length <= okus.length)
+                                    for (let c = 0; c < rdgs.length; c++)
+                                        if (okus[c] == "")
+                                            chkchk = true;
                                 for (let i = 0; i < rdgs.length; i++)
                                     if (i >= okus.length || okus[i] == "" || !chkchk && rdgs.length <= okus.length && i == 0)
                                         output += rdgs[i] + ", ";
