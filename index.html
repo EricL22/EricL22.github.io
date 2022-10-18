@@ -293,8 +293,12 @@
                                     termCopy = termCopy.substring(termCopy.indexOf("::") + 2);
                                 }
                                 rdgs.push(termCopy);
+                                let chkchk = false;
+                                for (let c = 0; c < okus.length; c++)
+                                    if (okus[c] == "")
+                                        chkchk = true;
                                 for (let i = 0; i < rdgs.length; i++)
-                                    if (i >= okus.length || okus[i] == "" || okus.length == 1 && rdgs.length == 1)
+                                    if (i >= okus.length || okus[i] == "" || !chkchk && rdgs.length <= okus.length && i == 0)
                                         output += rdgs[i] + ", ";
                                 if (output.charAt(output.length - 2) == ",") output = output.substring(0, output.length-2);
                                 output += "<br>";
@@ -321,8 +325,12 @@
                                     termCopy = termCopy.substring(termCopy.indexOf("::") + 2);
                                 }
                                 rdgs.push(termCopy);
+                                let chkchk = false;
+                                for (let c = 0; c < okus.length; c++)
+                                    if (okus[c] == "")
+                                        chkchk = true;
                                 for (let i = 0; i < rdgs.length; i++)
-                                    if (i >= okus.length || okus[i] == "" || okus.length == 1 && rdgs.length == 1)
+                                    if (i >= okus.length || okus[i] == "" || !chkchk && rdgs.length <= okus.length && i == 0)
                                         output += rdgs[i] + ", ";
                                 if (output.charAt(output.length - 2) == ",") output = output.substring(0, output.length-2);
                                 output += "<br>";
