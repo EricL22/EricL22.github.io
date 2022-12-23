@@ -1,7 +1,7 @@
 import { VARIANT_FORMS } from "./assets/data/variants.js"
 import { VIET_READINGS } from "./assets/data/viet_readings.js"
 
-function outputHanViet() {
+window.outputHanViet = function outputHanViet() {
     const paragraph = document.getElementById("demo");
     var checkString = document.getElementById("fname").value;
     var output = "";
@@ -20,6 +20,6 @@ function outputHanViet() {
     }, 1);
 }
 
-function tradConvert() {
+window.tradConvert = function tradConvert() {
     // To be implemented
 }
