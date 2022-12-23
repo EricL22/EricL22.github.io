@@ -9,7 +9,7 @@ window.outputHanViet = function outputHanViet() {
     setTimeout(function() {
         checkString.split("").forEach(
             function(item) {
-                for (const key of VARIANT_FORMS.keys()) {
+                for (const key in VARIANT_FORMS) {
                     if (VARIANT_FORMS[key][0] == item) {
                         output += VIET_READINGS[key][0];
                     }
