@@ -55,6 +55,12 @@ window.outputHanViet = function outputHanViet() {
                             output = capitalizeFirstLetter(output)
                         }
                     }
+                    else if (item == "“") {
+                        output = output.trim() + '"';
+                    }
+                    else if (item == "”") {
+                        output = output.trim() + '" ';
+                    }
                     else {
                         output += item;
                     }
