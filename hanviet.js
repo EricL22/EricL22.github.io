@@ -10,6 +10,7 @@ window.outputHanViet = function outputHanViet() {
     setTimeout(function() {
         let sentenceBoundary = false;
         let isASentence = false;
+        let magicComma = false;
         checkString.split("").forEach(
             function(item) {
                 let foundReading = false;
@@ -38,6 +39,7 @@ window.outputHanViet = function outputHanViet() {
                     }
                     else if (item == "，" || item == "、") {
                         output = output.trim() + ", ";
+                        magicComma = true;
                     }
                     else if (item == "？") {
                         output = output.trim() + "? ";
@@ -57,12 +59,21 @@ window.outputHanViet = function outputHanViet() {
                     }
                     else if (item == "“") {
                         output = output.trim() + '"';
+                        if (magicComma) {
+                            sentenceBoundary = true;
+                            magicComma = false;
+                        }
                     }
                     else if (item == "”") {
                         output = output.trim() + '" ';
                     }
                     else {
                         output += item;
+                    }
+                    
+                    if (magicComma) {
+                        if (item == " ") {}
+                        else { magicComma = false; }
                     }
                 }
             }
