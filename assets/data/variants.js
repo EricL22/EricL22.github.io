@@ -1,4 +1,4 @@
-export const variant_forms = {
+export const VARIANT_FORMS = {
     1: ["一"],
     2: ["乙"],
     3: ["二"],
