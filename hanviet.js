@@ -58,7 +58,7 @@ window.outputHanViet = function outputHanViet() {
                         }
                     }
                     else if (item == "“") {
-                        output = output.trim() + '"';
+                        output += '"';
                         if (magicComma) {
                             sentenceBoundary = true;
                             magicComma = false;
