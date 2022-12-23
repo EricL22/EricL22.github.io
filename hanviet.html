@@ -9,7 +9,41 @@
     <h1>Han-Viet Converter</h1>
     <p>Input simplified, traditional, or xinjianti characters, and output a sentence of their Han-Viet readings.</a></p>
 
+    <form>
+      <input type="text" id="fname" name="fname"><br><br>
+      <input type="button" value="Convert" onclick="outputHanViet()">
+      <input type="button" value="Output Traditional Characters" onclick="tradConvert()">
+    </form>
+    
+    <h5 id="tradmode"><i></i></h5>
+    <p id="demo">Enter a value above and click the button to convert it</p>
+
     <script>
+        import { VARIANT_FORMS } from "assets/data/variants.js"
+        import { VIET_READINGS } from "assets/data/viet_readings.js"
+        
+        function outputHanViet() {
+            const paragraph = document.getElementById("demo");
+            var checkString = document.getElementById("fname").value;
+            var output = "";
+            paragraph.textContent = "Working...";
+            setTimeout(function() {
+                checkString.split("").forEach(
+                    function(item) {
+                        for (const key of VARIANT_FORMS.keys()) {
+                            if (VARIANT_FORMS[key][0] == item) {
+                                output += VIET_READINGS[key][0];
+                            }
+                        }
+                    }
+                );
+                paragraph.textContent = output;
+            }, 1);
+        }
+        
+        function tradConvert() {
+            // To be implemented
+        }
     </script>
     
     <h3><a href="../">Return to main page</a></h3>
