@@ -11,12 +11,18 @@ window.outputHanViet = function outputHanViet() {
             function(item) {
                 for (const key in VARIANT_FORMS) {
                     if (VARIANT_FORMS[key][0] == item) {
-                        output += VIET_READINGS[key][0];
+                        output += VIET_READINGS[key][0] + " ";
+                    }
+                    else if (item == "。") {
+                        output += ".";
+                    }
+                    else if (item == "，" or item == "、") {
+                        output += ",";
                     }
                 }
             }
         );
-        paragraph.textContent = output;
+        paragraph.textContent = output.trim();
     }, 1);
 }
 
