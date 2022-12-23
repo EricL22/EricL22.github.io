@@ -26,7 +26,7 @@ window.outputHanViet = function outputHanViet() {
                 }
             }
         );
-        paragraph.textContent = output.trim();
+        paragraph.textContent = output.substring(0,1).toUpperCase() + output.trim().substring(1);
     }, 1);
 }
 
