@@ -10,24 +10,58 @@ window.outputHanViet = function outputHanViet() {
     setTimeout(function() {
         checkString.split("").forEach(
             function(item) {
+                let sentenceBoundary = false;
+                let isASentence = false;
                 for (const key in VARIANT_FORMS) {
                     if (VARIANT_FORMS[key][0] == item) {
-                        output += VIET_READINGS[key][0] + " ";
+                        if (sentenceBoundary) {
+                            output += capitalizeFirstLetter(VIET_READINGS[key][0]);
+                            sentenceBoundary = false;
+                        }
+                        else {
+                            output += VIET_READINGS[key][0];
+                        }
+                        output += " ";
                     }
                 }
                 if (item == "。") {
                     output = output.trim() + ". ";
+                    sentenceBoundary = true;
+                    if (!isASentence) {
+                        isASentence = true;
+                        output = capitalizeFirstLetter(output)
+                    }
                 }
                 else if (item == "，" || item == "、") {
                     output = output.trim() + ", ";
                 }
                 else if (item == "？") {
                     output = output.trim() + "? ";
+                    sentenceBoundary = true;
+                    if (!isASentence) {
+                        isASentence = true;
+                        output = capitalizeFirstLetter(output)
+                    }
+                }
+                else if (item == "！") {
+                    output = output.trim() + "! ";
+                    sentenceBoundary = true;
+                    if (!isASentence) {
+                        isASentence = true;
+                        output = capitalizeFirstLetter(output)
+                    }
+                }
+                else {
+                    output += item;
                 }
             }
         );
-        paragraph.textContent = output.substring(0,1).toUpperCase() + output.trim().substring(1);
+        paragraph.textContent = output.trim();
     }, 1);
+}
+
+function capitalizeFirstLetter(input) {
+    return input.substring(0,1).toUpperCase() + input.substring(1);
 }
 
 window.setTradMode = function setTradMode() {
