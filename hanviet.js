@@ -13,12 +13,15 @@ window.outputHanViet = function outputHanViet() {
                     if (VARIANT_FORMS[key][0] == item) {
                         output += VIET_READINGS[key][0] + " ";
                     }
-                    else if (item == "。") {
-                        output += ".";
-                    }
-                    else if (item == "，" || item == "、") {
-                        output += ",";
-                    }
+                }
+                if (item == "。") {
+                    output += ".";
+                }
+                else if (item == "，" || item == "、") {
+                    output += ",";
+                }
+                else if (item == "？") {
+                    output += "?";
                 }
             }
         );
