@@ -16,13 +16,13 @@ window.outputHanViet = function outputHanViet() {
                     }
                 }
                 if (item == "。") {
-                    output = output.trim() + ".";
+                    output = output.trim() + ". ";
                 }
                 else if (item == "，" || item == "、") {
-                    output = output.trim() + ",";
+                    output = output.trim() + ", ";
                 }
                 else if (item == "？") {
-                    output = output.trim() + "?";
+                    output = output.trim() + "? ";
                 }
             }
         );
