@@ -12,6 +12,7 @@ window.outputHanViet = function outputHanViet() {
             function(item) {
                 let sentenceBoundary = false;
                 let isASentence = false;
+                let foundReading = false;
                 for (const key in VARIANT_FORMS) {
                     if (VARIANT_FORMS[key][0] == item) {
                         if (sentenceBoundary) {
@@ -22,37 +23,41 @@ window.outputHanViet = function outputHanViet() {
                             output += VIET_READINGS[key][0];
                         }
                         output += " ";
+                        foundReading = true;
+                        break;
                     }
                 }
-                if (item == "。") {
-                    output = output.trim() + ". ";
-                    sentenceBoundary = true;
-                    if (!isASentence) {
-                        isASentence = true;
-                        output = capitalizeFirstLetter(output)
+                if (!foundReading) {
+                    if (item == "。") {
+                        output = output.trim() + ". ";
+                        sentenceBoundary = true;
+                        if (!isASentence) {
+                            isASentence = true;
+                            output = capitalizeFirstLetter(output)
+                        }
                     }
-                }
-                else if (item == "，" || item == "、") {
-                    output = output.trim() + ", ";
-                }
-                else if (item == "？") {
-                    output = output.trim() + "? ";
-                    sentenceBoundary = true;
-                    if (!isASentence) {
-                        isASentence = true;
-                        output = capitalizeFirstLetter(output)
+                    else if (item == "，" || item == "、") {
+                        output = output.trim() + ", ";
                     }
-                }
-                else if (item == "！") {
-                    output = output.trim() + "! ";
-                    sentenceBoundary = true;
-                    if (!isASentence) {
-                        isASentence = true;
-                        output = capitalizeFirstLetter(output)
+                    else if (item == "？") {
+                        output = output.trim() + "? ";
+                        sentenceBoundary = true;
+                        if (!isASentence) {
+                            isASentence = true;
+                            output = capitalizeFirstLetter(output)
+                        }
                     }
-                }
-                else {
-                    output += item;
+                    else if (item == "！") {
+                        output = output.trim() + "! ";
+                        sentenceBoundary = true;
+                        if (!isASentence) {
+                            isASentence = true;
+                            output = capitalizeFirstLetter(output)
+                        }
+                    }
+                    else {
+                        output += item;
+                    }
                 }
             }
         );
