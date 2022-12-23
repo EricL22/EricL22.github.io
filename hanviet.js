@@ -16,7 +16,7 @@ window.outputHanViet = function outputHanViet() {
                     else if (item == "。") {
                         output += ".";
                     }
-                    else if (item == "，" or item == "、") {
+                    else if (item == "，" || item == "、") {
                         output += ",";
                     }
                 }
