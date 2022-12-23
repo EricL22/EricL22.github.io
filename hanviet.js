@@ -33,7 +33,7 @@ window.outputHanViet = function outputHanViet() {
 window.setTradMode = function setTradMode() {
     var x = document.getElementById("tradmode");
     if (x.textContent === "") {
-        x.textContent = new String("Compatibility Mode Enabled");
+        x.textContent = new String("Traditional Chinese Conversion Enabled");
         x.style.fontStyle = "italic";
     } else {
         x.textContent = "";
