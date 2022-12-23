@@ -1,5 +1,6 @@
 import { VARIANT_FORMS } from "./assets/data/variants.js"
 import { VIET_READINGS } from "./assets/data/viet_readings.js"
+var tradMode = false;
 
 window.outputHanViet = function outputHanViet() {
     const paragraph = document.getElementById("demo");
@@ -29,6 +30,13 @@ window.outputHanViet = function outputHanViet() {
     }, 1);
 }
 
-window.tradConvert = function tradConvert() {
-    // To be implemented
+window.setTradMode = function setTradMode() {
+    var x = document.getElementById("tradmode");
+    if (x.textContent === "") {
+        x.textContent = new String("Compatibility Mode Enabled");
+        x.style.fontStyle = "italic";
+    } else {
+        x.textContent = "";
+    }
+    tradMode = !tradMode;
 }
