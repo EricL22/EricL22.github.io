@@ -8,10 +8,10 @@ window.outputHanViet = function outputHanViet() {
     var output = "";
     paragraph.textContent = "Working...";
     setTimeout(function() {
+        let sentenceBoundary = false;
+        let isASentence = false;
         checkString.split("").forEach(
             function(item) {
-                let sentenceBoundary = false;
-                let isASentence = false;
                 let foundReading = false;
                 for (const key in VARIANT_FORMS) {
                     if (VARIANT_FORMS[key][0] == item) {
