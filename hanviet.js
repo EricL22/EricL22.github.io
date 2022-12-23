@@ -72,7 +72,7 @@ window.outputHanViet = function outputHanViet() {
                     }
                     
                     if (magicComma) {
-                        if (item == " ") {}
+                        if (item == " " || item == "，" || item == "、") {}
                         else { magicComma = false; }
                     }
                 }
