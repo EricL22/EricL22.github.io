@@ -83,6 +83,9 @@ window.outputHanViet = function outputHanViet() {
                     else if (item == "；") {
                         output = output.trim() + '; ';
                     }
+                    else if (item == "`") {
+                        sentenceBoundary = true;
+                    }
                     else {
                         output += item;
                     }
