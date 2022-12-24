@@ -6,11 +6,11 @@
 	font-family: 'TAI-TC';
 	src: url('../../TaipeiSansTCBeta-Regular.ttf') format('ttf');
 }
+p.tc {
+	font-family: 'TAI-TC';
+}
 body {
 	padding-right: 50px;
 	padding-left: 50px;
 	font-family: 'SHS-XN';
-}
-p.tc {
-	font-family: 'TAI-TC';
 }
