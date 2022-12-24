@@ -11,7 +11,9 @@ body {
 	padding-left: 50px;
 	font-family: 'SHS-XN';
 }
+p.zi {
+	font-size: 2em;
+}
 p.tc {
-	font-size: 2.5em;
 	font-family: 'TAI-TC';
 }
