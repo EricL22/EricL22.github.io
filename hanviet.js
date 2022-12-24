@@ -134,7 +134,7 @@ function promptUserForSense(char, maxNumber) {
     if (promptedKey == null)
         promptedKey = 0;
     else
-        while (isNaN(promptedKey.trim()) || parseInt(promptedKey) < 1 || parseInt(promptedKey) > maxNumber)
+        while (isNaN(parseInt(promptedKey)) || parseInt(promptedKey) < 1 || parseInt(promptedKey) > maxNumber)
            promptedKey = prompt("Please enter a valid number from 1 to " + maxNumber);
         promptedKey = parseInt(promptedKey) - 1;
     return promptedKey;
