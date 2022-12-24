@@ -77,6 +77,12 @@ window.outputHanViet = function outputHanViet() {
                     else if (item == "”") {
                         output = output.trim() + '" ';
                     }
+                    else if (item == "：") {
+                        output = output.trim() + ': ';
+                    }
+                    else if (item == "；") {
+                        output = output.trim() + '; ';
+                    }
                     else {
                         output += item;
                     }
