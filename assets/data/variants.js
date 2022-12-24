@@ -564,7 +564,7 @@ export const VARIANT_FORMS = {
     563: { standard: ["寻"] },
     564: { standard: ["那"] },
     565: { standard: ["迅"] },
-    566: { standard: ["尽"], traditional: ["盡"] },
+    566: { standard: ["尽", "尽"], traditional: ["盡", "儘"] },
     567: { standard: ["导"] },
     568: { standard: ["异"] },
     569: { standard: ["弛"] },
