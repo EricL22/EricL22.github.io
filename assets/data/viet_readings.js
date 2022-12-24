@@ -337,7 +337,7 @@ export const VIET_READINGS = {
     336: ["bì"],
     337: ["biên"],
     338: ["dựng"],
-    339: ["phát"],
+    339: ["phát", "phát"],
     340: ["thánh"],
     341: ["đối"],
     342: ["thai"],
