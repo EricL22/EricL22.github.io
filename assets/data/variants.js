@@ -6714,7 +6714,7 @@ export const VARIANT_FORMS = {
     6713: { standard: ["狝"] },
     6714: { standard: ["饳"] },
     6715: { standard: ["忞"] },
-    6716: { standard: ["於"] },
+    6716: { standard: ["於", "於"] },
     6717: { standard: ["炌"] },
     6718: { standard: ["炆"] },
     6719: { standard: ["泙"] },
