@@ -337,7 +337,7 @@ export const VARIANT_FORMS = {
     336: { standard: ["皮"] },
     337: { standard: ["边"] },
     338: { standard: ["孕"] },
-    339: { standard: ["发"] },
+    339: { standard: ["发", "髮"], traditional: ["發", "髮"] },
     340: { standard: ["圣"] },
     341: { standard: ["对"] },
     342: { standard: ["台"] },
