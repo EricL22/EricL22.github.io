@@ -22,7 +22,7 @@ export const VARIANT_FORMS = {
     21: { standard: ["又"] },
     22: { standard: ["三"] },
     23: { simplified: ["干"], standard: ["干", "干", "𤰟"], traditional: ["干", "乾", "幹"] },
-    24: { standard: ["于"] },
+    24: { standard: ["于", "于"], traditional: ["于", "於"] },
     25: { standard: ["亏"] },
     26: { standard: ["工"] },
     27: { standard: ["土"] },
