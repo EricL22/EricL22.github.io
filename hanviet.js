@@ -79,6 +79,7 @@ window.outputHanViet = function outputHanViet() {
             }
         );
         paragraph.textContent = output.trim();
+        document.getElementById("hanviet1").textContent = "Âm Độc";
     }, 1);
 }
 
