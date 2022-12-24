@@ -30,7 +30,7 @@ window.outputHanViet = function outputHanViet() {
                         for (const charIndex in VARIANT_FORMS[key][type]) {
                             if (VARIANT_FORMS[key][type][charIndex] == item) {
                                 keysList.push(key);
-                                if (type == "traditional" || VARIANT_FORMS[key][type][charIndex] == VARIANT_FORMS[key]["traditional"][charIndex])
+                                if (type == "traditional" || "traditional" in VARIANT_FORMS[key] && VARIANT_FORMS[key][type][charIndex] == VARIANT_FORMS[key]["traditional"][charIndex])
                                     typeList.push(charIndex);
                                 else
                                     typeList.push(type);
