@@ -26,6 +26,8 @@ window.outputHanViet = function outputHanViet() {
                 for (const key in VARIANT_FORMS) {
                     for (const type in VARIANT_FORMS[key]) {
                         for (const char in VARIANT_FORMS[key][type]) {
+                            console.log(char);
+                            console.log(key);
                             if (char == item) {
                                 if (sentenceBoundary) {
                                     output += capitalizeFirstLetter(VIET_READINGS[key][0]);
