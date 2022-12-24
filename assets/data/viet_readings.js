@@ -12,7 +12,7 @@ export const VIET_READINGS = {
     11: ["nhập"],
     12: ["nhân"],
     13: ["chủy"],
-    14: ["kỉ"],
+    14: ["kỉ", "cơ"],
     15: ["cửu"],
     16: ["điêu"],
     17: ["liễu"],
