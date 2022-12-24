@@ -141,10 +141,11 @@ function promptUserForSense(char, maxNumber) {
     let promptedKey = prompt("Please disambiguate between the senses of " + char + ": Enter a number from 1 to " + maxNumber);
     if (promptedKey == null)
         promptedKey = 0;
-    else
+    else {
         while (isNaN(parseInt(promptedKey)) || parseInt(promptedKey) < 1 || parseInt(promptedKey) > maxNumber)
            promptedKey = prompt("Please enter a valid number from 1 to " + maxNumber);
         promptedKey = parseInt(promptedKey) - 1;
+    }
     return promptedKey;
 }
 
