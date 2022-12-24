@@ -34,7 +34,6 @@ window.outputHanViet = function outputHanViet() {
                                     typeList.push(charIndex);
                                 else
                                     typeList.push(type);
-                                console.log(typeList);
                                 foundReading = true;
                                 break MIDDLE_LOOP;
                             }
