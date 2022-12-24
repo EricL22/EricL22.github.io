@@ -34,6 +34,7 @@ window.outputHanViet = function outputHanViet() {
                                     typeList.push(charIndex);
                                 else
                                     typeList.push(type);
+                                console.log(typeList);
                                 foundReading = true;
                                 break MIDDLE_LOOP;
                             }
@@ -48,7 +49,7 @@ window.outputHanViet = function outputHanViet() {
                     selectedKey = keysList[selectedKeyIndex];
                     
                     let selectedInKey = 0;
-                    if (typeof typeList[selectedKeyIndex] != "string")
+                    if (!isNaN(parseInt(typeList[selectedKeyIndex])))
                         selectedInKey = typeList[selectedKeyIndex];
                     else if (VARIANT_FORMS[selectedKey]["standard"].length > 1)
                         selectedInKey = promptUserForSense(item, VARIANT_FORMS[selectedKey]["standard"].length);
