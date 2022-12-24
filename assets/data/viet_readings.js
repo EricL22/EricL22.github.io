@@ -6714,7 +6714,7 @@ export const VIET_READINGS = {
     6713: ["tiển"],
     6714: ["under review"],
     6715: ["under review"],
-    6716: ["vu"],
+    6716: ["ô"],
     6717: ["under review"],
     6718: ["under review"],
     6719: ["under review"],
