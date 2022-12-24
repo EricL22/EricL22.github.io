@@ -44,7 +44,7 @@ window.outputHanViet = function outputHanViet() {
                     let selectedKey = 0;
                     let selectedKeyIndex = 0;
                     if (keysList.length > 1)
-                        selectedKeyIndex = promptUserForSense(item, keysList.length)
+                        selectedKeyIndex = promptUserForSense(item, keysList.length);
                     selectedKey = keysList[selectedKeyIndex];
                     
                     let selectedInKey = 0;
