@@ -24,11 +24,16 @@ window.outputHanViet = function outputHanViet() {
             function(item) {
                 let foundReading = false;
                 let keysList = [];
+                let typeList = [];
                 for (const key in VARIANT_FORMS) {
                     MIDDLE_LOOP: for (const type in VARIANT_FORMS[key]) {
-                        for (const char of VARIANT_FORMS[key][type]) {
-                            if (char == item) {
+                        for (const charIndex in VARIANT_FORMS[key][type]) {
+                            if (VARIANT_FORMS[key][type][charIndex] == item) {
                                 keysList.push(key);
+                                if (type == "traditional")
+                                    typeList.push(charIndex);
+                                else
+                                    typeList.push(type);
                                 foundReading = true;
                                 break MIDDLE_LOOP;
                             }
@@ -37,13 +42,15 @@ window.outputHanViet = function outputHanViet() {
                 }
                 if (foundReading) {
                     let selectedKey = 0;
-                    if (keysList.length == 1)
-                        selectedKey = keysList[0];
-                    else
-                        selectedKey = keysList[promptUserForSense(item, keysList.length)];
+                    let selectedKeyIndex = 0;
+                    if (keysList.length > 1)
+                        selectedKeyIndex = promptUserForSense(item, keysList.length)
+                    selectedKey = keysList[selectedKeyIndex];
                     
                     let selectedInKey = 0;
-                    if (VARIANT_FORMS[selectedKey]["standard"].length > 1)
+                    if (typeof typeList[selectedKeyIndex] != "string")
+                        selectedInKey = typeList[selectedKeyIndex];
+                    else if (VARIANT_FORMS[selectedKey]["standard"].length > 1)
                         selectedInKey = promptUserForSense(item, VARIANT_FORMS[selectedKey]["standard"].length);
                     
                     if (sentenceBoundary) {
