@@ -36,7 +36,7 @@ window.outputHanViet = function outputHanViet() {
                                 }
                                 output += " ";
                                 if (tradMode && "traditional" in VARIANT_FORMS[key])
-                                    ziOutput += VARIANT_FORMS[key]["traditional"][0]
+                                    ziOutput += VARIANT_FORMS[key]["traditional"][0];
                                 else
                                     ziOutput += item;
                                 foundReading = true;
