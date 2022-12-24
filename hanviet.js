@@ -25,9 +25,7 @@ window.outputHanViet = function outputHanViet() {
                 let foundReading = false;
                 for (const key in VARIANT_FORMS) {
                     for (const type in VARIANT_FORMS[key]) {
-                        for (const char in VARIANT_FORMS[key][type]) {
-                            console.log(char);
-                            console.log(VARIANT_FORMS[key][type]);
+                        for (const char of VARIANT_FORMS[key][type]) {
                             if (char == item) {
                                 if (sentenceBoundary) {
                                     output += capitalizeFirstLetter(VIET_READINGS[key][0]);
