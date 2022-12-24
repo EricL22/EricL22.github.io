@@ -2,8 +2,15 @@
 	font-family: 'SHS-XN';
 	src: url('../../SourceHanSansXN-Regular.woff') format('woff');
 }
+@font-face {
+	font-family: 'TAI-TC';
+	src: url('../../TaipeiSansTCBeta-Regular.ttf') format('ttf');
+}
 body {
 	padding-right: 50px;
 	padding-left: 50px;
 	font-family: 'SHS-XN';
+}
+p.tc {
+	font-family: 'TAI-TC';
 }
