@@ -22,7 +22,7 @@ export const VIET_READINGS = {
     21: ["hựu"],
     22: ["tam"],
     23: ["kiền"],
-    24: ["vu"],
+    24: ["vu", "ư"],
     25: ["khuy"],
     26: ["công"],
     27: ["thổ"],
