@@ -24,18 +24,25 @@ window.outputHanViet = function outputHanViet() {
             function(item) {
                 let foundReading = false;
                 for (const key in VARIANT_FORMS) {
-                    if (VARIANT_FORMS[key]["standard"][0] == item) {
-                        if (sentenceBoundary) {
-                            output += capitalizeFirstLetter(VIET_READINGS[key][0]);
-                            sentenceBoundary = false;
+                    for (const type in VARIANT_FORMS[key]) {
+                        for (const char in VARIANT_FORMS[key][type]) {
+                            if (char == item) {
+                                if (sentenceBoundary) {
+                                    output += capitalizeFirstLetter(VIET_READINGS[key][0]);
+                                    sentenceBoundary = false;
+                                }
+                                else {
+                                    output += VIET_READINGS[key][0];
+                                }
+                                output += " ";
+                                if (tradMode && "traditional" in VARIANT_FORMS[key])
+                                    ziOutput += VARIANT_FORMS[key]["traditional"][0]
+                                else
+                                    ziOutput += item;
+                                foundReading = true;
+                                break;
+                            }
                         }
-                        else {
-                            output += VIET_READINGS[key][0];
-                        }
-                        output += " ";
-                        ziOutput += item;   // convert to traditional form here
-                        foundReading = true;
-                        break;
                     }
                 }
                 if (!foundReading) {
