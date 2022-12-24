@@ -23,29 +23,43 @@ window.outputHanViet = function outputHanViet() {
         checkString.split("").forEach(
             function(item) {
                 let foundReading = false;
+                let keysList = [];
                 for (const key in VARIANT_FORMS) {
-                    for (const type in VARIANT_FORMS[key]) {
+                    MIDDLE_LOOP: for (const type in VARIANT_FORMS[key]) {
                         for (const char of VARIANT_FORMS[key][type]) {
                             if (char == item) {
-                                if (sentenceBoundary) {
-                                    output += capitalizeFirstLetter(VIET_READINGS[key][0]);
-                                    sentenceBoundary = false;
-                                }
-                                else {
-                                    output += VIET_READINGS[key][0];
-                                }
-                                output += " ";
-                                if (tradMode && "traditional" in VARIANT_FORMS[key])
-                                    ziOutput += VARIANT_FORMS[key]["traditional"][0];
-                                else
-                                    ziOutput += VARIANT_FORMS[key]["standard"][0];
+                                keysList.push(key);
                                 foundReading = true;
-                                break;
+                                break MIDDLE_LOOP;
                             }
                         }
                     }
                 }
-                if (!foundReading) {
+                if (foundReading) {
+                    let selectedKey = 0;
+                    if (keysList.length == 1)
+                        selectedKey = keysList[0];
+                    else
+                        selectedKey = keysList[promptUserForSense(item, keysList.length)];
+                    
+                    let selectedInKey = 0;
+                    if (VARIANT_FORMS[selectedKey]["standard"].length > 1)
+                        selectedInKey = promptUserForSense(item, VARIANT_FORMS[selectedKey]["standard"].length);
+                    
+                    if (sentenceBoundary) {
+                        output += capitalizeFirstLetter(VIET_READINGS[selectedKey][selectedInKey]);
+                        sentenceBoundary = false;
+                    }
+                    else {
+                        output += VIET_READINGS[selectedKey][selectedInKey];
+                    }
+                    output += " ";
+                    if (tradMode && "traditional" in VARIANT_FORMS[selectedKey])
+                        ziOutput += VARIANT_FORMS[selectedKey]["traditional"][selectedInKey];
+                    else
+                        ziOutput += VARIANT_FORMS[selectedKey]["standard"][selectedInKey];
+                }
+                else {
                     if (item == "。") {
                         output = output.trim() + ". ";
                         sentenceBoundary = true;
@@ -113,6 +127,17 @@ window.outputHanViet = function outputHanViet() {
 
 function capitalizeFirstLetter(input) {
     return input.substring(0,1).toUpperCase() + input.substring(1);
+}
+
+function promptUserForSense(char, maxNumber) {
+    let promptedKey = prompt("Please disambiguate between the senses of " + char + ": Enter a number from 1 to " + maxNumber);
+    if (promptedKey == null)
+        promptedKey = 0;
+    else
+        while (isNaN(promptedKey.trim()) || parseInt(promptedKey) < 1 || parseInt(promptedKey) > maxNumber)
+           promptedKey = prompt("Please enter a valid number from 1 to " + maxNumber);
+        promptedKey = parseInt(promptedKey) - 1;
+    return promptedKey;
 }
 
 window.setTradMode = function setTradMode() {
