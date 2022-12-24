@@ -2125,7 +2125,7 @@ export const VARIANT_FORMS = {
     2124: { standard: ["冤"] },
     2125: { standard: ["谅"] },
     2126: { standard: ["谆"] },
-    2127: { standard: ["谈"] },
+    2127: { standard: ["谈"], traditional: ["談"] },
     2128: { standard: ["谊"] },
     2129: { standard: ["剥"] },
     2130: { standard: ["恳"] },
