@@ -94,7 +94,7 @@ window.outputHanViet = function outputHanViet() {
                         if (item == " " || item == "，" || item == "、") {}
                         else { magicComma = false; }
                     }
-                    ziOutput += item;
+                    if (item != "`") { ziOutput += item; }
                 }
             }
         );
