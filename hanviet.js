@@ -5,7 +5,14 @@ var tradMode = false;
 window.outputHanViet = function outputHanViet() {
     const paragraph = document.getElementById("demo");
     var checkString = document.getElementById("fname").value;
+    if (tradMode) {
+        var hanziOutput = document.getElementById("zi1");
+    }
+    else {
+        var hanziOutput = document.getElementById("zi2");
+    }
     var output = "";
+    var ziOutput = "";
     paragraph.textContent = "Working...";
     setTimeout(function() {
         let sentenceBoundary = false;
@@ -24,6 +31,7 @@ window.outputHanViet = function outputHanViet() {
                             output += VIET_READINGS[key][0];
                         }
                         output += " ";
+                        ziOutput += item;   // convert to traditional form here
                         foundReading = true;
                         break;
                     }
@@ -75,11 +83,13 @@ window.outputHanViet = function outputHanViet() {
                         if (item == " " || item == "，" || item == "、") {}
                         else { magicComma = false; }
                     }
+                    ziOutput += item;
                 }
             }
         );
         paragraph.textContent = output.trim();
         document.getElementById("hanviet1").textContent = "Âm Độc";
+        hanziOutput.textContent = ziOutput;
     }, 1);
 }
 
