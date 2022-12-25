@@ -529,7 +529,7 @@ export const VIET_READINGS = {
     528: ["vấn"],
     529: ["sấm"],
     530: ["dương"],
-    531: ["tịnh"],
+    531: ["tinh", "tính", "tịnh"],
     532: ["quan"],
     533: ["mễ"],
     534: ["đăng"],
