@@ -152,14 +152,9 @@ function promptUserForSense(char, maxNumber, message) {
 
 function itemAppearsLessThanTwiceInArray(item, array) {
     let count = 0;
-    for (let index in array) {
-        if (item == "將") {
-            console.log(array[index]);
-            console.log(item);
-            console.log(array[index] == item);
-        }
-        if (array[index] == item)
-            count++;
+    for (let element of array) {
+        if (element == item)
+            count += 1;
     }
     return count < 2;
 }
