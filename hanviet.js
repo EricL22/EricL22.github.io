@@ -155,7 +155,7 @@ function itemAppearsLessThanTwiceInArray(item, array) {
     for (let element in array)
         if (element == item)
             count++;
-    if (count >= 2)
+    if (item == "將")
         console.log(count);
     return count < 2;
 }
