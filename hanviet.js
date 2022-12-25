@@ -30,7 +30,8 @@ window.outputHanViet = function outputHanViet() {
                         for (const charIndex in VARIANT_FORMS[key][type]) {
                             if (VARIANT_FORMS[key][type][charIndex] == item) {
                                 keysList.push(key);
-                                if (type == "traditional" || "traditional" in VARIANT_FORMS[key] && VARIANT_FORMS[key][type][charIndex] == VARIANT_FORMS[key]["traditional"][charIndex])
+                                if (type == "traditional" && itemAppearsLessThanTwiceInArray(item, VARIANT_FORMS[key]["traditional"]) || 
+                                    "traditional" in VARIANT_FORMS[key] && VARIANT_FORMS[key][type][charIndex] == VARIANT_FORMS[key]["traditional"][charIndex])
                                     typeList.push(charIndex);
                                 else
                                     typeList.push(type);
@@ -147,6 +148,15 @@ function promptUserForSense(char, maxNumber, message) {
         promptedKey = parseInt(promptedKey) - 1;
     }
     return promptedKey;
+}
+
+function itemAppearsLessThanTwiceInArray(item, array) {
+    count = 0;
+    for (let element in array) {
+        if (element == item)
+            count++;
+    }
+    return count < 2;
 }
 
 window.setTradMode = function setTradMode() {
