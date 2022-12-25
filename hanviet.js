@@ -30,7 +30,7 @@ window.outputHanViet = function outputHanViet() {
                         for (const charIndex in VARIANT_FORMS[key][type]) {
                             if (VARIANT_FORMS[key][type][charIndex] == item) {
                                 keysList.push(key);
-                                if (type == "traditional" && itemAppearsLessThanTwiceInArray(item, VARIANT_FORMS[key]["traditional"]) || 
+                                if (type == "traditional" && itemAppearsLessThanTwiceInArray(item, VARIANT_FORMS[key][type]) || 
                                     "traditional" in VARIANT_FORMS[key] && VARIANT_FORMS[key][type][charIndex] == VARIANT_FORMS[key]["traditional"][charIndex])
                                     typeList.push(charIndex);
                                 else
@@ -152,10 +152,11 @@ function promptUserForSense(char, maxNumber, message) {
 
 function itemAppearsLessThanTwiceInArray(item, array) {
     let count = 0;
-    for (let element in array) {
+    for (let element in array)
         if (element == item)
             count++;
-    }
+    if (count >= 2)
+        console.log(count);
     return count < 2;
 }
 
