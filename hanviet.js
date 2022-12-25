@@ -44,14 +44,14 @@ window.outputHanViet = function outputHanViet() {
                     let selectedKey = 0;
                     let selectedKeyIndex = 0;
                     if (keysList.length > 1)
-                        selectedKeyIndex = promptUserForSense(item, keysList.length);
+                        selectedKeyIndex = promptUserForSense(item, keysList.length, "Multiple entries have been found for the character ");
                     selectedKey = keysList[selectedKeyIndex];
                     
                     let selectedInKey = 0;
                     if (!isNaN(parseInt(typeList[selectedKeyIndex])))
                         selectedInKey = typeList[selectedKeyIndex];
                     else if (VARIANT_FORMS[selectedKey]["standard"].length > 1)
-                        selectedInKey = promptUserForSense(item, VARIANT_FORMS[selectedKey]["standard"].length);
+                        selectedInKey = promptUserForSense(item, VARIANT_FORMS[selectedKey]["standard"].length, "Please disambiguate between the senses of ");
                     
                     if (sentenceBoundary) {
                         output += capitalizeFirstLetter(VIET_READINGS[selectedKey][selectedInKey]);
@@ -137,8 +137,8 @@ function capitalizeFirstLetter(input) {
     return input.substring(0,1).toUpperCase() + input.substring(1);
 }
 
-function promptUserForSense(char, maxNumber) {
-    let promptedKey = prompt("Please disambiguate between the senses of " + char + ": Enter a number from 1 to " + maxNumber);
+function promptUserForSense(char, maxNumber, message) {
+    let promptedKey = prompt(message + char + ": Enter a number from 1 to " + maxNumber);
     if (promptedKey == null)
         promptedKey = 0;
     else {
