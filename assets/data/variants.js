@@ -895,7 +895,7 @@ export const VARIANT_FORMS = {
     894: { standard: ["诉"] },
     895: { standard: ["罕"] },
     896: { standard: ["诊"] },
-    897: { standard: ["词"] },
+    897: { standard: ["词"], traditional: ["詞"] },
     898: { standard: ["译"], traditional: ["譯"] },
     899: { standard: ["君"] },
     900: { standard: ["灵"] },
