@@ -107,6 +107,7 @@ window.outputHanViet = function outputHanViet() {
                     }
                     else if (item == "：") {
                         output = output.trim() + ': ';
+                        magicComma = true;
                     }
                     else if (item == "；") {
                         output = output.trim() + '; ';
