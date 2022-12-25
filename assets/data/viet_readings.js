@@ -480,7 +480,7 @@ export const VIET_READINGS = {
     479: ["huyết"],
     480: ["hướng"],
     481: ["tự"],
-    482: ["hậu"],
+    482: ["hậu", "hậu"],
     483: ["hành"],
     484: ["chu"],
     485: ["toàn"],
