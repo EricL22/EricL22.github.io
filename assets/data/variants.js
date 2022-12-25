@@ -3211,7 +3211,7 @@ export const VARIANT_FORMS = {
     3210: { standard: ["蕊"] },
     3211: { standard: ["蔬"] },
     3212: { standard: ["蕴"] },
-    3213: { standard: ["横"], traditional: ["橫"] },
+    3213: { standard: ["横", "横"], traditional: ["橫", "橫"] },
     3214: { standard: ["槽"] },
     3215: { standard: ["樱"] },
     3216: { standard: ["橡"] },
