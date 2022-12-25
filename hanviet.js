@@ -30,11 +30,8 @@ window.outputHanViet = function outputHanViet() {
                         for (const charIndex in VARIANT_FORMS[key][type]) {
                             if (VARIANT_FORMS[key][type][charIndex] == item) {
                                 keysList.push(key);
-                                if (item == "將") {
-                                    console.log(type == "traditional" && itemAppearsLessThanTwiceInArray(item, VARIANT_FORMS[key][type]));
-                                }
                                 if (type == "traditional" && itemAppearsLessThanTwiceInArray(item, VARIANT_FORMS[key][type]) || 
-                                    "traditional" in VARIANT_FORMS[key] && VARIANT_FORMS[key][type][charIndex] == VARIANT_FORMS[key]["traditional"][charIndex])
+                                    type != "traditional" && "traditional" in VARIANT_FORMS[key] && VARIANT_FORMS[key][type][charIndex] == VARIANT_FORMS[key]["traditional"][charIndex])
                                     typeList.push(charIndex);
                                 else
                                     typeList.push(type);
