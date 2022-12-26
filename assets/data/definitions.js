@@ -6,7 +6,7 @@ export const DEFINITIONS = {
     482: ["empress", "after; later"],
     531: ["(a placename)", "to combine; to amalgamate", "to be side by side"],
     566: ["to finish; to exhaust", "utmost; extreme; furthest"],
-    1059: ["to turn; to revolve; (measure word for trips)", "revolution; rotation; to move or transfer"],
+    1059: ["to turn; to revolve,\n\tto move; to transfer", "revolution; rotation; (measure word for times or trips)"],
     1617: ["will (future tense marker)", "general; commander"],
     3213: ["horizontal", "perverse; unrestrained"],
     6716: ["(a surname)", "(exclamatory particle)"]
