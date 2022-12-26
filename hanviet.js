@@ -1,5 +1,6 @@
 import { VARIANT_FORMS } from "./assets/data/variants.js"
 import { VIET_READINGS } from "./assets/data/viet_readings.js"
+import { DEFINITIONS } from "./assets/data/definitions.js"
 var tradMode = false;
 
 window.outputHanViet = function outputHanViet() {
@@ -44,15 +45,25 @@ window.outputHanViet = function outputHanViet() {
                 if (foundReading) {
                     let selectedKey = 0;
                     let selectedKeyIndex = 0;
-                    if (keysList.length > 1)
-                        selectedKeyIndex = promptUserForSense(item, keysList.length, "Multiple entries have been found for the character ");
+                    if (keysList.length > 1) {
+                        let translatedTypeList = [];
+                        typeList.forEach(
+                            function(i) {
+                                if (!isNaN(parseInt(i)))
+                                    translatedTypeList.push("traditional");
+                                else
+                                    translatedTypeList.push(i);
+                            }
+                        );
+                        selectedKeyIndex = promptUserForSense(keysList.length, buildPromptMessage(item, keysList.length, "Multiple entries have been found, between which you must distinguish, for the character ", translatedTypeList));
+                    }
                     selectedKey = keysList[selectedKeyIndex];
                     
                     let selectedInKey = 0;
                     if (!isNaN(parseInt(typeList[selectedKeyIndex])))
                         selectedInKey = typeList[selectedKeyIndex];
                     else if (VARIANT_FORMS[selectedKey]["standard"].length > 1)
-                        selectedInKey = promptUserForSense(item, VARIANT_FORMS[selectedKey]["standard"].length, "Please disambiguate between the senses of ");
+                        selectedInKey = promptUserForSense(VARIANT_FORMS[selectedKey]["standard"].length, buildPromptMessage(item, VARIANT_FORMS[selectedKey]["standard"].length, "Please disambiguate between the senses of ", DEFINITIONS[selectedKey]));
                     
                     if (sentenceBoundary) {
                         output += capitalizeFirstLetter(VIET_READINGS[selectedKey][selectedInKey]);
@@ -139,8 +150,8 @@ function capitalizeFirstLetter(input) {
     return input.substring(0,1).toUpperCase() + input.substring(1);
 }
 
-function promptUserForSense(char, maxNumber, message) {
-    let promptedKey = prompt(message + char + ": Enter a number from 1 to " + maxNumber);
+function promptUserForSense(maxNumber, message) {
+    let promptedKey = prompt(message);
     if (promptedKey == null)
         promptedKey = 0;
     else {
@@ -149,6 +160,14 @@ function promptUserForSense(char, maxNumber, message) {
         promptedKey = parseInt(promptedKey) - 1;
     }
     return promptedKey;
+}
+
+function buildPromptMessage(char, maxNumber, start, choices) {
+    output = start + char + ": Enter a number from 1 to " + maxNumber;
+    for (let index in choices) {
+        output += "Sense " + index + ":\n" + choices[index];
+    }
+    return output;
 }
 
 function itemAppearsLessThanTwiceInArray(item, array) {
