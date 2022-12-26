@@ -167,7 +167,7 @@ function buildPromptMessage(char, maxNumber, start, choices) {
     for (let index in choices) {
         output += "\nSense " + ++index + ":\n\t" + choices[index];
     }
-    return (output + "\n").replace(/\t/g, "&emsp;");
+    return (output + "\n").replace(/\t/g, "    ");
 }
 
 function itemAppearsLessThanTwiceInArray(item, array) {
