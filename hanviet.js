@@ -165,7 +165,7 @@ function promptUserForSense(maxNumber, message) {
 function buildPromptMessage(char, maxNumber, start, choices) {
     let output = start + char + ": Enter a number from 1 to " + maxNumber + "\n\n";
     for (let index in choices) {
-        let senseNum = (int) index + 1;
+        let senseNum = parseInt(index) + 1;
         output += ("Sense " + senseNum + ":\n\t" + choices[index] + "\n").replace("\t", "    ");
     }
     return output;
