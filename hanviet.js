@@ -49,11 +49,11 @@ window.outputHanViet = function outputHanViet() {
                         let translatedTypeList = [];
                         for (let index in keysList) {
                             if  (!isNaN(parseInt(typeList[index])))
-                                translatedTypeList.push(DEFINITIONS[keysList[i]][typeList[index]]);
-                            else if (DEFINITIONS[keysList[i]].length > 1)
-                                translatedTypeList.push(DEFINITIONS[keysList[i]][0] + " ...etc.");
+                                translatedTypeList.push(DEFINITIONS[keysList[index]][typeList[index]]);
+                            else if (DEFINITIONS[keysList[index]].length > 1)
+                                translatedTypeList.push(DEFINITIONS[keysList[index]][0] + " ...etc.");
                             else
-                                translatedTypeList.push(DEFINITIONS[keysList[i]][0]);
+                                translatedTypeList.push(DEFINITIONS[keysList[index]][0]);
                         }
                         selectedKeyIndex = promptUserForSense(keysList.length, buildPromptMessage(item, keysList.length, "Multiple entries have been found, between which you must distinguish, for the character ", translatedTypeList));
                     }
