@@ -165,9 +165,9 @@ function promptUserForSense(maxNumber, message) {
 function buildPromptMessage(char, maxNumber, start, choices) {
     let output = start + char + ": Enter a number from 1 to " + maxNumber + "\n";
     for (let index in choices) {
-        output += "\nSense " + (index + 1) + ":\n\t" + choices[index];
+        output += "\nSense " + ++index + ":\n\t" + choices[index];
     }
-    return output;
+    return (output + "\n").replace("\t", "&emsp;");
 }
 
 function itemAppearsLessThanTwiceInArray(item, array) {
