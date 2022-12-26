@@ -172,6 +172,6 @@ window.setTradMode = function setTradMode() {
 
 function testSectionsWithMultipleEntries() {
     for (const key in VARIANT_FORMS)
-        if (VARIANT_FORMS[key].length > 1)
+        if (VARIANT_FORMS[key]["standard"].length > 1)
             console.log(key);
 }
