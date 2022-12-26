@@ -163,9 +163,9 @@ function promptUserForSense(maxNumber, message) {
 }
 
 function buildPromptMessage(char, maxNumber, start, choices) {
-    let output = start + char + ": Enter a number from 1 to " + maxNumber;
+    let output = start + char + ": Enter a number from 1 to " + maxNumber + "\n";
     for (let index in choices) {
-        output += "Sense " + index + ":\n" + choices[index];
+        output += "\nSense " + (index + 1) + ":\n\t" + choices[index];
     }
     return output;
 }
