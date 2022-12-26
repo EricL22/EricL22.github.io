@@ -132,7 +132,7 @@ window.outputHanViet = function outputHanViet() {
         document.getElementById("hanviet1").textContent = "Âm Độc";
         hanziOutput.innerText = ziOutput;
     }, 1);
-    testSectionsWithMultipleEntries();
+    //testSectionsWithMultipleEntries();
 }
 
 function capitalizeFirstLetter(input) {
