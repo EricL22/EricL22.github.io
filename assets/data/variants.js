@@ -1057,7 +1057,7 @@ export const VARIANT_FORMS = {
     1056: { standard: ["妻"] },
     1057: { standard: ["轰"] },
     1058: { standard: ["顷"] },
-    1059: { standard: ["转"], traditional: ["轉"] },
+    1059: { standard: ["转", "转"], traditional: ["轉", "轉"] },
     1060: { standard: ["斩"], traditional: ["斬"] },
     1061: { standard: ["轮"] },
     1062: { standard: ["软"] },
