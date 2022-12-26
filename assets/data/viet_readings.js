@@ -1057,7 +1057,7 @@ export const VIET_READINGS = {
     1056: ["thê"],
     1057: ["oanh"],
     1058: ["khoảnh"],
-    1059: ["chuyển"],
+    1059: ["chuyến", "chuyển"],
     1060: ["trảm"],
     1061: ["luân"],
     1062: ["nhuyễn"],
