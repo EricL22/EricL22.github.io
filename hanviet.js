@@ -69,7 +69,7 @@ window.outputHanViet = function outputHanViet() {
                                 && VARIANT_FORMS[selectedKey]["standard"][i] != item 
                                 && ("traditional" in VARIANT_FORMS[selectedKey] && VARIANT_FORMS[selectedKey]["traditional"][i] != item || !("traditional" in VARIANT_FORMS[selectedKey]))) {
                                 revisedDefinitionsList.splice(i, 1);
-                                i--;
+                                i -= 1;
                             }
                         }
                         selectedInKey = promptUserForSense(VARIANT_FORMS[selectedKey]["standard"].length, buildPromptMessage(item, VARIANT_FORMS[selectedKey]["standard"].length, "Please disambiguate between the senses of ", revisedDefinitionsList));
