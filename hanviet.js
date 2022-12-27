@@ -62,8 +62,18 @@ window.outputHanViet = function outputHanViet() {
                     let selectedInKey = 0;
                     if (!isNaN(parseInt(typeList[selectedKeyIndex])))
                         selectedInKey = typeList[selectedKeyIndex];
-                    else if (VARIANT_FORMS[selectedKey]["standard"].length > 1)
-                        selectedInKey = promptUserForSense(VARIANT_FORMS[selectedKey]["standard"].length, buildPromptMessage(item, VARIANT_FORMS[selectedKey]["standard"].length, "Please disambiguate between the senses of ", DEFINITIONS[selectedKey]));
+                    else if (VARIANT_FORMS[selectedKey]["standard"].length > 1) {
+                        let revisedDefinitionsList = DEFINITIONS[selectedKey];
+                        for (let i = 0; i < VARIANT_FORMS[selectedKey]["standard"].length; i++) {
+                            if (("simplified" in VARIANT_FORMS[selectedKey] && VARIANT_FORMS[selectedKey]["standard"][0] != item || !("simplified" in VARIANT_FORMS[selectedKey]))
+                                && VARIANT_FORMS[selectedKey]["standard"][i] != item 
+                                && ("traditional" in VARIANT_FORMS[selectedKey] && VARIANT_FORMS[selectedKey]["traditional"][i] != item || !("traditional" in VARIANT_FORMS[selectedKey]))) {
+                                revisedDefinitionsList.splice(i, 1);
+                                i--;
+                            }
+                        }
+                        selectedInKey = promptUserForSense(VARIANT_FORMS[selectedKey]["standard"].length, buildPromptMessage(item, VARIANT_FORMS[selectedKey]["standard"].length, "Please disambiguate between the senses of ", revisedDefinitionsList));
+                    }
                     
                     if (sentenceBoundary) {
                         output += capitalizeFirstLetter(VIET_READINGS[selectedKey][selectedInKey]);
