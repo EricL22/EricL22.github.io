@@ -65,7 +65,6 @@ window.outputHanViet = function outputHanViet() {
                     else if (VARIANT_FORMS[selectedKey]["standard"].length > 1) {
                         let revisedDefinitionsList = DEFINITIONS[selectedKey];
                         for (let i = VARIANT_FORMS[selectedKey]["standard"].length - 1; i >= 0; i--) {
-                            console.log(("simplified" in VARIANT_FORMS[selectedKey] && VARIANT_FORMS[selectedKey]["simplified"][0] != item || !("simplified" in VARIANT_FORMS[selectedKey])));
                             if (("simplified" in VARIANT_FORMS[selectedKey] && VARIANT_FORMS[selectedKey]["simplified"][0] != item || !("simplified" in VARIANT_FORMS[selectedKey]))
                                 && VARIANT_FORMS[selectedKey]["standard"][i] != item 
                                 && ("traditional" in VARIANT_FORMS[selectedKey] && VARIANT_FORMS[selectedKey]["traditional"][i] != item || !("traditional" in VARIANT_FORMS[selectedKey]))) {
