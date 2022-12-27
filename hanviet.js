@@ -71,7 +71,7 @@ window.outputHanViet = function outputHanViet() {
                                 revisedDefinitionsList.splice(i, 1);
                             }
                         }
-                        selectedInKey = promptUserForSense(VARIANT_FORMS[selectedKey]["standard"].length, buildPromptMessage(item, VARIANT_FORMS[selectedKey]["standard"].length, "Please disambiguate between the senses of ", revisedDefinitionsList));
+                        selectedInKey = promptUserForSense(revisedDefinitionsList.length, buildPromptMessage(item, revisedDefinitionsList.length, "Please disambiguate between the senses of ", revisedDefinitionsList));
                     }
                     
                     if (sentenceBoundary) {
