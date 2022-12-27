@@ -3,6 +3,7 @@ export const DEFINITIONS = {
     23: ["shield", "dry", "trunk"],
     24: ["(a surname)", "in; at; on; with,\n\tfrom; by,\n\tthan; with regard to"],
     339: ["to shoot", "hair"],
+    418: ["(progressive action marker); to be equal to", "suitable; appropriate; to be worthy", "the sound of bells"],
     482: ["empress", "after; later"],
     531: ["(a placename)", "to combine; to amalgamate", "to be side by side"],
     566: ["to finish; to exhaust", "utmost; extreme; furthest"],
