@@ -416,7 +416,7 @@ export const VARIANT_FORMS = {
     415: { standard: ["尖"] },
     416: { standard: ["劣"] },
     417: { standard: ["光"] },
-    418: { standard: ["当", "当", "𪠽"], traditional: ["當", "當", "噹"] },
+    418: { simplified: ["当"], standard: ["当", "当", "𪠽"], traditional: ["當", "當", "噹"] },
     419: { standard: ["早"] },
     420: { standard: ["吁"] },
     421: { standard: ["吐"] },
