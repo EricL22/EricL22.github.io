@@ -1550,7 +1550,7 @@ export const VARIANT_FORMS = {
     1549: { standard: ["种"] },
     1550: { standard: ["秋"] },
     1551: { standard: ["科"] },
-    1552: { standard: ["重"] },
+    1552: { standard: ["重", "重"] },
     1553: { standard: ["复"] },
     1554: { standard: ["竿"] },
     1555: { standard: ["段"] },
