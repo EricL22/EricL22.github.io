@@ -209,7 +209,7 @@ export const VIET_READINGS = {
     208: ["cổ"],
     209: ["tiết"],
     210: ["bổn"],
-    211: ["thuật"],
+    211: ["thuật", "thuật"],
     212: ["khả"],
     213: ["bính"],
     214: ["tả"],
