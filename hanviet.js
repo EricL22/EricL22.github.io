@@ -21,6 +21,7 @@ window.outputHanViet = function outputHanViet() {
         let sentenceBoundary = false;
         let isASentence = false;
         let magicComma = false;
+        let magicNumber = false;
         checkString.split("").forEach(
             function(item) {
                 let foundReading = false;
@@ -43,6 +44,11 @@ window.outputHanViet = function outputHanViet() {
                     }
                 }
                 if (foundReading) {
+                    if (magicNumber) {
+                        output += " ";
+                        magicNumber = false;
+                    }
+                    
                     let selectedKey = 0;
                     let selectedKeyIndex = 0;
                     if (keysList.length > 1) {
@@ -141,6 +147,9 @@ window.outputHanViet = function outputHanViet() {
                     }
                     else if (item == "）") {
                         output = output.trim() + ') ';
+                    }
+                    else if (!isNaN(parseInt(item))) {
+                        magicNumber = true;
                     }
                     else {
                         output += item;
