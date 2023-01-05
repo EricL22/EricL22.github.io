@@ -151,11 +151,11 @@ window.outputHanViet = function outputHanViet() {
                     else if (item == "）") {
                         output = output.trim() + ') ';
                     }
-                    else if (!isNaN(parseInt(item))) {
-                        magicNumber = true;
-                    }
                     else {
                         output += item;
+                        if (!isNaN(parseInt(item))) {
+                            magicNumber = true;
+                        }
                     }
                     
                     if (magicComma) {
