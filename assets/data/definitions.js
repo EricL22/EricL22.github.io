@@ -2,6 +2,7 @@ export const DEFINITIONS = {
     14: ["table", "how many; how much; some; several"],
     23: ["shield", "dry", "trunk"],
     24: ["(a surname)", "in; at; on; with,\n\tfrom; by,\n\tthan; with regard to"],
+    211: ["art; craft; skill; technique", "a type of millet"]
     339: ["to shoot", "hair"],
     418: ["(progressive action marker); to be equal to", "suitable; appropriate; to be worthy", "the sound of bells"],
     482: ["empress", "after; later"],
