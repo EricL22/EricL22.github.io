@@ -94,6 +94,9 @@ window.outputHanViet = function outputHanViet() {
                         ziOutput += VARIANT_FORMS[selectedKey]["standard"][selectedInKey];
                 }
                 else {
+                    if (magicNumber) {
+                        magicNumber = false;
+                    }
                     if (item == "。") {
                         output = output.trim() + ". ";
                         sentenceBoundary = true;
