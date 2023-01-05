@@ -1399,7 +1399,7 @@ export const VARIANT_FORMS = {
     1398: { standard: ["拯"] },
     1399: { standard: ["某"] },
     1400: { standard: ["甚"] },
-    1401: { standard: ["荆"] },
+    1401: { standard: ["荆"], traditional: ["荊"] },
     1402: { standard: ["茸"] },
     1403: { standard: ["革"] },
     1404: { standard: ["茬"] },
