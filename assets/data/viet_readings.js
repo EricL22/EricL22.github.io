@@ -1550,7 +1550,7 @@ export const VIET_READINGS = {
     1549: ["chủng"],
     1550: ["thu"],
     1551: ["khoa"],
-    1552: ["trọng"],
+    1552: ["trọng", "trùng"],
     1553: ["phục"],
     1554: ["can"],
     1555: ["đoạn"],
