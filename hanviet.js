@@ -136,6 +136,12 @@ window.outputHanViet = function outputHanViet() {
                     else if (item == "`") {
                         sentenceBoundary = true;
                     }
+                    else if (item == "（") {
+                        output += '(';
+                    }
+                    else if (item == "）") {
+                        output = output.trim() + ') ';
+                    }
                     else {
                         output += item;
                     }
