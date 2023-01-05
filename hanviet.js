@@ -116,14 +116,14 @@ window.outputHanViet = function outputHanViet() {
                             output = capitalizeFirstLetter(output)
                         }
                     }
-                    else if (item == "“") {
+                    else if (item == "“" || item == "「") {
                         output += '"';
                         if (magicComma) {
                             sentenceBoundary = true;
                             magicComma = false;
                         }
                     }
-                    else if (item == "”") {
+                    else if (item == "”" || item == "」") {
                         output = output.trim() + '" ';
                     }
                     else if (item == "：") {
