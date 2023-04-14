@@ -6,6 +6,10 @@
 	font-family: 'TAI-TC';
 	src: url('../../TaipeiSansTCBeta-Regular.ttf') format('truetype');
 }
+@font-face {
+	font-family: 'HAN-DT';
+	src: url('../../HANDotum.ttf') format('truetype');
+}
 body {
 	padding-right: 50px;
 	padding-left: 50px;
@@ -16,5 +20,9 @@ p.zi {
 }
 p.tc {
 	font-family: 'TAI-TC';
+	line-height: 1.4;
+}
+p.hg {
+	font-family: 'HAN-DT';
 	line-height: 1.4;
 }
