@@ -1,0 +1,9 @@
+@font-face {
+	font-family: 'AAS-XN';
+	src: url('../../AdvocateAncientSansSC-Regular.ttf') format('truetype');
+}
+body {
+	padding-right: 50px;
+	padding-left: 50px;
+	font-family: 'AAS-XN';
+}
