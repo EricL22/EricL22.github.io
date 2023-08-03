@@ -10,6 +10,10 @@ body {
 	font-family: 'CAN-CD', 'CAN-XN';
 	writing-mode: vertical-rl;
 }
+p {
+	font-size: 18.0pt;
+	margin-top: 5%;
+}
 .unvert {
 	writing-mode: horizontal-tb;
 }
