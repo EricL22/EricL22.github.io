@@ -10,3 +10,6 @@ body {
 	font-family: 'CAN-CD', 'CAN-XN';
 	writing-mode: vertical-rl;
 }
+.unvert {
+	writing-mode: horizontal-tb;
+}
