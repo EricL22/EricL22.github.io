@@ -1,7 +1,12 @@
 @font-face {
-	font-family: 'AAS-XN';
-	src: url('../../AdvocateAncientSansXN-Regular.ttf') format('truetype');
+	font-family: 'CAN-CD';
+	src: url('../../gw3942025.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'CAN-XN';
+	src: url('../../gw3931610.ttf') format('truetype');
 }
 body {
-	font-family: 'AAS-XN';
+	font-family: 'CAN-CD', 'CAN-XN';
+	writing-mode: vertical-rl;
 }
