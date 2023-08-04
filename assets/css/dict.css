@@ -17,3 +17,6 @@ p {
 .unvert {
 	writing-mode: horizontal-tb;
 }
+.forceside {
+	text-orientation: sideways;
+}
