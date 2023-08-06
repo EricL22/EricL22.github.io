@@ -6,6 +6,10 @@
 	font-family: 'CAN-XN';
 	src: url('../../gw3931610.ttf') format('truetype');
 }
+@font-face {
+	font-family: 'TW-KAI';
+	src: url('../../TW-Kai_Regular.ttf') format('truetype');
+}
 body {
 	font-family: 'CAN-CD', 'CAN-XN';
 	writing-mode: vertical-rl;
@@ -19,4 +23,7 @@ p {
 }
 .forceside {
 	text-orientation: sideways;
+}
+.preface {
+	font-family: 'TW-KAI';
 }
