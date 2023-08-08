@@ -12,18 +12,10 @@
 }
 body {
 	font-family: 'CAN-CD', 'CAN-XN';
-	writing-mode: vertical-rl;
 }
 p {
 	font-family: 'CAN-XN';
 	font-size: 18.0pt;
-	margin-top: 5%;
-}
-.unvert {
-	writing-mode: horizontal-tb;
-}
-.forceside {
-	text-orientation: sideways;
 }
 .preface {
 	font-family: 'TW-KAI';
