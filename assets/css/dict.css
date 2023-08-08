@@ -38,3 +38,7 @@ p {
 .ciyin_indent {
 	margin-left: 7.5em;
 }
+.yin_spacer {
+	font-size: 10.0pt;
+	width: 5em;
+}
