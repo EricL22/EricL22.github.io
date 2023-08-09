@@ -10,6 +10,10 @@
 	font-family: 'TW-KAI';
 	src: url('../../TW-Kai_Regular.ttf') format('truetype');
 }
+@font-face {
+	font-family: 'TW-KAI-EXT';
+	src: url('../../TW-Kai-Ext-B-98.ttf') format('truetype');
+}
 body {
 	font-family: 'CAN-CD', 'CAN-XN';
 }
@@ -18,7 +22,7 @@ p {
 	font-size: 18.0pt;
 }
 .preface {
-	font-family: 'TW-KAI';
+	font-family: 'TW-KAI', 'TW-KAI-EXT';
 }
 .zipang_indent {
 	margin-left: 1em;
