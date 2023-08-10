@@ -1,18 +1,18 @@
 @font-face {
 	font-family: 'CAN-CD';
-	src: url('../../gw3942040.ttf') format('truetype');
+	src: url('../fonts/gw3942040.ttf') format('truetype');
 }
 @font-face {
 	font-family: 'CAN-XN';
-	src: url('../../gw3931610.ttf') format('truetype');
+	src: url('../fonts/gw3931610.ttf') format('truetype');
 }
 @font-face {
 	font-family: 'TW-KAI';
-	src: url('../../TW-Kai_Regular.ttf') format('truetype');
+	src: url('../fonts/TW-Kai_Regular.ttf') format('truetype');
 }
 @font-face {
 	font-family: 'TW-KAI-EXT';
-	src: url('../../TW-Kai-Ext-B-98.ttf') format('truetype');
+	src: url('../fonts/TW-Kai-Ext-B-98.ttf') format('truetype');
 }
 body {
 	font-family: 'CAN-CD', 'CAN-XN';
