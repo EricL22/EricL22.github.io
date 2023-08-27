@@ -8,7 +8,7 @@
 }
 @font-face {
 	font-family: 'HAN-DT';
-	src: url('../fonts/HANDotum.ttf') format('truetype');
+	src: url('../fonts/HANDotum-LVT.ttf') format('truetype');
 }
 body {
 	padding-right: 50px;
