@@ -307,7 +307,7 @@ export const VARIANT_FORMS = {
     306: { standard: ["兰"] },
     307: { standard: ["半"] },
     308: { standard: ["汁"] },
-    309: { standard: ["汇"], traditional: ["匯"] },
+    309: { standard: ["汇"], traditional: ["匯", "彙"] },
     310: { standard: ["头"], traditional: ["頭"] },
     311: { standard: ["汉"], traditional: ["漢"] },
     312: { standard: ["宁"], traditional: ["寧"] },
