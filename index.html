@@ -13,17 +13,23 @@
     <form>
       <input type="text" id="fname" name="fname"><br><br>
       <input type="button" value="Convert" onclick="msg()">
-      <input type="button" value="Compatibility Mode" onclick="compat()">
     </form>
 
-    <h5 id="compmode"><i></i></h5>
     <p id="demo">Enter a value above and click the button to convert it</p>
 
     <h2><a href="dict/index.html">Multilingual Dictionary</a></h2>
 
+    <form>
+      <input type="text" id="termin" name="termin"><br><br>
+      <input type="button" id="defbutton" value="Lookup" onclick="define()">
+    </form>
+    
+    <p id="termout">Enter a single term to be defined</p>
+    <p id="termout2"></p>
+
     <script>
-        function compat() {}
         function msg() {}
+        function define() {}
     </script>
     
     <h3><a href="https://fareast-english.fandom.com/wiki/Xinjianti">Learn more about Xinjianti</a></h3>
