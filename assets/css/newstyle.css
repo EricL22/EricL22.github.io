@@ -1,14 +1,6 @@
 @font-face {
-	font-family: 'SHS-XN';
-	src: url('../fonts/SourceHanSansXN-Regular.woff') format('woff');
-}
-@font-face {
 	font-family: 'SHS-KL';
 	src: url('../fonts/SourceHanSansKL-Regular.ttf') format('truetype');
-}
-@font-face {
-	font-family: 'TAI-TC';
-	src: url('../fonts/TaipeiSansTCBeta-Regular.ttf') format('truetype');
 }
 @font-face {
 	font-family: 'HAN-DT';
@@ -17,6 +9,12 @@
 body {
 	padding-right: 50px;
 	padding-left: 50px;
+	font-family: 'SHS-KL';
+}
+textarea {
+	font-family: 'SHS-KL';
+}
+input[type=text] {
 	font-family: 'SHS-KL';
 }
 .zi {
