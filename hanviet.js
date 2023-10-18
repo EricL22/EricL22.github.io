@@ -7,13 +7,7 @@ window.outputHanViet = function outputHanViet() {
     const paragraph = document.getElementById("demo");
     var checkString = document.getElementById("fname").value;
     document.getElementById("zi1").textContent = "";
-    document.getElementById("zi2").textContent = "";
-    if (tradMode) {
-        var hanziOutput = document.getElementById("zi2");
-    }
-    else {
-        var hanziOutput = document.getElementById("zi1");
-    }
+    var hanziOutput = document.getElementById("zi1");
     var output = "";
     var ziOutput = "";
     paragraph.textContent = "Working...";
