@@ -3,6 +3,10 @@
 	src: url('../fonts/SourceHanSansXN-Regular.woff') format('woff');
 }
 @font-face {
+	font-family: 'SHS-KL';
+	src: url('../fonts/SourceHanSansKL-Regular.ttf') format('truetype');
+}
+@font-face {
 	font-family: 'TAI-TC';
 	src: url('../fonts/TaipeiSansTCBeta-Regular.ttf') format('truetype');
 }
@@ -13,14 +17,10 @@
 body {
 	padding-right: 50px;
 	padding-left: 50px;
-	font-family: 'SHS-XN';
+	font-family: 'SHS-KL';
 }
 .zi {
 	font-size: 1.5em;
-}
-.tc {
-	font-family: 'TAI-TC';
-	line-height: 1.4;
 }
 .hg {
 	font-family: 'HAN-DT';
