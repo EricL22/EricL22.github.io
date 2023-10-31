@@ -32,6 +32,7 @@ export function outputConvert(checkString, conv_key, delimiter = "") {
 	return output;
 }
 
+// input inString (str), replace all variant forms with keys that exist in TRAD_CHAR_LIST
 function replaceWithKeys(inString) {
 	var output = "";
 	for (let i = 0; i < inString.length; i++)
