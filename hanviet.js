@@ -1,4 +1,4 @@
-import { outputConvert } from "shared.js"
+import { outputConvert } from "/shared.js"
 var zi_conv_key = 1;
 
 window.outputHanViet = function outputHanViet() {
