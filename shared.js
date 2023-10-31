@@ -11,19 +11,35 @@ export function outputConvert(checkString, conv_key, delimiter = "") {
 		{
 			var fragment = checkString.substring(0, i);
 			if (fragment.length > MAX_STRING_SIZE)   continue;
-			if (fragment in TRAD_CHAR_LIST && conv_key > -1 && conv_key < TRAD_CHAR_LIST[fragment].length)
+			var alteredFragment = replaceWithKeys(fragment);
+			if (alteredFragment in TRAD_CHAR_LIST && conv_key > -1 && conv_key < TRAD_CHAR_LIST[alteredFragment].length)
 			{
-				output += TRAD_CHAR_LIST[fragment][conv_key] + delimiter;
+				output += TRAD_CHAR_LIST[alteredFragment][conv_key] + delimiter;
 				checkString = checkString.substring(i);
 				break;
 			}
-			else if (fragment in TRAD_CHAR_LIST || !(fragment in TRAD_CHAR_LIST) && i == 1)
+			else if (alteredFragment in TRAD_CHAR_LIST || !(alteredFragment in TRAD_CHAR_LIST) && i == 1)
 			{
-				output += fragment + delimiter;
+				if (conv_key == -1)	// use the variant form if Traditional mode enabled
+					output += fragment + delimiter;
+				else	// convert to standard form otherwise
+					output += alteredFragment + delimiter;
 				checkString = checkString.substring(i);
 				break;
 			}
 		}
+	}
+	return output;
+}
+
+function replaceWithKeys(inString) {
+	var output = "";
+	for (let i = 0; i < inString.length; i++)
+	{
+		if (inString[i] in VARIANT_FORMS)
+			output += VARIANT_FORMS[inString[i]];
+		else
+			output += inString[i];
 	}
 	return output;
 }
