@@ -1,4 +1,5 @@
 import { TRAD_CHAR_LIST } from "./assets/data/xn-trad.js"
+import { VARIANT_FORMS } from "./assets/data/variants.js"
 
 // input checkString (str), convert based on conv_key (int)
 export function outputConvert(checkString, conv_key, delimiter = "") {
