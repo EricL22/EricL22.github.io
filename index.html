@@ -28,7 +28,11 @@
     <p id="termout2"></p>
 
     <script>
-        function msg() {}
+        function msg() {
+            const paragraph = document.getElementById("demo");
+            var checkString = document.getElementById("fname").value;
+            paragraph.textContent = checkString;
+		}
         function define() {}
     </script>
     
