@@ -1,3 +1,5 @@
+import { TRAD_CHAR_LIST } from "./assets/data/xn-trad.js"
+
 // input checkString (str), convert based on conv_key (int)
 function outputConvert(checkString, conv_key, delimiter = "") {
 	const MAX_STRING_SIZE = 15;

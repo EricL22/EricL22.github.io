@@ -1,4 +1,3 @@
-import { TRAD_CHAR_LIST } from "./assets/data/xn-trad.js"
 import { outputConvert } from "shared.js"
 var zi_conv_key = 1;
 
