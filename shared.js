@@ -6,18 +6,26 @@ export function outputConvert(checkString, conv_key, delimiter = "") {
 	var output = "";
 	while (checkString.length > 0)
 	{
+		var fragmentFound = false;
 		for (let i = checkString.length; i > 0; i--)
 		{
-			if (checkString.substring(0, i).length > MAX_STRING_SIZE)   continue;
-			if (checkString in TRAD_CHAR_LIST)
+			var fragment = checkString.substring(0, i);
+			if (fragment.length > MAX_STRING_SIZE)   continue;
+			if (fragment in TRAD_CHAR_LIST)
 			{
-				if (conv_key > -1 && conv_key < TRAD_CHAR_LIST[checkString].length)
-					output += TRAD_CHAR_LIST[checkString][conv_key] + delimiter;
+				if (conv_key > -1 && conv_key < TRAD_CHAR_LIST[fragment].length)
+					output += TRAD_CHAR_LIST[fragment][conv_key] + delimiter;
 				else
-					output += checkString + delimiter;
+					output += fragment + delimiter;
 				checkString = checkString.substring(i);
+				fragmentFound = true;
 				break;
 			}
+		}
+		if (!fragmentFound)
+		{
+			output += checkString.substring(0, 1) + delimiter;
+			checkString = checkString.substring(1);
 		}
 	}
 	return output;
