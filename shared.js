@@ -12,16 +12,11 @@ export function outputConvert(checkString, conv_key, delimiter = "") {
 			if (checkString in TRAD_CHAR_LIST)
 			{
 				if (conv_key > -1 && conv_key < TRAD_CHAR_LIST[checkString].length)
-				{
 					output += TRAD_CHAR_LIST[checkString][conv_key] + delimiter;
-					checkString = checkString.substring(i);
-				}
 				else
-				{
 					output += checkString + delimiter;
-					checkString = checkString.substring(i);
-					break;
-				}
+				checkString = checkString.substring(i);
+				break;
 			}
 		}
 	}
