@@ -1,170 +1,22 @@
-import { VARIANT_FORMS } from "./assets/data/variants.js"
-import { VIET_READINGS } from "./assets/data/viet_readings.js"
-import { DEFINITIONS } from "./assets/data/definitions.js"
-var tradMode = false;
+import { TRAD_CHAR_LIST } from "./assets/data/xn-trad.js"
+import { outputConvert } from "shared.js"
+var zi_conv_key = 1;
 
 window.outputHanViet = function outputHanViet() {
-    const paragraph = document.getElementById("demo");
-    var checkString = document.getElementById("fname").value;
+	const paragraph = document.getElementById("demo");
+	var checkString = document.getElementById("fname").value;
     document.getElementById("zi1").textContent = "";
     var hanziOutput = document.getElementById("zi1");
     var output = "";
     var ziOutput = "";
-    paragraph.textContent = "Working...";
-    setTimeout(function() {
-        let sentenceBoundary = false;
-        let isASentence = false;
-        let magicComma = false;
-        let magicNumber = false;
-        checkString.split("").forEach(
-            function(item) {
-                let foundReading = false;
-                let keysList = [];
-                let typeList = [];
-                for (const key in VARIANT_FORMS) {
-                    MIDDLE_LOOP: for (const type in VARIANT_FORMS[key]) {
-                        for (const charIndex in VARIANT_FORMS[key][type]) {
-                            if (VARIANT_FORMS[key][type][charIndex] == item) {
-                                keysList.push(key);
-                                if (type == "traditional" && itemAppearsLessThanTwiceInArray(item, VARIANT_FORMS[key][type]) || 
-                                    type == "standard" && "traditional" in VARIANT_FORMS[key] && VARIANT_FORMS[key][type][charIndex] == VARIANT_FORMS[key]["traditional"][charIndex])
-                                    typeList.push(charIndex);
-                                else
-                                    typeList.push(type);
-                                foundReading = true;
-                                break MIDDLE_LOOP;
-                            }
-                        }
-                    }
-                }
-                if (foundReading) {
-                    if (magicNumber) {
-                        output += " ";
-                        magicNumber = false;
-                    }
-                    
-                    let selectedKey = 0;
-                    let selectedKeyIndex = 0;
-                    if (keysList.length > 1) {
-                        let translatedTypeList = [];
-                        for (let index in keysList) {
-                            if  (!isNaN(parseInt(typeList[index])))
-                                translatedTypeList.push(DEFINITIONS[keysList[index]][typeList[index]]);
-                            else if (DEFINITIONS[keysList[index]].length > 1)
-                                translatedTypeList.push(DEFINITIONS[keysList[index]][0] + ", etc.");
-                            else
-                                translatedTypeList.push(DEFINITIONS[keysList[index]][0]);
-                        }
-                        selectedKeyIndex = promptUserForSense(keysList.length, buildPromptMessage(item, keysList.length, "Multiple entries have been found, between which you must distinguish, for the character ", translatedTypeList));
-                    }
-                    selectedKey = keysList[selectedKeyIndex];
-                    
-                    let selectedInKey = 0;
-                    if (!isNaN(parseInt(typeList[selectedKeyIndex])))
-                        selectedInKey = typeList[selectedKeyIndex];
-                    else if (VARIANT_FORMS[selectedKey]["standard"].length > 1) {
-                        let revisedDefinitionsList = DEFINITIONS[selectedKey];
-                        for (let i = VARIANT_FORMS[selectedKey]["standard"].length - 1; i >= 0; i--) {
-                            if (("simplified" in VARIANT_FORMS[selectedKey] && VARIANT_FORMS[selectedKey]["simplified"][0] != item || !("simplified" in VARIANT_FORMS[selectedKey]))
-                                && VARIANT_FORMS[selectedKey]["standard"][i] != item 
-                                && ("traditional" in VARIANT_FORMS[selectedKey] && VARIANT_FORMS[selectedKey]["traditional"][i] != item || !("traditional" in VARIANT_FORMS[selectedKey]))) {
-                                revisedDefinitionsList.splice(i, 1);
-                            }
-                        }
-                        selectedInKey = promptUserForSense(revisedDefinitionsList.length, buildPromptMessage(item, revisedDefinitionsList.length, "Please disambiguate between the senses of ", revisedDefinitionsList));
-                    }
-                    
-                    if (sentenceBoundary) {
-                        output += capitalizeFirstLetter(VIET_READINGS[selectedKey][selectedInKey]);
-                        sentenceBoundary = false;
-                    }
-                    else {
-                        output += VIET_READINGS[selectedKey][selectedInKey];
-                    }
-                    output += " ";
-                    if (tradMode && "traditional" in VARIANT_FORMS[selectedKey])
-                        ziOutput += VARIANT_FORMS[selectedKey]["traditional"][selectedInKey];
-                    else
-                        ziOutput += VARIANT_FORMS[selectedKey]["standard"][selectedInKey];
-                }
-                else {
-                    if (magicNumber) {
-                        magicNumber = false;
-                    }
-                    if (item == "。") {
-                        output = output.trim() + ". ";
-                        sentenceBoundary = true;
-                        if (!isASentence) {
-                            isASentence = true;
-                            output = capitalizeFirstLetter(output)
-                        }
-                    }
-                    else if (item == "，" || item == "、") {
-                        output = output.trim() + ", ";
-                        magicComma = true;
-                    }
-                    else if (item == "？") {
-                        output = output.trim() + "? ";
-                        sentenceBoundary = true;
-                        if (!isASentence) {
-                            isASentence = true;
-                            output = capitalizeFirstLetter(output)
-                        }
-                    }
-                    else if (item == "！") {
-                        output = output.trim() + "! ";
-                        sentenceBoundary = true;
-                        if (!isASentence) {
-                            isASentence = true;
-                            output = capitalizeFirstLetter(output)
-                        }
-                    }
-                    else if (item == "“" || item == "「") {
-                        output += '"';
-                        if (magicComma) {
-                            sentenceBoundary = true;
-                            magicComma = false;
-                        }
-                    }
-                    else if (item == "”" || item == "」") {
-                        output = output.trim() + '" ';
-                    }
-                    else if (item == "：") {
-                        output = output.trim() + ': ';
-                        magicComma = true;
-                    }
-                    else if (item == "；") {
-                        output = output.trim() + '; ';
-                    }
-                    else if (item == "`") {
-                        sentenceBoundary = true;
-                    }
-                    else if (item == "（") {
-                        output += '(';
-                    }
-                    else if (item == "）") {
-                        output = output.trim() + ') ';
-                    }
-                    else {
-                        output += item;
-                        if (!isNaN(parseInt(item))) {
-                            magicNumber = true;
-                        }
-                    }
-                    
-                    if (magicComma) {
-                        if (item == " " || item == "，" || item == "、") {}
-                        else { magicComma = false; }
-                    }
-                    if (item != "`") { ziOutput += item; }
-                }
-            }
-        );
+	paragraph.textContent = "Working...";
+	setTimeout(function() {
+		output = outputConvert(checkString, 0, " ");
+		ziOutput = outputConvert(checkString, zi_conv_key);
         paragraph.innerText = output.trim();
         document.getElementById("hanviet1").textContent = "Âm Độc";
         hanziOutput.innerText = ziOutput;
-    }, 1);
-    //testSectionsWithMultipleEntries();
+	}, 1);
 }
 
 function capitalizeFirstLetter(input) {
@@ -205,14 +57,9 @@ window.setTradMode = function setTradMode() {
     if (x.textContent === "") {
         x.textContent = new String("Traditional Chinese Conversion Enabled");
         x.style.fontStyle = "italic";
+		zi_conv_key = -1;
     } else {
         x.textContent = "";
+		zi_conv_key = 1;
     }
-    tradMode = !tradMode;
-}
-
-function testSectionsWithMultipleEntries() {
-    for (const key in VARIANT_FORMS)
-        if (VARIANT_FORMS[key]["standard"].length > 1)
-            console.log(key);
 }
