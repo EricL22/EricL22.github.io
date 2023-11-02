@@ -10,11 +10,11 @@ window.outputHanViet = function outputHanViet() {
     var ziOutput = "";
 	paragraph.textContent = "Working...";
 	setTimeout(function() {
-		output = outputConvert(checkString, 0, " ");
-		ziOutput = outputConvert(checkString, zi_conv_key);
-        paragraph.innerText = makeVietReadable(output.trim());
+		output = makeVietReadable(outputConvert(checkString, 0, " ").trim());
+		ziOutput = outputConvert(checkString, zi_conv_key).replace("`", "");
+        paragraph.innerText = output;
         document.getElementById("hanviet1").textContent = "Âm Độc";
-        hanziOutput.innerText = ziOutput.replace("`", "");
+        hanziOutput.innerText = ziOutput;
 	}, 1);
 }
 
