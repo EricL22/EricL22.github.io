@@ -29,15 +29,17 @@
 	<p id="termout2" class="zi"></p>
 
 	<script type="module">
-		import { outputConvert } from "/shared.js";
-		function msg() {
+		import { outputConvert } from "/shared.js"
+
+		window.msg = function msg() {
 			const paragraph = document.getElementById("demo");
 			const paragraph2 = document.getElementById("demo2");
 			var checkString = document.getElementById("fname").value;
 			paragraph.textContent = "";
 			paragraph2.textContent = outputConvert(checkString, 1);
 		}
-		function define() {}
+
+		window.define = function define() {}
 	</script>
     
 	<h3><a href="https://fareast-english.fandom.com/wiki/Xinjianti">Learn more about Xinjianti</a></h3>
