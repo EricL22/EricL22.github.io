@@ -12,10 +12,31 @@ window.outputHanViet = function outputHanViet() {
 	setTimeout(function() {
 		output = outputConvert(checkString, 0, " ");
 		ziOutput = outputConvert(checkString, zi_conv_key);
-        paragraph.innerText = output.trim();
+        paragraph.innerText = makeVietReadable(output.trim());
         document.getElementById("hanviet1").textContent = "Âm Độc";
         hanziOutput.innerText = ziOutput;
 	}, 1);
+}
+
+function makeVietReadable(input) {
+	var output = input.replace(" 。", ".")
+					  .replace(" ，", ",")
+					  .replace(" 、", ",")
+					  .replace(" ？", "?")
+					  .replace(" ！", "!")
+					  .replace(" “", '"')
+					  .replace(" 「", '"')
+					  .replace(" ”", '"')
+					  .replace(" 」", '"')
+					  .replace(" ：", ":")
+					  .replace(" ；", ";")
+					  .replace(" （", "(")
+					  .replace(" ）", ")")
+					  .replace(" `", "`");
+	for (let i = 0; i < output.length; i++)
+		if (output[i] == "`")
+			output = output.substring(0, i) + capitalizeFirstLetter(output.substring(i+1));
+	return output;
 }
 
 function capitalizeFirstLetter(input) {
