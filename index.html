@@ -15,7 +15,8 @@
 		<input type="button" value="Convert" onclick="msg()">
 	</form>
 	
-	<p id="demo" class="zi">Enter a value above and click the button to convert it</p>
+	<p id="demo">Enter a value above and click the button to convert it</p>
+	<p id="demo2" class="zi">Enter a value above and click the button to convert it</p>
 	
 	<h2><a href="dict/index.html">Multilingual Dictionary</a></h2>
 
@@ -25,13 +26,16 @@
 	</form>
 	
 	<p id="termout">Enter a single term to be defined</p>
-	<p id="termout2"></p>
+	<p id="termout2" class="zi"></p>
 
 	<script>
+		import { outputConvert } from "/shared.js"
 		function msg() {
 			const paragraph = document.getElementById("demo");
+			const paragraph2 = document.getElementById("demo2");
 			var checkString = document.getElementById("fname").value;
-			paragraph.textContent = outputConvert(checkString, 1);
+			paragraph.textContent = "";
+			paragraph2.textContent = outputConvert(checkString, 1);
 		}
 		function define() {}
 	</script>
