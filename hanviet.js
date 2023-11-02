@@ -11,7 +11,7 @@ window.outputHanViet = function outputHanViet() {
 	paragraph.textContent = "Working...";
 	setTimeout(function() {
 		output = makeVietReadable(outputConvert(checkString, 0, " ").trim());
-		ziOutput = outputConvert(checkString, zi_conv_key).replace("`", "");
+		ziOutput = outputConvert(checkString, zi_conv_key).replaceAll("`", "");
         paragraph.innerText = output;
         document.getElementById("hanviet1").textContent = "Âm Độc";
         hanziOutput.innerText = ziOutput;
@@ -19,23 +19,26 @@ window.outputHanViet = function outputHanViet() {
 }
 
 function makeVietReadable(input) {
-	var output = input.replace(" 。", ".")
-					  .replace(" ，", ",")
-					  .replace(" 、", ",")
-					  .replace(" ？", "?")
-					  .replace(" ！", "!")
-					  .replace(" “", '"')
-					  .replace(" 「", '"')
-					  .replace(" ”", '"')
-					  .replace(" 」", '"')
-					  .replace(" ：", ":")
-					  .replace(" ；", ";")
-					  .replace(" （", "(")
-					  .replace(" ）", ")")
-					  .replace(" `", "`");
+	var output = input.replaceAll(" 。", ".")
+					  .replaceAll(" ，", ",")
+					  .replaceAll(" 、", ",")
+					  .replaceAll(" ？", "?")
+					  .replaceAll(" ！", "!")
+					  .replaceAll(" “", '"')
+					  .replaceAll(" 「", '"')
+					  .replaceAll(" ”", '"')
+					  .replaceAll(" 」", '"')
+					  .replaceAll(" ：", ":")
+					  .replaceAll(" ；", ";")
+					  .replaceAll(" （", "(")
+					  .replaceAll(" ）", ")")
+					  .replaceAll(" `", "`");
 	for (let i = 0; i < output.length; i++)
-		if (output[i] === "`")
+		if (output[i] == "`")
+		{
+			console.log(capitalizeFirstLetter(output.substring(i+1)));
 			output = output.substring(0, i) + capitalizeFirstLetter(output.substring(i+1));
+		}
 	return output;
 }
 
