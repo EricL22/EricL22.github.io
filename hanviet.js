@@ -14,7 +14,7 @@ window.outputHanViet = function outputHanViet() {
 		ziOutput = outputConvert(checkString, zi_conv_key);
         paragraph.innerText = makeVietReadable(output.trim());
         document.getElementById("hanviet1").textContent = "Âm Độc";
-        hanziOutput.innerText = ziOutput;
+        hanziOutput.innerText = ziOutput.replace("`", "");
 	}, 1);
 }
 
@@ -34,7 +34,7 @@ function makeVietReadable(input) {
 					  .replace(" ）", ")")
 					  .replace(" `", "`");
 	for (let i = 0; i < output.length; i++)
-		if (output[i] == "`")
+		if (output[i] === "`")
 			output = output.substring(0, i) + capitalizeFirstLetter(output.substring(i+1));
 	return output;
 }
