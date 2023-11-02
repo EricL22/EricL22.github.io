@@ -3124,7 +3124,7 @@ export const TRAD_CHAR_LIST = {
 	"絢": ["huyến"],
 	"經": ["kinh"],
 	"絹": ["quyên"],
-	"綑": ["under review"],
+	// 綑
 	"綁": ["bảng"],
 	"綏": ["tuy"],
 	"綻": ["trán"],
@@ -3135,7 +3135,7 @@ export const TRAD_CHAR_LIST = {
 	"綠": ["lục"],
 	"緊": ["khẩn"],
 	"綴": ["chuế"],
-	"網": ["võng"],
+	"網": ["võng", "网"],
 	"綱": ["cương"],
 	"綺": ["khỉ"],
 	"綢": ["trù"],
