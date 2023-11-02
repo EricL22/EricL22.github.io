@@ -226,7 +226,7 @@ export const TRAD_CHAR_LIST = {
 	"傭": ["dong", "佣"],
 	"債": ["trái"],
 	"傲": ["ngạo"],
-	"傳": ["truyện", "传"],
+	"傳": ["truyền/truyện", "传"],
 	"僅": ["cận", "仅"],
 	"傾": ["khuynh"],
 	"催": ["thôi"],
