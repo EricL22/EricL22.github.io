@@ -32,7 +32,7 @@ function makeVietReadable(input) {
 					  .replaceAll(" ；", ";")
 					  .replaceAll(" （", "(")
 					  .replaceAll(" ）", ")")
-					  .replaceAll(" ` ", " `");
+					  .replaceAll("` ", "`");
 	for (let i = 0; i < output.length; i++)
 		if (output[i] == "`")
 			output = output.substring(0, i) + capitalizeFirstLetter(output.substring(i+1));
