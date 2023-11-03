@@ -2573,7 +2573,7 @@ export const TRAD_CHAR_LIST = {
 	"球": ["cầu"],
 	"理": ["lí"],
 	"現": ["hiện"],
-	"琍": ["under review"],
+	"琍": ["lị"],	// non-canonical
 	"琺": ["pháp"],
 	"琪": ["kì"],
 	"琳": ["lâm"],
@@ -2603,7 +2603,7 @@ export const TRAD_CHAR_LIST = {
 	"璣": ["ki"],
 	"璩": ["cừ"],
 	"環": ["hoàn"],
-	"璦": ["under review"],
+	"璦": ["ái", "瑷"],
 	"璧": ["bích"],
 	"璽": ["tỉ"],
 	"瓊": ["quỳnh"],
@@ -2636,7 +2636,7 @@ export const TRAD_CHAR_LIST = {
 	"申": ["thân"],
 	"男": ["nam"],
 	"甸": ["điện"],
-	"甽": ["under review"],
+	// 畎
 	"畏": ["úy"],
 	"界": ["giới"],
 	"畔": ["bạn"],
