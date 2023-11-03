@@ -2636,7 +2636,7 @@ export const TRAD_CHAR_LIST = {
 	"申": ["thân"],
 	"男": ["nam"],
 	"甸": ["điện"],
-	// 畎
+	// 甽
 	"畏": ["úy"],
 	"界": ["giới"],
 	"畔": ["bạn"],
@@ -2809,7 +2809,7 @@ export const TRAD_CHAR_LIST = {
 	"瞿": ["cù"],
 	"瞻": ["chiêm"],
 	"矇": ["mông"],
-	"矓": ["under review"],
+	"矓": ["long", "眬"],	// non-canonical
 	"矗": ["súc"],
 	"矚": ["chúc"],
 	"矛": ["mâu"],
@@ -3157,7 +3157,7 @@ export const TRAD_CHAR_LIST = {
 	"線": ["tuyến"],
 	"緞": ["đoạn"],
 	"緩": ["hoãn"],
-	"綞": ["under review"],
+	"綞": ["đỏa"],
 	"縊": ["ải"],
 	"縑": ["kiêm"],
 	"縈": ["oanh"],
@@ -4009,7 +4009,7 @@ export const TRAD_CHAR_LIST = {
 	"跑": ["bào"],
 	"跌": ["điệt"],
 	"跛": ["bả"],
-	"跆": ["under review"],
+	"跆": ["đài"],
 	"跡": ["tích"],
 	"跟": ["cân"],
 	"跨": ["khóa"],
@@ -4018,7 +4018,7 @@ export const TRAD_CHAR_LIST = {
 	"跺": ["đoạ"],
 	"跪": ["quỵ"],
 	"跼": ["cục"],
-	"踫": ["under review"],
+	// 踫
 	"踐": ["tiễn"],
 	"踝": ["hõa"],
 	"踢": ["thích"],
