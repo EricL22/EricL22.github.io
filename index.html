@@ -11,7 +11,7 @@
 	<h2>Xinjianti Converter</h2>
 	<p>In the interest of general usage and easy recognition, compatibility forms replacing orthodox characters with their traditional variants are always used. See <a href="https://github.com/EricL22/EricL22.github.io/blob/main/assets/data/xn-trad.js">the source file</a> for a list of substitutes of unsupported Unicode characters. See <a href="https://en.glyphwiki.org/wiki/Group:cang-jie_xn-kanji-PUA">here</a> for a full list of the forms not yet encoded in Unicode.</p>
 	<form>
-		<textarea id="fname" name="fname"></textarea><br><br>
+		<textarea id="fname" name="fname" rows="4" cols="100"></textarea><br><br>
 		<input type="button" value="Convert" onclick="msg()">
 	</form>
 	
@@ -35,8 +35,8 @@
 			const paragraph = document.getElementById("demo");
 			const paragraph2 = document.getElementById("demo2");
 			var checkString = document.getElementById("fname").value;
-			paragraph.textContent = "";
-			paragraph2.textContent = outputConvert(checkString, 1);
+			paragraph.innerText = "";
+			paragraph2.innerText = outputConvert(checkString, 1);
 		}
 
 		window.define = function define() {}
