@@ -1,4 +1,5 @@
 export const VARIANT_FORMS = {
+	"勳": "勛",
 	"爲": "為",
 	"僞": "偽",
 	"嬀": "媯",
