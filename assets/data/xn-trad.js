@@ -4129,7 +4129,7 @@ export const TRAD_CHAR_LIST = {
 	"逆": ["nghịch"],
 	"迷": ["mê"],
 	"退": ["thối"],
-	"迺": ["nãi/huyệt"],	// non-canonical
+	"迺": ["nãi/tuyệt"],
 	"迴": ["hồi", "回"],
 	"逃": ["đào"],
 	"追": ["truy"],
