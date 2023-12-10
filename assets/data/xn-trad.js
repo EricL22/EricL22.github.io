@@ -436,7 +436,7 @@ export const TRAD_CHAR_LIST = {
 	"半": ["bán"],
 	"卉": ["hủy"],
 	"卒": ["tốt"],
-	"協": ["hiệp"],
+	"協": ["hiệp", "协"],
 	"卓": ["trác"],
 	"卑": ["ti"],
 	"南": ["nam"],
@@ -3170,7 +3170,7 @@ export const TRAD_CHAR_LIST = {
 	"縲": ["luy"],
 	"繃": ["banh"],
 	"縫": ["phùng"],
-	"總": ["tổng"],
+	"總": ["tổng", "总"],
 	"縱": ["túng"],	// substitute for 𥾺
 	"繅": ["sào"],
 	"繁": ["phồn"],
