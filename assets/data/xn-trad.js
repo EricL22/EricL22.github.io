@@ -4746,7 +4746,7 @@ export const TRAD_CHAR_LIST = {
 	"鷹": ["ưng"],
 	"鷺": ["lộ"],
 	"鸚": ["anh"],
-	"鸞": ["loan", "鵉"],
+	"鸞": ["loan"],	// substitute for 鵉
 	"鹹": ["hàm"],
 	"鹼": ["dảm", "碱"],
 	"鹽": ["diêm"],	// substitute for 𪉩
@@ -6734,7 +6734,7 @@ export const TRAD_CHAR_LIST = {
 	"歊": ["under review"],
 	"歍": ["under review"],
 	"歋": ["under review"],
-	"歎": ["thán"],
+	"歎": ["thán", "叹"],
 	"歕": ["phun"],
 	"歔": ["hư"],
 	"歜": ["xúc"],
