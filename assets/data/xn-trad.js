@@ -5792,7 +5792,7 @@ export const TRAD_CHAR_LIST = {
 	"緳": ["under review"],
 	"廛": ["triền"],
 	"廞": ["under review"],
-	"廡": ["vũ"],
+	"廡": ["vũ", "庑"],
 	"廩": ["lẫm", "廪"],
 	"廧": ["tường"],
 	"廦": ["under review"],
