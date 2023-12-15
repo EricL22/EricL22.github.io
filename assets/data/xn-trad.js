@@ -7360,7 +7360,7 @@ export const TRAD_CHAR_LIST = {
 	"猼": ["under review"],
 	"獂": ["under review"],
 	"猻": ["tôn"],
-	"獃": ["ngai"],
+	"獃": ["ngai", "呆"],
 	"猺": ["dao"],
 	"獀": ["sưu"],
 	"獊": ["under review"],
