@@ -218,7 +218,7 @@ export const TRAD_CHAR_LIST = {
 	"傢": ["gia"],
 	"傍": ["bàng"],
 	"傅": ["phó"],
-	"備": ["bị", "俻"],
+	"備": ["bị", "备"],	// substitute for 俻
 	"傑": ["kiệt", "杰"],
 	"傀": ["khôi"],
 	"傖": ["sanh", "伧"],
