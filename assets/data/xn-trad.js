@@ -3774,7 +3774,7 @@ export const TRAD_CHAR_LIST = {
 	"覲": ["cận"],
 	"覺": ["giác", "覚"],
 	"覽": ["lãm", "覧"],
-	"觀": ["quan", "覌"],
+	"觀": ["quan"],	// substitute for 覌
 	"角": ["giác"],
 	"解": ["giải"],
 	"觴": ["thương", "觞"],
