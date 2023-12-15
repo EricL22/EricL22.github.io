@@ -11070,7 +11070,7 @@ export const TRAD_CHAR_LIST = {
 	"鼁": ["under review"],
 	"鼀": ["under review"],
 	"鼆": ["under review"],
-	"鼉": ["đà"],
+	"鼉": ["đà", "鼍"],
 	"鼊": ["under review"],
 	"鼏": ["mịch"],
 	"鼐": ["nãi"],
