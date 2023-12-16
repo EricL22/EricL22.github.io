@@ -2981,7 +2981,7 @@ export const TRAD_CHAR_LIST = {
 	"竣": ["thuân"],
 	"竭": ["kiệt"],
 	"端": ["đoan"],
-	"競": ["cạnh"],	// substitute for 㒭
+	"競": ["cạnh", "㒭"],
 	"竹": ["trúc"],
 	"竺": ["trúc"],
 	"竿": ["can"],
@@ -3774,7 +3774,7 @@ export const TRAD_CHAR_LIST = {
 	"覲": ["cận"],
 	"覺": ["giác", "覚"],
 	"覽": ["lãm", "覧"],
-	"觀": ["quan"],	// substitute for 覌
+	"觀": ["quan", "覌"],
 	"角": ["giác"],
 	"解": ["giải"],
 	"觴": ["thương", "觞"],
@@ -3965,7 +3965,7 @@ export const TRAD_CHAR_LIST = {
 	"賤": ["tiện", "賎"],
 	"賬": ["trướng"],	// substitute for unencoded
 	"賭": ["đổ"],
-	"賢": ["hiền"],	// substitute for 䝨
+	"賢": ["hiền", "䝨"],
 	"賣": ["mại"],	// substitute for unencoded
 	"賜": ["tứ"],
 	"質": ["chất", "貭"],
