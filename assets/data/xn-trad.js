@@ -3555,7 +3555,7 @@ export const TRAD_CHAR_LIST = {
 	"蔑": ["miệt"],
 	"蔣": ["tương", "蒋"],
 	"蔡": ["thái"],
-	"蔔": ["bặc"],	// substitute for 𫇥
+	"蔔": ["bặc", "苩"],
 	"蓬": ["bồng"],
 	"蔥": ["thông", "葱"],
 	"蓿": ["túc"],
