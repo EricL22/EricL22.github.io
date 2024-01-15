@@ -9753,7 +9753,7 @@ export const TRAD_CHAR_LIST = {
 	"蹢": ["trịch"],
 	"蹠": ["chích"],
 	"蹗": ["under review"],
-	"蹟": ["tích"],
+	"蹟": ["tích", "跡"],
 	"蹖": ["under review"],
 	"蹞": ["khuế"],
 	"蹥": ["under review"],
