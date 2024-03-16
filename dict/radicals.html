@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="/assets/css/newstyle.css">
+    <style>
+		table {
+			display: table;
+			box-sizing: border-box;
+			text-indent: initial;
+			border-spacing: 2px;
+			background-color: #f8f9fa;
+			color: #202122;
+			margin: 1em 0;
+			border: 1px solid #a2a9b1;
+			border-collapse: collapse;
+		}
+		caption {
+			font-weight: bold;
+		}
+		th {
+			background-color: #eaecf0;
+			border: 1px solid #a2a9b1;
+			padding: 0.2em 0.4em;
+		}
+		td {
+			border: 1px solid #a2a9b1;
+			padding: 0.2em 0.4em;
+		}
+		body {
+			padding-right: 20px;
+			padding-left: 20px;
+		}
+    </style>
+</head>
+
+<body>
+    <h1>新説解　整理方法</h1>
+	<h2>部首順序</h2>
+	<p>This dictionary makes use of a novel indexing technique known as <i>head-tail collation</i> (頭尾整理). In it, each radical is treated as a letter of an "alphabet," and each character decomposes into a permutation of radicals from top to bottom, left to right. Any group of strokes that cannot be classified as a radical is represented as "difficult" (难), and code collisions are resolved by order of frequency.</p>
+	<table>
+		<caption>部首列表</caption>
+		<tr>
+			<th>字类</th>
+			<th>按鍵</th>
+			<th style="min-width: 125px;">部首</th>
+		</tr>
+		<tr>
+			<td><span style="font-size:30px; line-height:100%;">难</span></td>
+			<td>X</td>
+			<td>(复杂)</td>
+		</tr>
+		<tr>
+			<td><span style="font-size:30px; line-height:100%;">重</span></td>
+			<td>Z</td>
+			<td>(重复)</td>
+		</tr>
+	</table>
+	<h2>Input Method</h2>
+	<p>As shown above, the 210 radicals may be divided into 24 groups for the purposes of input. Such groups are formed based on stroke count characteristics of both the original character and any combining forms, if they exist; hence A represents radicals with the smallest stroke count (1) and Y the largest (14). X and Z exist as control keys for difficult and repeated codes, respectively, taking after the Canjie input method.</p>
+    <h3><a href="index.html">Return to table of contents</a></h3>
+</body>
+
+</html>
