@@ -48,8 +48,10 @@
 				emsgel.innerText = "Lookup Error: Please enter a term to define!";
 			else if (defVar.length > 1)
 				emsgel.innerText = "Lookup Error: Please leave a single character to define!";
-			else
+			else {
+				emsgel.innerText = "";
 				window.open("https://en.wiktionary.org/wiki/" + defVar[0]);
+			}
 		}
 		
 		document.addEventListener("DOMContentLoaded", function() {
