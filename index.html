@@ -43,8 +43,8 @@
 
 		window.define = function define() {
 			const emsgel = document.getElementById("lookuperr");
-			var defVar = document.getElementById("termin").value.split(" ");
-			if (defVar.length == 0)
+			var defVar = document.getElementById("termin").value.trim().split(" ");
+			if (defVar.length == 0 || defVar[0] == "")
 				emsgel.innerText = "Please enter a term to define";
 			else if (defVar.length > 1)
 				emsgel.innerText = "Please leave a single character to define";
