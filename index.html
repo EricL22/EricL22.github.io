@@ -51,6 +51,44 @@
 			else
 				window.open("https://en.wiktionary.org/wiki/" + defVar[0]);
 		}
+		
+		document.addEventListener("DOMContentLoaded", function() {
+			let txt = document.getElementById("termin");
+			txt.addEventListener("input", inputZiGen);
+		});
+
+		function inputZiGen(ev) {
+			const CJ_RADICALS = {
+				"a": "日",
+				"b": "月",
+				"c": "金",
+				"d": "木",
+				"e": "水",
+				"f": "火",
+				"g": "土",
+				"h": "竹",
+				"i": "戈",
+				"j": "十",
+				"k": "大",
+				"l": "中",
+				"m": "一",
+				"n": "弓",
+				"o": "人",
+				"p": "心",
+				"q": "手",
+				"r": "口",
+				"s": "尸",
+				"t": "廿",
+				"u": "山",
+				"v": "女",
+				"w": "田",
+				"x": "难",
+				"y": "卜",
+				"z": "重"
+			};
+			if (ev.target.value.length > 0 && ev.target.value[ev.target.value.length-1] in CJ_RADICALS)
+				ev.target.value[ev.target.value.length-1] = CJ_RADICALS[ev.target.value[ev.target.value.length-1]];
+		}
 	</script>
     
 	<h3><a href="https://en.glyphwiki.org/wiki/Group:cang-jie_xn-guidelines">Simplified Character Specification</a></h3>
