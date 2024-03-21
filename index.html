@@ -86,11 +86,10 @@
 				"y": "卜",
 				"z": "重"
 			};
-			let i = ev.target.value;
-			if (i.length > 0) {
-				if (i[i.length-1] in CJ_RADICALS) {
-					i[i.length-1] = CJ_RADICALS[i[i.length-1]];
-					ev.target.value = i;
+			if (ev.target.value.length > 0) {
+				let j = ev.target.value[ev.target.value.length-1];
+				if (j in CJ_RADICALS) {
+					ev.target.value = ev.target.value.replace(/.$/,CJ_RADICALS[j]);
 				}
 			}
 		}
