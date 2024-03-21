@@ -25,7 +25,7 @@
 		<input type="button" id="defbutton" value="Lookup" onclick="define()">
 	</form>
 
-	<p id="termout">Input suggestions will appear here</p>
+	<p id="termout"></p>
 	<p id="lookuperr"></p>
 
 	<h2><a href="dict/index.html">Character Analysis</a></h2>
@@ -45,9 +45,9 @@
 			const emsgel = document.getElementById("lookuperr");
 			var defVar = Array.from(document.getElementById("termin").value.trim());
 			if (defVar.length == 0)
-				emsgel.innerText = "Please enter a term to define";
+				emsgel.innerText = "Lookup Error: Please enter a term to define!";
 			else if (defVar.length > 1)
-				emsgel.innerText = "Please leave a single character to define";
+				emsgel.innerText = "Lookup Error: Please leave a single character to define!";
 			else
 				window.open("https://en.wiktionary.org/wiki/" + defVar[0]);
 		}
