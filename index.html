@@ -14,19 +14,21 @@
 		<textarea id="fname" name="fname" rows="3" cols="75"></textarea><br><br>
 		<input type="button" value="Convert" onclick="msg()">
 	</form>
-	
+
 	<p id="demo">Enter a value above and click the button to convert it</p>
 	<p id="demo2" class="zi"></p>
-	
-	<h2><a href="dict/index.html">Dictionary of Standard Glyphs</a></h2>
 
-	<!--<form>
+	<h2>Full Cangjie and Character Lookup</h2>
+	<p>This modified version of Cangjie input takes a full character decomposition, without omission. (Ex. 謝 = 卜一一口竹难竹木戈 ymmrhxhdi instead of 卜口竹竹戈 yrhhi)</p>
+	<form>
 		<input type="text" id="termin" name="termin"><br><br>
 		<input type="button" id="defbutton" value="Lookup" onclick="define()">
 	</form>
-	
-	<p id="termout">Enter a single term to be defined</p>
-	<p id="termout2" class="zi"></p>-->
+
+	<p id="termout">Input suggestions will appear here</p>
+	<p id="lookuperr"></p>
+
+	<h2><a href="dict/index.html">Character Analysis</a></h2>
 
 	<script type="module">
 		import { outputConvert } from "/shared.js"
@@ -39,7 +41,16 @@
 			paragraph2.innerText = outputConvert(checkString, 1);
 		}
 
-		window.define = function define() {}
+		window.define = function define() {
+			const emsgel = document.getElementById("lookuperr");
+			var defVar = document.getElementById("termin").value.split(" ");
+			if (defVar.length == 0)
+				emsgel.innerText = "Please enter a term to define";
+			else if (defVar.length > 1)
+				emsgel.innerText = "Please leave a single character to define";
+			else
+				window.open("https://en.wiktionary.org/wiki/" + defVar[0]);
+		}
 	</script>
     
 	<h3><a href="https://en.glyphwiki.org/wiki/Group:cang-jie_xn-guidelines">Simplified Character Specification</a></h3>
