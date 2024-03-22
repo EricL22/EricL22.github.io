@@ -99,21 +99,33 @@
 			};
 			const suggs = document.getElementById("termout");
 			if (ev.target.value.length > 0) {
+				let i = ev.target.value.substring(0, window.curCjIn);
 				let j = ev.target.value[ev.target.value.length-1];
+				let k = ev.target.value.substring(window.curCjIn);
 				let curCjExp = window.prevCjIn > ev.target.value.length;
-				if (j in CJ_RADICALS)
-					ev.target.value = ev.target.value.replace(/.$/,CJ_RADICALS[j]);
-				else
-					if (!curCjExp || curCjExp && ev.target.value.length < window.curCjIn)
-						window.curCjIn = ev.target.value.length;
+				
 				if (window.curCjIn <= ev.target.value.length) {
-					let k = ev.target.value.substring(window.curCjIn);
 					suggs.innerText = k;
 					if (k in CJ_CODES) {
 						let l = k + "<br><ol>";
-						for (let choice in CJ_CODES[k])
+						for (let choice of CJ_CODES[k])
 							l += "<li>" + choice + "</li>";
 						suggs.innerHTML =  l + "</ol>";
+					}
+				}
+				
+				if (j in CJ_RADICALS)
+					ev.target.value = i + CJ_RADICALS[j];
+				else if (!isNaN(parseInt(j))) {
+					if (parseInt(j) < CJ_CODES[k].length)
+						ev.target.value = i + CJ_CODES[k][parseInt(j)];
+					else
+						ev.target.value = i + CJ_CODES[k][CJ_CODES[k].length-1];
+				}
+				else {
+					if (!curCjExp || curCjExp && ev.target.value.length < window.curCjIn) {
+						ev.target.value = i + CJ_CODES[k][0];
+						window.curCjIn = ev.target.value.length;
 					}
 				}
 			}
