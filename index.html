@@ -102,11 +102,11 @@
 				let i = ev.target.value.substring(0, window.curCjIn);
 				let j = ev.target.value[ev.target.value.length-1];
 				let k = ev.target.value.substring(window.curCjIn, ev.target.value.length-1);
-				if (j in CJ_RADICALS) {
+				let curCjExp = window.prevCjIn > ev.target.value.length;
+				if (j in CJ_RADICALS || curCjExp) {
 					ev.target.value = i + k + CJ_RADICALS[j];
 					k = ev.target.value.substring(window.curCjIn);
 				}
-				let curCjExp = window.prevCjIn > ev.target.value.length;
 				
 				if (window.curCjIn <= ev.target.value.length) {
 					suggs.innerText = k;
