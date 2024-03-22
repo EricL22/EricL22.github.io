@@ -21,7 +21,7 @@
 	<h2>Full Cangjie and Character Lookup</h2>
 	<p>This modified version of Cangjie input takes a full character decomposition, without omission. (Ex. 謝 = 卜一一口竹难竹木戈 ymmrhxhdi instead of 卜口竹竹戈 yrhhi)</p>
 	<form>
-		<input type="text" id="termin" name="termin"><br><br>
+		<input type="text" id="termin" name="termin" onkeypress="return false"><br><br>
 		<input type="button" id="defbutton" value="Lookup" onclick="define()">
 	</form>
 
@@ -32,6 +32,8 @@
 
 	<script type="module">
 		import { outputConvert } from "/shared.js"
+		
+		window.curCjIn = 0;
 
 		window.msg = function msg() {
 			const paragraph = document.getElementById("demo");
@@ -92,6 +94,9 @@
 				let j = ev.target.value[ev.target.value.length-1];
 				if (j in CJ_RADICALS) {
 					ev.target.value = ev.target.value.replace(/.$/,CJ_RADICALS[j]);
+				}
+				else {
+					window.curCjIn++;
 				}
 			}
 		}
