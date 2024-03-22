@@ -116,7 +116,7 @@
 				
 				if (j in CJ_RADICALS)
 					ev.target.value = i + CJ_RADICALS[j];
-				else if (!isNaN(parseInt(j))) {
+				else if (!isNaN(parseInt(j)) && k in CJ_CODES) {
 					let m = parseInt(j);
 					if (m == 0)
 						m = 10;
@@ -127,7 +127,8 @@
 				}
 				else {
 					if (!curCjExp || curCjExp && ev.target.value.length < window.curCjIn) {
-						ev.target.value = i + CJ_CODES[k][0];
+						if (k in CJ_CODES)
+							ev.target.value = i + CJ_CODES[k][0];
 						window.curCjIn = ev.target.value.length;
 					}
 				}
