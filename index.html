@@ -118,6 +118,7 @@
 							ev.target.value = i + CJ_CODES[k][CJ_CODES[k].length-1];
 					}
 					window.curCjIn = ev.target.value.length;
+					k = ev.target.value.substring(window.curCjIn);
 				}
 				else {
 					if (!curCjExp || curCjExp && ev.target.value.length < window.curCjIn) {
@@ -127,6 +128,7 @@
 								ev.target.value = i + CJ_CODES[k][0];
 						}
 						window.curCjIn = ev.target.value.length;
+						k = ev.target.value.substring(window.curCjIn);
 					}
 				}
 				
