@@ -64,8 +64,8 @@
 		});
 		
 		function detectBksp(ev) {
-			window.curCjExp = ev.charCode == 8;
-			console.log(ev.charCode);
+			window.curCjExp = ev.key === "Backspace";
+			console.log(ev.key);
 		}
 
 		function inputZiGen(ev) {
