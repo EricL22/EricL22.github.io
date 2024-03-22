@@ -34,6 +34,7 @@
 		import { outputConvert } from "/shared.js"
 		
 		window.curCjIn = 0;
+		window.curCjExp = false;	// is true when backspace pressed, false otherwise
 
 		window.msg = function msg() {
 			const paragraph = document.getElementById("demo");
@@ -58,8 +59,13 @@
 		
 		document.addEventListener("DOMContentLoaded", function() {
 			let txt = document.getElementById("termin");
+			txt.addEventListener("keypress", detectBksp);
 			txt.addEventListener("input", inputZiGen);
 		});
+		
+		function detectBksp(ev) {
+			window.curCjExp = ev.charCode == 8;
+		}
 
 		function inputZiGen(ev) {
 			const CJ_RADICALS = {
@@ -92,13 +98,15 @@
 			};
 			if (ev.target.value.length > 0) {
 				let j = ev.target.value[ev.target.value.length-1];
-				if (j in CJ_RADICALS) {
+				if (j in CJ_RADICALS)
 					ev.target.value = ev.target.value.replace(/.$/,CJ_RADICALS[j]);
-				}
-				else {
-					window.curCjIn = ev.target.value.length;
-				}
+				else
+					if (!window.curCjExp || window.curCjExp && ev.target.value.length < window.curCjIn)
+						window.curCjIn = ev.target.value.length;
+				if (window.curCjIn < ev.target.value.length) {}
 			}
+			else
+				window.curCjIn = 0;
 		}
 	</script>
     
