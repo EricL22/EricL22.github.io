@@ -32,6 +32,7 @@
 
 	<script type="module">
 		import { outputConvert } from "/shared.js"
+		import { CJ_CODES } from "./assets/data/ime-full.js"
 		
 		window.curCjIn = 0;
 		window.prevCjIn = 0;
@@ -96,7 +97,7 @@
 				"y": "卜",
 				"z": "重"
 			};
-			const sugg = document.getElementById("termout");
+			const suggs = document.getElementById("termout");
 			if (ev.target.value.length > 0) {
 				let j = ev.target.value[ev.target.value.length-1];
 				let curCjExp = window.prevCjIn > ev.target.value.length;
@@ -107,12 +108,19 @@
 						window.curCjIn = ev.target.value.length;
 				if (window.curCjIn <= ev.target.value.length) {
 					let k = ev.target.value.substring(window.curCjIn);
-					termout.innerText = k;
-					if (k.length > 0) {}
+					suggs.innerText = k;
+					if (k in CJ_CODES) {
+						let l = k + "<br><ol>";
+						for (let choice in CJ_CODES[k])
+							l += "<li>" + choice + "</li>";
+						suggs.innerHTML =  l + "</ol>";
+					}
 				}
 			}
-			else
+			else {
 				window.curCjIn = 0;
+				suggs.innerText = "";
+			}
 		}
 	</script>
     
