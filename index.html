@@ -59,7 +59,7 @@
 		
 		document.addEventListener("DOMContentLoaded", function() {
 			let txt = document.getElementById("termin");
-			txt.addEventListener("keypress", detectBksp);
+			txt.addEventListener("keydown", detectBksp);
 			txt.addEventListener("input", inputZiGen);
 		});
 		
@@ -105,9 +105,10 @@
 				else
 					if (!curCjExp || curCjExp && ev.target.value.length < window.curCjIn)
 						window.curCjIn = ev.target.value.length;
-				console.log(curCjExp);
-				if (window.curCjIn < ev.target.value.length) {
-					termout.innerText = ev.target.value.substring(window.curCjIn);
+				if (window.curCjIn <= ev.target.value.length) {
+					let k = ev.target.value.substring(window.curCjIn);
+					termout.innerText = k;
+					if (k.length > 0) {}
 				}
 			}
 			else
