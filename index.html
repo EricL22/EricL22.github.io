@@ -64,8 +64,8 @@
 		});
 		
 		function detectBksp(ev) {
-			window.curCjExp = ev.key === "Backspace";
-			console.log(ev.key);
+			window.curCjExp = ev.inputType === "deleteContentBackward" || ev.inputType === "deleteContentForward";
+			console.log(ev.inputType);
 		}
 
 		function inputZiGen(ev) {
@@ -97,6 +97,7 @@
 				"y": "卜",
 				"z": "重"
 			};
+			const sugg = document.getElementById("termout");
 			if (ev.target.value.length > 0) {
 				let j = ev.target.value[ev.target.value.length-1];
 				if (j in CJ_RADICALS)
@@ -105,7 +106,9 @@
 					if (!window.curCjExp || window.curCjExp && ev.target.value.length < window.curCjIn)
 						window.curCjIn = ev.target.value.length;
 				console.log(window.curCjExp);
-				if (window.curCjIn < ev.target.value.length) {}
+				if (window.curCjIn < ev.target.value.length) {
+					termout.innerText = ev.target.value.substring(window.curCjIn);
+				}
 			}
 			else
 				window.curCjIn = 0;
