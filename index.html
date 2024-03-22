@@ -34,7 +34,7 @@
 		import { outputConvert } from "/shared.js"
 		
 		window.curCjIn = 0;
-		window.curCjExp = false;	// is true when backspace pressed, false otherwise
+		window.prevCjIn = 0;
 
 		window.msg = function msg() {
 			const paragraph = document.getElementById("demo");
@@ -64,8 +64,7 @@
 		});
 		
 		function detectBksp(ev) {
-			window.curCjExp = ev.inputType === "deleteContentBackward" || ev.inputType === "deleteContentForward";
-			console.log(ev.inputType);
+			window.prevCjIn = ev.target.value.length;
 		}
 
 		function inputZiGen(ev) {
@@ -100,12 +99,13 @@
 			const sugg = document.getElementById("termout");
 			if (ev.target.value.length > 0) {
 				let j = ev.target.value[ev.target.value.length-1];
+				let curCjExp = window.prevCjIn > ev.target.value.length;
 				if (j in CJ_RADICALS)
 					ev.target.value = ev.target.value.replace(/.$/,CJ_RADICALS[j]);
 				else
-					if (!window.curCjExp || window.curCjExp && ev.target.value.length < window.curCjIn)
+					if (!curCjExp || curCjExp && ev.target.value.length < window.curCjIn)
 						window.curCjIn = ev.target.value.length;
-				console.log(window.curCjExp);
+				console.log(curCjExp);
 				if (window.curCjIn < ev.target.value.length) {
 					termout.innerText = ev.target.value.substring(window.curCjIn);
 				}
