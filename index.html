@@ -131,7 +131,7 @@
 					}
 					else {
 						if (!curCjExp || curCjExp && ev.target.value.length < window.curCjIn) {
-							if (k in CJ_CODES)
+							if (k in CJ_CODES && !curCjExp)
 								ev.target.value = i + CJ_CODES[k][0];
 							window.curCjIn = ev.target.value.length;
 						}
