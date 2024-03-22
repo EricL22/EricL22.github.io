@@ -103,7 +103,7 @@
 				let j = ev.target.value[ev.target.value.length-1];
 				let k = ev.target.value.substring(window.curCjIn, ev.target.value.length-1);
 				if (j in CJ_RADICALS) {
-					ev.target.value = i + CJ_RADICALS[j];
+					ev.target.value = i + k + CJ_RADICALS[j];
 					k = ev.target.value.substring(window.curCjIn);
 				}
 				let curCjExp = window.prevCjIn > ev.target.value.length;
@@ -127,6 +127,7 @@
 							ev.target.value = i + CJ_CODES[k][m-1];
 						else
 							ev.target.value = i + CJ_CODES[k][CJ_CODES[k].length-1];
+						window.curCjIn = ev.target.value.length;
 					}
 					else {
 						if (!curCjExp || curCjExp && ev.target.value.length < window.curCjIn) {
