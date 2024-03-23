@@ -20,6 +20,8 @@
 
 	<h2>Full Cangjie and Character Lookup</h2>
 	<p>This modified version of Cangjie input takes a full character decomposition, without omission. (Ex. 謝 = 卜一一口竹难竹木戈 ymmrhxhdi instead of 卜口竹竹戈 yrhhi)</p>
+	<p>A few things to note:</p>
+	<ul><li>Option 10 corresponds to the 0 key on the keyboard. It is unlikely you will ever use this, as the IME only recommends exact matches which generates shorter lists of choices than a standard implementation.</li><li>Pressing a number key outside the range of available choices will select the last choice. Pressing any other input key will select the first.</li></ul>
 	<form>
 		<input type="text" id="termin" name="termin" onkeypress="return event.keyCode != 13"><br><br>
 		<input type="button" id="defbutton" value="Lookup" onclick="define()">
