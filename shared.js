@@ -41,7 +41,7 @@ export function vietOutputConvert(checkString, conv_key) {
 		{
 			var fragment = checkString.substring(0, i);
 			if (!(fragment in TRAD_CHAR_LIST))   fragment = fragment.replaceAll("-", " ");
-			if (!(fragment in TRAD_CHAR_LIST))   continue;
+			if (!(fragment in TRAD_CHAR_LIST) && i > 1)   continue;
 			if (fragment in TRAD_CHAR_LIST && conv_key > -1 && conv_key < TRAD_CHAR_LIST[fragment].length)
 			{
 				output += TRAD_CHAR_LIST[fragment][conv_key];
