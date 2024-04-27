@@ -12,13 +12,13 @@
     <p>Note that this is merely a conversion tool, not a translator, so lists of possible characters are presented where there is ambiguity. Onomatopoeic words are written in <a href="./hangeul.html#Vietnamese">Hangŭl</a>, and punctuation marks are not converted, mirroring the Korean practice.</p>
 
     <form>
-		<textarea id="fname" name="fname" rows="4" cols="50"></textarea><br><br>
+		<textarea id="fname" name="fname" rows="4" cols="50"></textarea><br>
 		<label>Transcription Style:</label>
-		<input type="radio" name="tcstyle" id="phon">
+		<input type="radio" name="tcstyle" id="phon" checked>
 		<label for="phon">Phonetic</label>
 		<input type="radio" name="tcstyle" id="sem">
 		<label for="sem">Semantic</label>
-		<br>
+		<br><br>
 		<input type="button" value="Convert" onclick="outputHanViet()">
     </form>
     
