@@ -59,7 +59,8 @@
 					}
 					else if (fragment in NOM_CHAR_LIST || !(fragment in NOM_CHAR_LIST) && i == 1)
 					{
-						output += fragment;
+						if (fragment != " ")
+							output += fragment;
 						checkString = checkString.substring(i);
 						break;
 					}
