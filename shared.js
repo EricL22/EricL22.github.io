@@ -32,33 +32,6 @@ export function outputConvert(checkString, conv_key, delimiter = "") {
 	return output;
 }
 
-// variant of the above optimized for Vietnamese Quoc-Ngu orthography
-export function vietOutputConvert(checkString, conv_key) {
-	var output = "";
-	while (checkString.length > 0)
-	{
-		for (let i = checkString.length; i > 0; i--)
-		{
-			var fragment = checkString.substring(0, i);
-			if (!(fragment in TRAD_CHAR_LIST))   fragment = fragment.replaceAll("-", " ");
-			if (!(fragment in TRAD_CHAR_LIST) && i > 1)   continue;
-			if (fragment in TRAD_CHAR_LIST && conv_key > -1 && conv_key < TRAD_CHAR_LIST[fragment].length)
-			{
-				output += TRAD_CHAR_LIST[fragment][conv_key];
-				checkString = checkString.substring(i);
-				break;
-			}
-			else if (fragment in TRAD_CHAR_LIST || !(fragment in TRAD_CHAR_LIST) && i == 1)
-			{
-				output += fragment;
-				checkString = checkString.substring(i);
-				break;
-			}
-		}
-	}
-	return output;
-}
-
 // input inString (str), replace all variant forms with keys that exist in TRAD_CHAR_LIST
 function replaceWithKeys(inString) {
 	var output = "";
