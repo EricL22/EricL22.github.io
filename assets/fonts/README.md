@@ -1,4 +1,5 @@
 * **Cangjie.ttf** : official serif typeface with variant conversion, modified hangeul tone metrics -1010l, 885r
+* **Cangjie-UNI series** : official serif typeface
 * **gw3946100.ttf** : obsolete serif typeface with variant forms, succeeded by Cangjie-UNI series
 * **SourceHanSansKL-Regular.ttf** : official sans serif Inherited Glyphs style typeface
 * **SourceHanSansXN-Regular.woff** : obsolete sans serif Simplified Chinese style typeface, succeeded by SourceHanSansKL-Regular
