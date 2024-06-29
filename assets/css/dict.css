@@ -1,4 +1,8 @@
 @font-face {
+	font-family: 'CJ-UNI';
+	src: url('../fonts/Cangjie-UNI-0.ttf') format('truetype');
+}
+@font-face {
 	font-family: 'CAN-CD';
 	src: url('../fonts/gw3946100.ttf') format('truetype');
 }
@@ -15,34 +19,8 @@
 	src: url('../fonts/TW-Kai-Ext-B-98.ttf') format('truetype');
 }
 body {
-	font-family: 'CAN-CD', 'CAN-XN';
+	font-family: 'CJ-UNI';
 }
 .preface {
 	font-family: 'TW-KAI', 'TW-KAI-EXT';
-}
-.zipang_indent {
-	margin-left: 1em;
-}
-.zifan_indent {
-	margin-left: 2em;
-}
-.zidef_indent {
-	margin-left: 4em;
-}
-.ci_indent {
-	margin-left: 5em;
-}
-.cidef_indent {
-	margin-left: 6em;
-}
-.ciyin_indent {
-	margin-left: 7.5em;
-}
-.ziyin_spacer {
-	font-size: 10.0pt;
-	width: 5em;
-}
-.ciyin_spacer {
-	font-size: 10.0pt;
-	width: 10em;
 }
