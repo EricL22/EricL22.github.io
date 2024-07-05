@@ -3,12 +3,12 @@
 	src: url('../fonts/Cangjie-UNI-0.ttf') format('truetype');
 }
 @font-face {
-	font-family: 'CAN-CD';
-	src: url('../fonts/gw3946100.ttf') format('truetype');
+	font-family: 'CJ-UNI-EXT';
+	src: url('../fonts/Cangjie-UNI-1.ttf') format('truetype');
 }
 @font-face {
-	font-family: 'CAN-XN';
-	src: url('../fonts/Cangjie.ttf') format('truetype');
+	font-family: 'CJ-UNI-EXT2';
+	src: url('../fonts/Cangjie-UNI-2.ttf') format('truetype');
 }
 @font-face {
 	font-family: 'TW-KAI';
@@ -19,7 +19,7 @@
 	src: url('../fonts/TW-Kai-Ext-B-98.ttf') format('truetype');
 }
 body {
-	font-family: 'CJ-UNI';
+	font-family: 'CJ-UNI', 'CJ-UNI-EXT', 'CJ-UNI-EXT2';
 }
 .preface {
 	font-family: 'TW-KAI', 'TW-KAI-EXT';
