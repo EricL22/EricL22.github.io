@@ -28,7 +28,7 @@ export const ULA_LETTERS = {
 	"Δ": "D",
 	"Ε": "E",
 	"Ζ": "Z",
-	// "Η": "H", removed to distinguish vowel from consonant
+	"Η": "Y",	// alt. H
 	"Ι": "I",
 	"Κ": "K",
 	"Λ": "L",
@@ -40,7 +40,7 @@ export const ULA_LETTERS = {
 	"Ρ": "R",
 	"Σ": "S",
 	"Τ": "T",
-	"Υ": "Y",
+	"Υ": "U",	// alt. Y
 	"Φ": "F",
 	"Χ": "X",
 	"Ψ": "Ps"

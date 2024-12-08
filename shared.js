@@ -41,10 +41,10 @@ export function replaceWithKeys(inString, mapping) {
 		let normed = inString[i].normalize("NFD");
 		if (inString[i] in mapping)
 			output += mapping[inString[i]];
-		else if (normed[0] in mapping)
-			output += (mapping[normed[0]] + normed.substring(1)).normalize("NFC");
 		else if (upped in mapping)
 			output += mapping[upped].toLowerCase();
+		else if (normed[0] in mapping)
+			output += (mapping[normed[0]] + normed.substring(1)).normalize("NFC");
 		else if (normed[0].toUpperCase() in mapping)
 			output += (mapping[normed[0].toUpperCase()] + normed.substring(1)).normalize("NFC").toLowerCase();
 		else
