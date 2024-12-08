@@ -46,7 +46,7 @@ export function replaceWithKeys(inString, mapping) {
 		else if (normed[0] in mapping)
 			output += (mapping[normed[0]] + normed.substring(1)).normalize("NFC");
 		else if (normed[0].toUpperCase() in mapping)
-			output += (mapping[normed[0].toUpperCase()] + normed.substring(1)).normalize("NFC").toLowerCase();
+			output += (mapping[normed[0].toUpperCase()] + replaceWithKeys(normed.substring(1), mapping)).normalize("NFC").toLowerCase();
 		else
 			output += inString[i];
 	}
