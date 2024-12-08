@@ -1,4 +1,4 @@
-export const UIA_LETTERS = {
+export const ULA_LETTERS = {
 	"А": "A",
 	"Б": "B",
 	"В": "V",
