@@ -50,6 +50,7 @@ export const ULA_LETTERS = {
 
 	//---ARABIC-----
 	"ا": "a",
+	"ى": "a",
 	"ب": "b",
 	"ج": "g",
 	"د": "d",
