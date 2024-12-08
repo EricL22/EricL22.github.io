@@ -33,7 +33,7 @@ export function outputConvert(checkString, conv_key, delimiter = "") {
 }
 
 // input inString (str), replace all variant forms with keys that exist in mapping (Object)
-function replaceWithKeys(inString, mapping) {
+export function replaceWithKeys(inString, mapping) {
 	var output = "";
 	for (let i = 0; i < inString.length; i++)
 	{
