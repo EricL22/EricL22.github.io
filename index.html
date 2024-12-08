@@ -6,6 +6,16 @@
 </head>
 
 <body>
+	<h1>Alphabetic Script Converters</h1>
+	<h2>Universal Latin Converter</h2>
+	<p>Convert any alphabetic text to a standard representation (in effect, a transliteration) using Latin-script cognate letters. To be used with Cyrillic, Arabic, Greek, and Hebrew.</p>
+	<form>
+		<textarea id="ulfield" name="ulfield" rows="3" cols="75"></textarea><br><br>
+		<input type="button" value="Convert" onclick="ula()">
+	</form>
+
+	<p id="ulaout">Enter a value above and click the button to convert it</p>
+
 	<h1>Chinese Character Converters</h1>
 	<p>At the moment, all Chinese Character converters only support Traditional Chinese input. For Simplified Chinese and Shinjitai, I recommend using a converter such as <a href="https://www.jcinfo.net/ja/tools/kanji">this one</a> to obtain a proper input sequence for use in these tools.</p>
 	<h2>Orthodox Forms Converter</h2>
@@ -33,11 +43,18 @@
 	<h3><a href="dict/index.html">Character Analysis</a></h3>
 
 	<script type="module">
-		import { outputConvert } from "/shared.js"
+		import { outputConvert, replaceWithKeys } from "/shared.js"
 		import { CJ_CODES } from "./assets/data/ime-full.js"
+		import { ULA_LETTERS } from "./assets/data/ula.js"
 		
 		window.curCjIn = 0;
 		window.prevCjIn = 0;
+
+		window.ula = function ula() {
+			const paragraph = document.getElementById("ulaout");
+			var checkString = document.getElementById("ulfield").value;
+			paragraph.innerText = replaceWithKeys(checkString, ULA_LETTERS);
+		}
 
 		window.msg = function msg() {
 			const paragraph = document.getElementById("demo");

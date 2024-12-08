@@ -11,7 +11,7 @@ export function outputConvert(checkString, conv_key, delimiter = "") {
 		{
 			var fragment = checkString.substring(0, i);
 			if (fragment.length > MAX_STRING_SIZE)   continue;
-			var alteredFragment = replaceWithKeys(fragment);
+			var alteredFragment = replaceWithKeys(fragment, VARIANT_FORMS);
 			if (alteredFragment in TRAD_CHAR_LIST && conv_key > -1 && conv_key < TRAD_CHAR_LIST[alteredFragment].length)
 			{
 				output += TRAD_CHAR_LIST[alteredFragment][conv_key] + delimiter;
@@ -32,13 +32,15 @@ export function outputConvert(checkString, conv_key, delimiter = "") {
 	return output;
 }
 
-// input inString (str), replace all variant forms with keys that exist in TRAD_CHAR_LIST
-function replaceWithKeys(inString) {
+// input inString (str), replace all variant forms with keys that exist in mapping (Object)
+function replaceWithKeys(inString, mapping) {
 	var output = "";
 	for (let i = 0; i < inString.length; i++)
 	{
-		if (inString[i] in VARIANT_FORMS)
-			output += VARIANT_FORMS[inString[i]];
+		if (inString[i] in mapping)
+			output += mapping[inString[i]];
+		else if (inString[i].toUpperCase() in mapping)
+			output += mapping[inString[i].toUpperCase()].toLowerCase();
 		else
 			output += inString[i];
 	}
