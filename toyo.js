@@ -61,8 +61,7 @@ function renderPairsGrid(container, data) {
     container.innerHTML = pairs
         .map(p => 
             `<div class="char">
-                <span>${p[0]}</span>
-                <span style="font-size:20px">${p[1]}</span>
+                <span>${p[0]}</span>&thinsp;<span style="font-size:20px">${p[1]}</span>
             </div>`
         )
         .join("");
