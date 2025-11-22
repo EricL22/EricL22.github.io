@@ -27,9 +27,9 @@ async function loadAllCharGrids() {
     const grids = document.querySelectorAll(".char-grid");
 
     for (const grid of grids) {
-        const src = grid.dataset.src;
+        const srcFiles = grid.dataset.src.split(",");
         const type = grid.dataset.type;
-        const data = await loadCharactersFromFile(src);
+        const data = await Promise.all(srcFiles.map(file => loadCharactersFromFile(file))).flat();
         
         switch (type) {
             case "trad":
