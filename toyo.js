@@ -60,9 +60,9 @@ function renderPairsGrid(container, data) {
 
     container.innerHTML = pairs
         .map(p => 
-            `<div class="char" style="display:flex">
-                <span>${p[0]}</span>
-                <span style="font-size:20px">${p[1]}</span>
+            `<div class="char" style="display:flex; align-items:center;">
+                <span style="display:inline-block; width:1em;">${p[0]}</span>
+                <span style="display:inline-block; width:1em; font-size:20px;">${p[1]}</span>
             </div>`
         )
         .join("");
