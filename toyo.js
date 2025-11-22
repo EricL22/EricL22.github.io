@@ -1,7 +1,7 @@
 async function loadCharactersFromFile(file) {
     const response = await fetch(file);
     const text = await response.text();
-    return text.split("\n").map(c => c.trim()).filter(Boolean);
+    return text.split("\n").slice(1).map(row => row.split(",")[0].trim()).filter(Boolean);
 }
 
 async function loadAllCharGrids() {
