@@ -29,7 +29,9 @@ async function loadAllCharGrids() {
     for (const grid of grids) {
         const srcFiles = grid.dataset.src.split(",");
         const type = grid.dataset.type;
-        const data = await Promise.all(srcFiles.map(file => loadCharactersFromFile(file))).flat();
+
+        const allDataArrays = await Promise.all(srcFiles.map(file => loadCharactersFromFile(file)));
+        const data = allDataArrays.flat();
         
         switch (type) {
             case "trad":
