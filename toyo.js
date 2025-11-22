@@ -60,7 +60,7 @@ function renderPairsGrid(container, data) {
 
     container.innerHTML = pairs
         .map(p => 
-            `<div class="char" style="display:flex; align-items:center;">
+            `<div class="char" style="display:flex; align-items:center; padding-left:10px; padding-right:10px;">
                 <span>${p[0]}</span>
                 <span style="font-size:20px">${p[1]}</span>
             </div>`
