@@ -45,6 +45,7 @@ async function loadAllCharGrids() {
     }
 }
 
+// data expects 1D array of strings
 function renderSimplifiedGrid(container, data) {
     const chars = data;
 
@@ -59,7 +60,7 @@ function renderPairsGrid(container, data) {
 
     container.innerHTML = pairs
         .map(p => 
-            `<div class="char">
+            `<div class="char" style="display:flex">
                 <span>${p[0]}</span>
                 <span style="font-size:20px">${p[1]}</span>
             </div>`
