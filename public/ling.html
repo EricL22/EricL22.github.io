@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link rel="stylesheet" href="assets/css/newstyle.css">
+</head>
+
+<body>
+	<h1>Alphabetic Script Converters</h1>
+	<h2>Universal Latin Converter</h2>
+	<p>Convert any alphabetic text to a standard representation (in effect, a transliteration) using Latin-script cognate letters. To be used with Cyrillic, Arabic, Greek, and Hebrew.</p>
+	<p>Due to the absence of some precomposed forms, non-cognates may be used to preserve the 1-1 character correspondence.</p>
+	<form>
+		<textarea id="ulfield" name="ulfield" rows="3" cols="75"></textarea><br><br>
+		<input type="button" value="Convert" onclick="ula()">
+	</form>
+
+	<p id="ulaout">Enter a value above and click the button to convert it</p>
+
+	<h1>Chinese Character Converters</h1>
+	<p>At the moment, all Chinese Character converters only support Traditional Chinese input. For Simplified Chinese and Shinjitai, I recommend using a converter such as <a href="https://www.jcinfo.net/ja/tools/kanji">this one</a> to obtain a proper input sequence for use in these tools.</p>
+	<h2>Orthodox Forms Converter</h2>
+	<p>In the interest of general usage and easy recognition, compatibility forms replacing orthodox characters with their traditional variants are always used. See <a href="https://github.com/EricL22/EricL22.github.io/blob/main/assets/data/xn-trad.js">the source file</a> for a list of substitutes of unsupported Unicode characters. See <a href="https://en.glyphwiki.org/wiki/Group:cang-jie_xn-kanji-PUA">here</a> for a full list of the forms not yet encoded in Unicode.</p>
+	<form>
+		<textarea id="fname" name="fname" rows="3" cols="75"></textarea><br><br>
+		<input type="button" value="Convert" onclick="msg()">
+	</form>
+
+	<p id="demo">Enter a value above and click the button to convert it</p>
+	<p id="demo2" class="zi"></p>
+
+	<h2>Full Cangjie and Character Lookup</h2>
+	<p>This modified version of Cangjie input takes a full character decomposition, without omission. (Ex. 謝 = 卜一一口竹难竹木戈 ymmrhxhdi instead of 卜口竹竹戈 yrhhi)</p>
+	<p>A few things to note:</p>
+	<ul><li>Option 10 corresponds to the 0 key on the keyboard. It is unlikely you will ever use this, as the IME only recommends exact matches which generates shorter lists of choices than a standard implementation.</li><li>Pressing a number key outside the range of available choices will select the last choice. Pressing any other input key will select the first.</li></ul>
+	<form>
+		<input type="text" id="termin" name="termin" onkeypress="return event.keyCode != 13"><br><br>
+		<input type="button" id="defbutton" value="Lookup" onclick="define()">
+	</form>
+
+	<p id="termout"></p>
+	<p id="lookuperr"></p>
+
+	<!-- <h3><a href="dict/index.html">Character Analysis</a></h3> -->
+
+	<script type="module">
+		import { outputConvert, replaceWithKeys } from "/shared.js"
+		import { CJ_CODES } from "./assets/data/ime-full.js"
+		import { ULA_LETTERS } from "./assets/data/ula.js"
+		
+		window.curCjIn = 0;
+		window.prevCjIn = 0;
+
+		window.ula = function ula() {
+			const paragraph = document.getElementById("ulaout");
+			var checkString = document.getElementById("ulfield").value;
+			paragraph.innerText = replaceWithKeys(checkString, ULA_LETTERS);
+		}
+
+		window.msg = function msg() {
+			const paragraph = document.getElementById("demo");
+			const paragraph2 = document.getElementById("demo2");
+			var checkString = document.getElementById("fname").value;
+			paragraph.innerText = "";
+			paragraph2.innerText = outputConvert(checkString, 1);
+		}
+
+		window.define = function define() {
+			const emsgel = document.getElementById("lookuperr");
+			var defVar = Array.from(document.getElementById("termin").value.trim());
+			if (defVar.length == 0)
+				emsgel.innerText = "Lookup Error: Please enter a term to define!";
+			else if (defVar.length > 1)
+				emsgel.innerText = "Lookup Error: Please leave a single character to define!";
+			else {
+				emsgel.innerText = "";
+				window.open("https://en.wiktionary.org/wiki/" + defVar[0]);
+			}
+		}
+		
+		document.addEventListener("DOMContentLoaded", function() {
+			let txt = document.getElementById("termin");
+			txt.addEventListener("keydown", detectBksp);
+			txt.addEventListener("input", inputZiGen);
+		});
+		
+		function detectBksp(ev) {
+			window.prevCjIn = ev.target.value.length;
+		}
+
+		function inputZiGen(ev) {
+			const CJ_RADICALS = {
+				"a": "日",
+				"b": "月",
+				"c": "金",
+				"d": "木",
+				"e": "水",
+				"f": "火",
+				"g": "土",
+				"h": "竹",
+				"i": "戈",
+				"j": "十",
+				"k": "大",
+				"l": "中",
+				"m": "一",
+				"n": "弓",
+				"o": "人",
+				"p": "心",
+				"q": "手",
+				"r": "口",
+				"s": "尸",
+				"t": "廿",
+				"u": "山",
+				"v": "女",
+				"w": "田",
+				"x": "难",
+				"y": "卜",
+				"z": "重"
+			};
+			const suggs = document.getElementById("termout");
+			if (ev.target.value.length > 0) {
+				let i = ev.target.value.substring(0, window.curCjIn);
+				let j = ev.target.value[ev.target.value.length-1];
+				let k = ev.target.value.substring(window.curCjIn);
+				let curCjExp = window.prevCjIn > ev.target.value.length;
+				
+				if (j in CJ_RADICALS)
+					ev.target.value = ev.target.value.replace(/.$/,CJ_RADICALS[j]);
+				else if (!isNaN(parseInt(j))) {
+					k = k.substring(0, k.length-1);
+					if (k in CJ_CODES) {
+						let m = parseInt(j);
+						if (m == 0)
+							m = 10;
+						if (m-1 < CJ_CODES[k].length)
+							ev.target.value = i + CJ_CODES[k][m-1];
+						else
+							ev.target.value = i + CJ_CODES[k][CJ_CODES[k].length-1];
+					}
+					window.curCjIn = ev.target.value.length;
+				}
+				else {
+					if (!curCjExp || curCjExp && ev.target.value.length < window.curCjIn) {
+						if (!curCjExp) {
+							k = k.substring(0, k.length-1);
+							if (k in CJ_CODES)
+								ev.target.value = i + CJ_CODES[k][0];
+						}
+						window.curCjIn = ev.target.value.length;
+					}
+				}
+				k = ev.target.value.substring(window.curCjIn);
+				
+				if (window.curCjIn <= ev.target.value.length) {
+					suggs.innerText = k;
+					if (k in CJ_CODES) {
+						let l = k + "<br><ol>";
+						for (let choice of CJ_CODES[k])
+							l += "<li>" + choice + "</li>";
+						suggs.innerHTML =  l + "</ol>";
+					}
+				}
+			}
+			else {
+				window.curCjIn = 0;
+				suggs.innerText = "";
+			}
+		}
+	</script>
+    
+	<h3><a href="toyo.html">General List of Characters</a></h3>
+	<h3><a href="https://en.glyphwiki.org/wiki/Group:cang-jie_xn-guidelines">Simplified Character Shape Specification</a></h3>
+	<h3><a href="hanviet.html">Han-Viet</a> | <a href="hannom.html">Han-Nom</a> Converter</h3>
+	<h3><a href="hangeul.html">Hangŭl Transcription Schemes</a></h3>
+	<h3><a href="./unity/">Unity Web Games</a></h3>
+	<h3><a href="../">Home</a></h3>
+</body>
+
+</html>
