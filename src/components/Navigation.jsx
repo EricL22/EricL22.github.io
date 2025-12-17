@@ -3,7 +3,6 @@ import './Navigation.css'
 
 function Navigation() {
   return (
-    {/* Top Navigation */}
     <header className="nav">
       <nav className="nav-links">
         <a href="#">Immersive Chinese</a>
