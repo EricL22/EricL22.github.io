@@ -20,7 +20,7 @@ body {
   padding: 24px 80px;
   display: flex;
   justify-content: center;
-  margin-bottom: 12px;
+  margin-bottom: 24px;
 }
 
 .nav-links {
@@ -54,7 +54,7 @@ body {
 /* Hero */
 .hero {
   padding: 0 80px;
-  margin-bottom: 16px;
+  margin-bottom: 24px;
 }
 
 .hero-text {
@@ -80,7 +80,7 @@ body {
   grid-template-columns: 1fr 1fr;
   gap: 48px;
   align-items: start;
-  margin-bottom: 16px;
+  margin-bottom: 24px;
 }
 
 .personal-left h2 {
@@ -135,7 +135,7 @@ body {
 /* Collaborative Projects */
 .collaborative-projects {
   padding: 0 80px;
-  margin-bottom: 32px;
+  margin-bottom: 80px;
 }
 
 .collaborative-projects h2 {
