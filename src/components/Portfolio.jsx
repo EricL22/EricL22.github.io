@@ -14,8 +14,8 @@ function Portfolio() {
       <header className="nav">
         <nav className="nav-links">
           <a href="#">Immersive Chinese</a>
-          <a href="#">Web Games</a>
-          <a href="#">Linguistics</a>
+          <a href="/unity">Web Games</a>
+          <a href="/ling.html">Linguistics</a>
         </nav>
       </header>
 

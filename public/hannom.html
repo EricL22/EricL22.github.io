@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="assets/css/newstyle.css">
+</head>
+
+<body>
+    <h1>Han-Nom Converter</h1>
+    <p>Enter Vietnamese text and get its representation in Han-Nom (Vietnamese-based Chinese characters).</p>
+	<p>Historically, Vietnamese was written using mostly phono-semantic compounds or phonetic borrowings. This is indicated as "phonetic" transcription below. A modern method, restricting the character set to the common-use Chinese characters, is modeled after the <i>kun</i> readings of Japanese Kanji and indicated as "semantic" transcription. As "traditional" Han-Nom characters were widely abbreviated, both methods of transcription use the modern simplification standard where possible.</p>
+    <p>Note that this is merely a conversion tool, not a translator, so lists of possible characters are presented where there is ambiguity. Onomatopoeic words are written in <a href="./hangeul.html#Vietnamese">Hangŭl</a>, and punctuation marks are not converted, mirroring the Korean practice.</p>
+
+    <form>
+		<textarea id="fname" name="fname" rows="4" cols="50"></textarea><br>
+		<label>Transcription Style:</label>
+		<input type="radio" name="tcstyle" id="phon" checked>
+		<label for="phon">Phonetic</label>
+		<input type="radio" name="tcstyle" id="sem">
+		<label for="sem">Semantic</label>
+		<br><br>
+		<input type="button" value="Convert" onclick="outputHanNom()">
+    </form>
+    
+    <p id="zi1" class="zi"></p>
+    <p id="demo">Enter a value above and click the button to convert it</p>
+
+    <script type="module">
+		import { NOM_CHAR_LIST } from "./assets/data/nom.js"
+
+		window.outputHanNom = function outputHanNom() {
+			const paragraph = document.getElementById("demo");
+			var checkString = document.getElementById("fname").value;
+			var hanziOutput = document.getElementById("zi1");
+			var ziOutput = "";
+			paragraph.innerText = "";
+			if (document.getElementById("phon").checked)
+				ziOutput = vietOutputConvert(checkString, 0);
+			else
+				ziOutput = vietOutputConvert(checkString, 1);
+			hanziOutput.innerText = ziOutput;
+		}
+		
+		// variant of outputConvert optimized for Vietnamese Quoc-Ngu orthography
+		function vietOutputConvert(checkString, conv_key) {
+			var output = "";
+			while (checkString.length > 0)
+			{
+				for (let i = checkString.length; i > 0; i--)
+				{
+					var fragment = checkString.substring(0, i);
+					if (!(fragment in NOM_CHAR_LIST))   fragment = fragment.replaceAll("-", " ");
+					if (!(fragment in NOM_CHAR_LIST) && i > 1)   continue;
+					if (fragment in NOM_CHAR_LIST && conv_key > -1 && conv_key < NOM_CHAR_LIST[fragment].length)
+					{
+						output += NOM_CHAR_LIST[fragment][conv_key];
+						checkString = checkString.substring(i);
+						break;
+					}
+					else if (fragment in NOM_CHAR_LIST || !(fragment in NOM_CHAR_LIST) && i == 1)
+					{
+						if (fragment != " ")
+							output += fragment;
+						checkString = checkString.substring(i);
+						break;
+					}
+				}
+			}
+			return output;
+		}
+	</script>
+    
+    <h3><a href="ling.html">Return to main page</a></h3>
+</body>
+
+</html>

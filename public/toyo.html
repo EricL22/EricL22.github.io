@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link rel="stylesheet" href="assets/css/dict.css">
+	<style>
+		body {
+			padding-right: 50px;
+			padding-left: 50px;
+		}
+		th, td {
+			padding: 10px;
+			font-size: 30px;
+		}
+		a:link {
+			text-decoration: none;
+		}
+		a:visited {
+			text-decoration: none;
+		}
+		a:hover {
+			text-decoration: underline;
+		}
+		a:active {
+			text-decoration: underline;
+		}
+		.char-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+			gap: 10px;
+			font-size: 30px;
+			text-align: center;
+		}
+		.wide-grid {
+			grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+			text-align: left;
+		}
+	</style>
+</head>
+
+<body>
+	<h2>Table of General Use Chinese Characters</h2>
+	<h5>通用汉字表・통용한자표</h5>
+	<h3>Specification.</h3>
+	<ul>
+		<li>The simplifications in this list are determined based on the greatest common factor between China and Japan, including Japanese substitute characters. It will otherwise opt for the Traditional form or another variant form if sufficiently complex.</li>
+		<li>Some characters with multiple Traditional forms have been disunified compared to the PRC General Standard. Thus, there are 3547 and 3006 characters in the corresponding first and second lists, respectively.</li>
+		<li>Following the ROC Chart of Standard Forms, characters are collated based on radical-stroke, rather than purely stroke count.</li>
+		<li>Unsupported Glyphs are defined as any glyph outside the Basic Multilingual Plane, simplified from a character within, and not identical to an official PRC simplified character.</li>
+	</ul>
+	<h3>Section A. List of Hanja by Level.</h3>
+	<h4>Level I. Commonly Used Characters.</h4>
+	<div class="char-grid" data-src="assets/data/level1.csv"></div>
+	<h4>Level II. Sub-Commonly Used Characters.</h4>
+	<p>縴闆襬懞滷异裡</p>
+	<h4>Level III. Rarely Used Characters.</h4>
+	<h4>Level IV. Special-Use Characters.</h4>
+	<h4>Level V. Name-Use Characters.</h4>
+	<h3>Section B. Table of Correspondences with Traditional Forms.</h3>
+	<div class="char-grid wide-grid" data-src="assets/data/level1.csv" data-type="trad"></div>
+	<h3>Appendix. Table of Substitute Forms for Unsupported Glyphs.</h3>
+	<p>A (-) indicates to use the first corresponding traditional character as defined above.</p>
+	<div class="char-grid wide-grid" data-src="assets/data/level1.csv" data-type="sub"></div>
+	<p style="font-size:20px">       </p>
+	
+	<script src="toyo.js"></script>
+	
+	<h3><a href="ling.html">Return to main page</a></h3>
+</body>
+
+</html>
