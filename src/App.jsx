@@ -3,8 +3,10 @@ import { Portfolio, Footer } from './components'
 
 function App() {
   return (
-    <Portfolio />
-    <Footer />
+    <>
+      <Portfolio />
+      <Footer />
+    </>
   )
 }
 
