@@ -6,15 +6,6 @@ import './Portfolio.css'
 function Portfolio() {
   return (
     <div className="page">
-      {/* Top Navigation */}
-      <header className="nav">
-        <nav className="nav-links">
-          <a href="#">Immersive Chinese</a>
-          <a href="/unity">Web Games</a>
-          <a href="/ling.html">Linguistics</a>
-        </nav>
-      </header>
-
       {/* Hero Section */}
       <section className="hero">
         <div className="hero-text">
