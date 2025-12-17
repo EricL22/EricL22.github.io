@@ -28,9 +28,26 @@ body {
 }
 
 .nav-links a {
+  position: relative;
   text-decoration: none;
   color: #000;
   font-size: 14px;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 1px;
+  background-color: currentColor;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.nav-links a:hover::after {
+  opacity: 1;
 }
 
 /* Hero */
@@ -56,7 +73,7 @@ body {
 
 /* Personal Projects */
 .personal-projects {
-  padding: 32px 80px;
+  padding: 24px 80px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 48px;
@@ -114,7 +131,7 @@ body {
 
 /* Collaborative Projects */
 .collaborative-projects {
-  padding: 32px 80px;
+  padding: 24px 80px;
 }
 
 .collaborative-projects h2 {
