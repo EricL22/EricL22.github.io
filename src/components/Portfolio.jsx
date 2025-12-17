@@ -60,7 +60,7 @@ function Portfolio() {
         </div>
 
         <div className="personal-right">
-          <img src={reactLogo} alt="Personal project visual" />
+          <img src={viteLogo} alt="Personal project visual" />
         </div>
       </section>
 
