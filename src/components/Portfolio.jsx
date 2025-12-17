@@ -1,10 +1,10 @@
 import React from 'react'
-import reactLogo from './assets/react.svg'
+import reactLogo from '../assets/react.svg'
 import viteLogo from '/vite.svg'
-import fbLogo from './assets/facebook.svg'
-import liLogo from './assets/linkedin.svg'
-import ytLogo from './assets/youtube.svg'
-import igLogo from './assets/instagram.svg'
+import fbLogo from '../assets/facebook.svg'
+import liLogo from '../assets/linkedin.svg'
+import ytLogo from '../assets/youtube.svg'
+import igLogo from '../assets/instagram.svg'
 import './Portfolio.css'
 
 function Portfolio() {
