@@ -20,7 +20,7 @@ body {
   padding: 24px 80px;
   display: flex;
   justify-content: center;
-  margin-bottom: 24px;
+  margin-bottom: 32px;
 }
 
 .nav-links {
@@ -54,7 +54,7 @@ body {
 /* Hero */
 .hero {
   padding: 0 80px;
-  margin-bottom: 24px;
+  margin-bottom: 32px;
 }
 
 .hero-text {
@@ -80,7 +80,7 @@ body {
   grid-template-columns: 1fr 1fr;
   gap: 48px;
   align-items: start;
-  margin-bottom: 24px;
+  margin-bottom: 32px;
 }
 
 .personal-left h2 {
