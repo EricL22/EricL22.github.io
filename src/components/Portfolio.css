@@ -1,0 +1,165 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  color: #000;
+  background: #fff;
+}
+
+.page {
+  width: 100%;
+}
+
+/* Navigation */
+.nav {
+  padding: 24px 80px;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #000;
+  font-size: 14px;
+}
+
+/* Hero */
+.hero {
+  padding: 80px;
+}
+
+.hero-text {
+  max-width: 640px;
+}
+
+.hero h1 {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.hero p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* Personal Projects */
+.personal-projects {
+  padding: 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.personal-left h2 {
+  font-size: 36px;
+  margin-bottom: 32px;
+}
+
+.project-block {
+  margin-bottom: 24px;
+}
+
+.project-block h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.project-block p {
+  color: #666;
+  line-height: 1.5;
+}
+
+.buttons {
+  margin-top: 32px;
+  display: flex;
+  gap: 16px;
+}
+
+.btn-primary {
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-secondary {
+  background: #e5e5e5;
+  color: #000;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.personal-right img {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+/* Collaborative Projects */
+.collaborative-projects {
+  padding: 80px;
+}
+
+.collaborative-projects h2 {
+  font-size: 36px;
+  margin-bottom: 40px;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
+
+.card h4 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.card p {
+  color: #666;
+  line-height: 1.5;
+}
+
+/* Footer */
+.footer {
+  padding: 48px;
+  display: flex;
+  justify-content: center;
+}
+
+.socials {
+  display: flex;
+  gap: 24px;
+  font-size: 18px;
+  color: #666;
+}
+
+.footer-divider {
+  width: calc(100% - 160px);
+  margin: 0 auto;
+  border-top: 1px solid #e6e6e6;
+}
