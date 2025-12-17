@@ -164,23 +164,3 @@ body {
   color: #666;
   line-height: 1.5;
 }
-
-/* Footer */
-.footer {
-  padding: 48px;
-  display: flex;
-  justify-content: center;
-}
-
-.socials {
-  display: flex;
-  gap: 24px;
-  font-size: 18px;
-  color: #666;
-}
-
-.footer-divider {
-  width: calc(100% - 160px);
-  margin: 0 auto;
-  border-top: 1px solid #e6e6e6;
-}
