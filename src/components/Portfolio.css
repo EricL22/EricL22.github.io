@@ -73,7 +73,7 @@ body {
 
 /* Personal Projects */
 .personal-projects {
-  padding: 24px 80px;
+  padding: 12px 80px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 48px;
@@ -131,7 +131,7 @@ body {
 
 /* Collaborative Projects */
 .collaborative-projects {
-  padding: 24px 80px;
+  padding: 12px 80px;
 }
 
 .collaborative-projects h2 {
