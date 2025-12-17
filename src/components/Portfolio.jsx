@@ -52,15 +52,10 @@ function Portfolio() {
               useful for highly niche fields of East Asian studies.
             </p>
           </div>
-
-          <div className="buttons">
-            <button className="btn-primary">Button</button>
-            <button className="btn-secondary">Secondary button</button>
-          </div>
         </div>
 
         <div className="personal-right">
-          <img src={viteLogo} alt="Personal project visual" />
+          <img src={reactLogo} alt="Personal project visual" />
         </div>
       </section>
 
