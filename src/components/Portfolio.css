@@ -35,7 +35,7 @@ body {
 
 /* Hero */
 .hero {
-  padding: 80px;
+  padding: 64px 80px;
 }
 
 .hero-text {
@@ -56,11 +56,11 @@ body {
 
 /* Personal Projects */
 .personal-projects {
-  padding: 80px;
+  padding: 64px 80px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 64px;
-  align-items: center;
+  gap: 48px;
+  align-items: start;
 }
 
 .personal-left h2 {
@@ -114,7 +114,7 @@ body {
 
 /* Collaborative Projects */
 .collaborative-projects {
-  padding: 80px;
+  padding: 64px 80px;
 }
 
 .collaborative-projects h2 {
