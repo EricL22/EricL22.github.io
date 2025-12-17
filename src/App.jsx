@@ -1,9 +1,10 @@
 import React from 'react'
-import { Portfolio, Footer } from './components'
+import { Portfolio, Footer, Navigation } from './components'
 
 function App() {
   return (
     <>
+      <Navigation />
       <Portfolio />
       <Footer />
     </>
