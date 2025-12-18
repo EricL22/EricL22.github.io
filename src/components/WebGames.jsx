@@ -5,8 +5,6 @@ import './WebGames.css'
 function WebGames() {
   return (
     <>
-      <Navigation />
-
       <main className="webgames">
         <section className="game">
           <img src={mushroom} alt="" />
@@ -47,8 +45,6 @@ function WebGames() {
           </div>
         </section>
       </main>
-
-      <Footer />
     </>
   )
 }
