@@ -3,10 +3,12 @@
 
 <head>
     <script>
-      // Redirect to the HashRouter path when the user accesses /unity
-      if (window.location.pathname === "/unity") {
-        window.location.href = "/#unity";
-      }
+      window.onload = function() {
+        if (window.location.pathname === "/unity") {
+          // Force the redirection to the hash route
+          window.location.href = "/#unity";  // This forces navigation to the hash-based URL
+        }
+      };
     </script>
 </head>
 
