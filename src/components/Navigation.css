@@ -33,3 +33,14 @@
 .nav-links a:hover::after {
   opacity: 1;
 }
+
+.nav-links a.active::after {
+  opacity: 1;
+}
+
+.home-button {
+  padding: 8px 14px;
+  border-radius: 8px;
+  background: black;
+  color: white;
+}
