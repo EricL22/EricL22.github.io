@@ -6,15 +6,17 @@
   padding: 0px 80px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 48px;
+  gap: 0px;
   margin-bottom: 96px;
   align-items: start;
 }
 
 .game img {
-  width: 100%;
+  width: 80%;
   border-radius: 12px;
   display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .game-info h2 {
@@ -38,7 +40,7 @@
 }
 
 .game-info button {
-  width: 100%;
+  width: 80%;
   padding: 14px;
   border-radius: 10px;
   border: none;
