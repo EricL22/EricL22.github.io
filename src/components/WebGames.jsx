@@ -43,8 +43,6 @@ function WebGames() {
           <a href="/unity/bloodtype"><button>Play</button></a>
         </div>
       </section>
-      <div id="left">  left  </div>
-      <div id="right"> right </div>
     </main>
   )
 }
