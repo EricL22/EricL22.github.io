@@ -16,6 +16,20 @@
   margin-bottom: 32px;
 }
 
+.project-block {
+  margin-bottom: 24px;
+}
+
+.project-block h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.project-block p {
+  color: #666;
+  line-height: 1.5;
+}
+
 .personal-right img {
   width: 100%;
   border-radius: 12px;
