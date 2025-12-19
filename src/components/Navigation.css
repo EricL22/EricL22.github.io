@@ -47,5 +47,12 @@
   background: black;
   color: white;
   font-size: 14px;
-  line-height: 1;
+}
+
+.nav-links .home-button {
+  color: white;
+}
+
+.nav-links .home-button::after {
+  display: none;
 }
