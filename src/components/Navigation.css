@@ -2,13 +2,15 @@
 .nav {
   padding: 24px 80px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 32px;
 }
 
 .nav-links {
   display: flex;
   gap: 32px;
+  margin: 0 auto;
 }
 
 .nav-links a {
@@ -39,8 +41,14 @@
 }
 
 .home-button {
-  padding: 8px 14px;
+  padding: 4px 14px;
   border-radius: 8px;
   background: black;
   color: white;
+  font-size: 14px;
+  line-height: 1;
+}
+
+.home-button::after {
+  display: none;
 }
