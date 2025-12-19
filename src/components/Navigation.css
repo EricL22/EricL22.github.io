@@ -2,15 +2,13 @@
 .nav {
   padding: 24px 80px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: center;
   margin-bottom: 32px;
 }
 
 .nav-links {
   display: flex;
   gap: 32px;
-  margin: 0 auto;
 }
 
 .nav-links a {
@@ -41,7 +39,7 @@
 }
 
 .home-button {
-  padding: 4px 14px;
+  padding: 8px 14px;
   border-radius: 8px;
   background: black;
   color: white;

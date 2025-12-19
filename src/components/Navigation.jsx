@@ -11,13 +11,13 @@ function Navigation() {
         <a href="#">Immersive Chinese</a>
         <NavLink to="/unity">Web Games</NavLink>
         <a href="/ling.html">Linguistics</a>
-      </nav>
 
-      {!isHome && (
-        <NavLink to="/" className="home-button">
-          Home
-        </NavLink>
-      )}
+        {!isHome && (
+          <NavLink to="/" className="home-button">
+            Home
+          </NavLink>
+        )}
+      </nav>
     </header>
   )
 }
