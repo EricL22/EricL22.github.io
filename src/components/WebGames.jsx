@@ -4,35 +4,48 @@ import './WebGames.css'
 
 function WebGames() {
   return (
-    <main className="webgames">
-      <section className="personal-projects">
-        <div className="personal-left">
-          <h2>Personal Projects</h2>
+    <>
+      <main className="webgames">
+        <section className="game">
+          <img src={mushroom} alt="" />
 
-          <div className="project-block">
-            <h3>Immersive Chinese</h3>
-            <p>Learn Chinese as a Second Language just as a native would!</p>
+          <div className="game-info">
+            <h2>Stuffy War</h2>
+            <p className="subtitle">Stick War-style fan game</p>
+
+            <h3>Prerelease Build</h3>
+            <ul>
+              <li>1/12/2025: Initial prototype</li>
+              <li>1/18: Added attack/death sounds and health bars</li>
+            </ul>
+
+            <a href="/unity/stuffystick"><button>Play</button></a>
           </div>
+        </section>
 
-          <div className="project-block">
-            <h3>Web Games</h3>
-            <p>Various projects incorporating Unity’s WebGL engine.</p>
-          </div>
+        <section className="game">
+          <img src={mushroom} alt="" />
 
-          <div className="project-block">
-            <h3>Misc. Linguistic Ideas</h3>
-            <p>
-              Tools including character conversions and specifications. May be
-              useful for highly niche fields of East Asian studies.
+          <div className="game-info">
+            <h2>Blood Typing Game</h2>
+            <p className="subtitle">
+              Learn to identify the different blood types
             </p>
-          </div>
-        </div>
 
-        <div className="personal-right">
-          <img src={reactLogo} alt="Personal project visual" />
-        </div>
-      </section>
-    </main>
+            <h3>Prerelease Build</h3>
+            <ul>
+              <li>2/6/2021: Initial prototype</li>
+              <li>
+                8/2022: Discontinued to the release of Nobel Prize’s <a href="https://educationalgames.nobelprize.org/educational/medicine/bloodtypinggame/index.php">2021
+                version</a>.
+              </li>
+            </ul>
+
+            <a href="/unity/bloodtype"><button>Play</button></a>
+          </div>
+        </section>
+      </main>
+    </>
   )
 }
 
