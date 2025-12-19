@@ -9,6 +9,7 @@
 .nav-links {
   display: flex;
   gap: 32px;
+  align-items: center;
 }
 
 .nav-links a {
@@ -39,14 +40,12 @@
 }
 
 .home-button {
+  display: inline-flex;
+  align-items: center;
   padding: 8px 14px;
   border-radius: 8px;
   background: black;
   color: white;
   font-size: 14px;
   line-height: 1;
-}
-
-.home-button::after {
-  display: none;
 }
