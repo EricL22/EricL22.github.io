@@ -1,12 +1,9 @@
-.page {
+.webgames {
   width: 100%;
 }
 
-.webgames {
-  padding: 0px 80px;
-}
-
 .game {
+  padding: 0px 80px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 48px;
