@@ -29,7 +29,7 @@ function WebGames() {
         </div>
 
         <div className="personal-right">
-          <img src={mushroom} alt="Personal project visual" />
+          <img src={reactLogo} alt="Personal project visual" />
         </div>
       </section>
     </main>
