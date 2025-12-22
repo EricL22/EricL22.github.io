@@ -44,8 +44,11 @@
   padding: 14px;
   border-radius: 10px;
   border: none;
-  background: black;
+  background: #0d0d0d;
   color: white;
   font-size: 16px;
   cursor: pointer;
+}
+.game-info button:hover {
+  background: #212121;
 }
