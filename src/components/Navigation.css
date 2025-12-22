@@ -44,9 +44,12 @@
   align-items: center;
   padding: 8px 14px;
   border-radius: 8px;
-  background: black;
+  background: #0d0d0d;
   color: white;
   font-size: 14px;
+}
+.home-button:hover {
+  background: #212121;
 }
 
 .nav-links .home-button {
