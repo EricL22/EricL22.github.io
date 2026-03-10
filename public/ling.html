@@ -29,8 +29,8 @@
 	<p id="demo">Enter a value above and click the button to convert it</p>
 	<p id="demo2" class="zi"></p>
 
-	<h2>Full Cangjie and Character Lookup</h2>
-	<p>This modified version of Cangjie input takes a full character decomposition, without omission. (Ex. 謝 = 卜一一口竹难竹木戈 ymmrhxhdi instead of 卜口竹竹戈 yrhhi)</p>
+	<h2>Zhuyin IME and Character Lookup</h2>
+	<p>This modified version of Zhuyin input uses a 26-key system for the main letters, with 5 additional tone keys. Includes both Old and New National Pronunciations; feel free to explore.</p>
 	<p>A few things to note:</p>
 	<ul><li>Option 10 corresponds to the 0 key on the keyboard. It is unlikely you will ever use this, as the IME only recommends exact matches which generates shorter lists of choices than a standard implementation.</li><li>Pressing a number key outside the range of available choices will select the last choice. Pressing any other input key will select the first.</li></ul>
 	<form>
@@ -45,7 +45,7 @@
 
 	<script type="module">
 		import { outputConvert, replaceWithKeys } from "/shared.js"
-		import { CJ_CODES } from "./assets/data/ime-full.js"
+		import { ZH_KEYS, ZH_MAP } from "./assets/data/ime-full.js"
 		import { ULA_LETTERS } from "./assets/data/ula.js"
 		
 		window.curCjIn = 0;
@@ -89,34 +89,6 @@
 		}
 
 		function inputZiGen(ev) {
-			const CJ_RADICALS = {
-				"a": "日",
-				"b": "月",
-				"c": "金",
-				"d": "木",
-				"e": "水",
-				"f": "火",
-				"g": "土",
-				"h": "竹",
-				"i": "戈",
-				"j": "十",
-				"k": "大",
-				"l": "中",
-				"m": "一",
-				"n": "弓",
-				"o": "人",
-				"p": "心",
-				"q": "手",
-				"r": "口",
-				"s": "尸",
-				"t": "廿",
-				"u": "山",
-				"v": "女",
-				"w": "田",
-				"x": "难",
-				"y": "卜",
-				"z": "重"
-			};
 			const suggs = document.getElementById("termout");
 			if (ev.target.value.length > 0) {
 				let i = ev.target.value.substring(0, window.curCjIn);
@@ -124,18 +96,18 @@
 				let k = ev.target.value.substring(window.curCjIn);
 				let curCjExp = window.prevCjIn > ev.target.value.length;
 				
-				if (j in CJ_RADICALS)
-					ev.target.value = ev.target.value.replace(/.$/,CJ_RADICALS[j]);
+				if (j in ZH_KEYS)
+					ev.target.value = ev.target.value.replace(/.$/,ZH_KEYS[j]);
 				else if (!isNaN(parseInt(j))) {
 					k = k.substring(0, k.length-1);
-					if (k in CJ_CODES) {
+					if (k in ZH_MAP) {
 						let m = parseInt(j);
 						if (m == 0)
 							m = 10;
-						if (m-1 < CJ_CODES[k].length)
-							ev.target.value = i + CJ_CODES[k][m-1];
+						if (m-1 < ZH_MAP[k].length)
+							ev.target.value = i + ZH_MAP[k][m-1];
 						else
-							ev.target.value = i + CJ_CODES[k][CJ_CODES[k].length-1];
+							ev.target.value = i + ZH_MAP[k][ZH_MAP[k].length-1];
 					}
 					window.curCjIn = ev.target.value.length;
 				}
@@ -143,8 +115,8 @@
 					if (!curCjExp || curCjExp && ev.target.value.length < window.curCjIn) {
 						if (!curCjExp) {
 							k = k.substring(0, k.length-1);
-							if (k in CJ_CODES)
-								ev.target.value = i + CJ_CODES[k][0];
+							if (k in ZH_MAP)
+								ev.target.value = i + ZH_MAP[k][0];
 						}
 						window.curCjIn = ev.target.value.length;
 					}
@@ -153,9 +125,9 @@
 				
 				if (window.curCjIn <= ev.target.value.length) {
 					suggs.innerText = k;
-					if (k in CJ_CODES) {
+					if (k in ZH_MAP) {
 						let l = k + "<br><ol>";
-						for (let choice of CJ_CODES[k])
+						for (let choice of ZH_MAP[k])
 							l += "<li>" + choice + "</li>";
 						suggs.innerHTML =  l + "</ol>";
 					}
