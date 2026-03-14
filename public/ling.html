@@ -145,14 +145,15 @@
 			return choices[index];
 		}
 		function renderCandidates(seq, suggs) {
-			if (!(seq in ZH_MAP)) {
-				suggs.innerText = seq;
-				return;
+			suggs.innerText = seq;
+			if (!(seq in ZH_MAP)) return;
+			const ol = document.createElement("ol");
+			for (let choice of ZH_MAP[seq]) {
+				const li = document.createElement("li");
+				li.textContent = choice;
+				ol.appendChild(li);
 			}
-			let candList = seq + "<br><ol>";
-			for (let choice of ZH_MAP[seq])
-				candList += "<li>" + choice + "</li>";
-			suggs.innerHTML = candList + "</ol>";
+			suggs.appendChild(ol);
 		}
 	</script>
     
