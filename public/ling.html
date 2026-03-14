@@ -33,7 +33,11 @@
 	<img src="./assets/zhu-extr-layout.png" alt="Zhuyin Extended Revised Layout">
 	<p>This modified version of Zhuyin input uses a 26-key system for the main letters, with 5 additional tone keys. Includes both Old and New National Pronunciations; feel free to explore.</p>
 	<p>A few things to note:</p>
-	<ul><li>Option 10 corresponds to the 0 key on the keyboard. It is unlikely you will ever use this, as the IME only recommends exact matches which generates shorter lists of choices than a standard implementation.</li><li>Pressing a number key outside the range of available choices will select the last choice. Pressing any other input key will select the first.</li></ul>
+	<ul>
+		<li>Option 10 corresponds to the 0 key on the keyboard. It is unlikely you will ever use this, as the IME only recommends exact matches which generates shorter lists of choices than a standard implementation.</li>
+		<li>Pressing a number key outside the range of available choices will select the last choice. Pressing any other input key will select the first.</li>
+		<li>The fifth tone (˙) represents the entering tone (入声) of ONP, rather than the light tone (輕声) of NNP, and words typed in the latter must be spelled out using the literary pronunciation.</li>
+	</ul>
 	<form>
 		<input type="text" id="termin" name="termin" onkeypress="return event.keyCode != 13"><br><br>
 		<input type="button" id="defbutton" value="Lookup" onclick="define()">
@@ -49,8 +53,10 @@
 		import { ZH_KEYS, ZH_MAP } from "./assets/data/ime-full.js"
 		import { ULA_LETTERS } from "./assets/data/ula.js"
 		
-		window.curCjIn = 0;
-		window.prevCjIn = 0;
+		const IME_STATE = {
+			curBufferStart: 0,
+			prevInputLen: 0
+		}
 
 		window.ula = function ula() {
 			const paragraph = document.getElementById("ulaout");
@@ -80,64 +86,72 @@
 		}
 		
 		document.addEventListener("DOMContentLoaded", function() {
-			let txt = document.getElementById("termin");
-			txt.addEventListener("keydown", detectBksp);
-			txt.addEventListener("input", inputZiGen);
+			const inputBox = document.getElementById("termin");
+			const suggBox = document.getElementById("termout");
+			inputBox.addEventListener("keydown", detectBksp);
+			inputBox.addEventListener("input", e => handleIMEInput(e, suggBox));
 		});
 		
 		function detectBksp(ev) {
-			window.prevCjIn = ev.target.value.length;
+			IME_STATE.prevInputLen = ev.target.value.length;
 		}
 
-		function inputZiGen(ev) {
-			const suggs = document.getElementById("termout");
+		function handleIMEInput(ev, suggs) {
 			if (ev.target.value.length > 0) {
-				let i = ev.target.value.substring(0, window.curCjIn);
-				let j = ev.target.value[ev.target.value.length-1];
-				let k = ev.target.value.substring(window.curCjIn);
-				let curCjExp = window.prevCjIn > ev.target.value.length;
+				let prevInputString = ev.target.value.substring(0, IME_STATE.curBufferStart);
+				let lastBufferChar = ev.target.value[ev.target.value.length-1];
+				let curBufferString = ev.target.value.substring(IME_STATE.curBufferStart);
+				let curCjExp = IME_STATE.prevInputLen > ev.target.value.length;
 				
-				if (j in ZH_KEYS)
-					ev.target.value = ev.target.value.replace(/.$/,ZH_KEYS[j]);
-				else if (!isNaN(parseInt(j))) {
-					k = k.substring(0, k.length-1);
-					if (k in ZH_MAP) {
-						let m = parseInt(j);
-						if (m == 0)
-							m = 10;
-						if (m-1 < ZH_MAP[k].length)
-							ev.target.value = i + ZH_MAP[k][m-1];
-						else
-							ev.target.value = i + ZH_MAP[k][ZH_MAP[k].length-1];
-					}
-					window.curCjIn = ev.target.value.length;
+				if (lastBufferChar in ZH_KEYS)
+					ev.target.value = ev.target.value.replace(/.$/,ZH_KEYS[lastBufferChar]);
+				else if (!isNaN(parseInt(lastBufferChar))) {
+					curBufferString = curBufferString.substring(0, curBufferString.length-1);
+					let chosen = selectCandidate(curBufferString, parseInt(lastBufferChar));
+					if (chosen)
+						ev.target.value = prevInputString + chosen;
+					IME_STATE.curBufferStart = ev.target.value.length;
 				}
 				else {
-					if (!curCjExp || curCjExp && ev.target.value.length < window.curCjIn) {
+					if (!curCjExp || curCjExp && ev.target.value.length < IME_STATE.curBufferStart) {
 						if (!curCjExp) {
-							k = k.substring(0, k.length-1);
-							if (k in ZH_MAP)
-								ev.target.value = i + ZH_MAP[k][0];
+							curBufferString = curBufferString.substring(0, curBufferString.length-1);
+							if (curBufferString in ZH_MAP)
+								ev.target.value = prevInputString + ZH_MAP[curBufferString][0];
 						}
-						window.curCjIn = ev.target.value.length;
+						IME_STATE.curBufferStart = ev.target.value.length;
 					}
 				}
-				k = ev.target.value.substring(window.curCjIn);
+				curBufferString = ev.target.value.substring(IME_STATE.curBufferStart);
 				
-				if (window.curCjIn <= ev.target.value.length) {
-					suggs.innerText = k;
-					if (k in ZH_MAP) {
-						let l = k + "<br><ol>";
-						for (let choice of ZH_MAP[k])
-							l += "<li>" + choice + "</li>";
-						suggs.innerHTML =  l + "</ol>";
-					}
-				}
+				if (IME_STATE.curBufferStart <= ev.target.value.length)
+					renderCandidates(curBufferString, suggs);
 			}
 			else {
-				window.curCjIn = 0;
+				IME_STATE.curBufferStart = 0;
 				suggs.innerText = "";
 			}
+		}
+		function selectCandidate(seq, charChoice) {
+			if (!(seq in ZH_MAP))
+				return null;
+			if (charChoice == 0)
+				charChoice = 10;
+			const choices = ZH_MAP[seq];
+			let index = charChoice - 1;
+			if (index >= choices.length)
+				index = choices.length-1;
+			return choices[index];
+		}
+		function renderCandidates(seq, suggs) {
+			if (!(seq in ZH_MAP)) {
+				suggs.innerText = seq;
+				return;
+			}
+			let candList = seq + "<br><ol>";
+			for (let choice of ZH_MAP[seq])
+				candList += "<li>" + choice + "</li>";
+			suggs.innerHTML = candList + "</ol>";
 		}
 	</script>
     
