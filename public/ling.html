@@ -101,7 +101,7 @@
 				let prevInputString = ev.target.value.substring(0, IME_STATE.curBufferStart);
 				let lastBufferChar = ev.target.value[ev.target.value.length-1];
 				let curBufferString = ev.target.value.substring(IME_STATE.curBufferStart);
-				let curCjExp = IME_STATE.prevInputLen > ev.target.value.length;
+				let isDeletion = IME_STATE.prevInputLen > ev.target.value.length;
 				
 				if (lastBufferChar in ZH_KEYS)
 					ev.target.value = ev.target.value.replace(/.$/,ZH_KEYS[lastBufferChar]);
@@ -113,11 +113,12 @@
 					IME_STATE.curBufferStart = ev.target.value.length;
 				}
 				else {
-					if (!curCjExp || curCjExp && ev.target.value.length < IME_STATE.curBufferStart) {
-						if (!curCjExp) {
+					if (!isDeletion || ev.target.value.length < IME_STATE.curBufferStart) {
+						if (!isDeletion) {
 							curBufferString = curBufferString.substring(0, curBufferString.length-1);
-							if (curBufferString in ZH_MAP)
-								ev.target.value = prevInputString + ZH_MAP[curBufferString][0];
+							let chosen = selectCandidate(curBufferString, 1);
+							if (chosen)
+								ev.target.value = prevInputString + chosen;
 						}
 						IME_STATE.curBufferStart = ev.target.value.length;
 					}
