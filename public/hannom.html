@@ -8,7 +8,7 @@
             text-decoration: underline;
             text-underline-offset: 6px;
         }
-        .ngay {
+        .nhay {
             text-decoration: overline;
         }
     </style>
@@ -17,16 +17,16 @@
 <body>
     <h1>Han-Nom Converter</h1>
     <p>Enter Vietnamese text and get its representation in Han-Nom (Vietnamese-based Chinese characters).</p>
-    <p>Historically, Vietnamese was written using mostly phono-semantic compounds or phonetic borrowings. This is indicated as "phonetic" transcription below. A modern method, restricting the character set to the common-use Chinese characters, is modeled after the <i>kun</i> readings of Japanese Kanji and indicated as "semantic" transcription. As "traditional" Han-Nom characters were widely abbreviated, both methods of transcription use the modern simplification standard where possible.</p>
-    <p>Note that this is merely a conversion tool, not a translator, so lists of possible characters are presented where there is ambiguity. Onomatopoeic words are written in <a href="./hangeul.html#Vietnamese">Hangŭl</a>, and punctuation marks are not converted, mirroring the Korean practice.</p>
+    <p>Historically, Vietnamese was written using mostly phono-semantic compounds or phonetic borrowings. A modern method, assigning high-frequency words to the common-use Chinese characters, is modeled after the <i>kun</i> readings of Japanese Kanji and reduces the set of separate Nom characters needed to learn. As "traditional" Han-Nom characters were widely abbreviated, both methods of transcription use the modern simplification standard where possible.</p>
+    <p>Annotation marks are used to more easily distinguish polyphonic characters and indicate etymology. These include the <i>cá</i> (underline; meaning-borrowed characters) and <i>nháy</i> (overline; non-Sino-Vietnamese readings). Onomatopoeic words are written in <a href="./hangeul.html#Vietnamese">Hangŭl</a>, and punctuation marks are not converted, mirroring the Korean practice.</p>
 
     <form>
 		<textarea id="fname" name="fname" rows="4" cols="50"></textarea><br>
-		<label>Transcription Style:</label>
+		<label>Mode:</label>
 		<input type="radio" name="tcstyle" id="phon" checked>
-		<label for="phon">Phonetic</label>
+		<label for="phon">Prompt</label>
 		<input type="radio" name="tcstyle" id="sem">
-		<label for="sem">Semantic</label>
+		<label for="sem">Render HTML</label>
 		<br><br>
 		<input type="button" value="Convert" onclick="outputHanNom()">
     </form>
