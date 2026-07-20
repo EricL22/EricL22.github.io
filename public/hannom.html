@@ -49,37 +49,15 @@
             ALLOWED_ATTR: ["class"]
         });
         if (document.getElementById("phon").checked)
-          ziOutput = vietOutputConvert(checkString, 0);
+          ziOutput = vietOutputConvert(checkString.normalize().replace(/[^\p{L}\p{N}\s]/gu, ""));
         else
           ziOutput = cleanHtml;
         hanziOutput.innerHTML = ziOutput;
       }
       
       // variant of outputConvert optimized for Vietnamese Quoc-Ngu orthography
-      function vietOutputConvert(checkString, conv_key) {
-        var output = "";
-        while (checkString.length > 0)
-        {
-          for (let i = checkString.length; i > 0; i--)
-          {
-            var fragment = checkString.substring(0, i);
-            if (!(fragment in NOM_CHAR_LIST))   fragment = fragment.replaceAll("-", " ");
-            if (!(fragment in NOM_CHAR_LIST) && i > 1)   continue;
-            if (fragment in NOM_CHAR_LIST && conv_key > -1 && conv_key < NOM_CHAR_LIST[fragment].length)
-            {
-              output += NOM_CHAR_LIST[fragment][conv_key];
-              checkString = checkString.substring(i);
-              break;
-            }
-            else if (fragment in NOM_CHAR_LIST || !(fragment in NOM_CHAR_LIST) && i == 1)
-            {
-              if (fragment != " ")
-                output += fragment;
-              checkString = checkString.substring(i);
-              break;
-            }
-          }
-        }
+      function vietOutputConvert(checkString) {
+        var output = checkString;
         return output;
       }
     </script>

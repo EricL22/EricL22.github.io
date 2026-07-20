@@ -52,3 +52,10 @@ export function replaceWithKeys(inString, mapping) {
 	}
 	return output;
 }
+
+// input file (path str), load a database file as text excluding a header line
+export async function loadCharactersFromFile(file) {
+    const response = await fetch(file);
+    const text = await response.text();
+    return text.split("\n").slice(1);
+}
