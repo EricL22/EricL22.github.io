@@ -60,7 +60,8 @@
         // Lowercase and strip punctuation for clean matching
         var cleanSentence = checkString.normalize().replace(/\p{P}/gu, " ").replace(/\s+/g, " ").trim().toLowerCase();
         var wordsInSentence = cleanSentence.split(" ");
-        const extractedMappings = loadCharactersFromFile("./assets/data/nom.tsv")
+        const lines = await loadCharactersFromFile(file);
+        const extractedMappings = lines
           .map(line => line.split("\t"))
           .filter(entry => wordsInSentence.includes(entry[1].trim().toLowerCase()))
           .map(entry => {
