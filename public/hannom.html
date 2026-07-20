@@ -49,7 +49,7 @@
             ALLOWED_ATTR: ["class"]
         });
         if (document.getElementById("phon").checked)
-          ziOutput = vietOutputConvert(checkString);
+          ziOutput = await vietOutputConvert(checkString);
         else
           ziOutput = cleanHtml;
         hanziOutput.innerHTML = ziOutput;
