@@ -38,7 +38,7 @@
     <script type="module">
       import { loadCharactersFromFile } from "./shared.js"
       
-      window.outputHanNom = function outputHanNom() {
+      window.outputHanNom = async function outputHanNom() {
         const paragraph = document.getElementById("demo");
         var checkString = document.getElementById("fname").value;
         var hanziOutput = document.getElementById("zi1");
@@ -56,7 +56,7 @@
       }
       
       // 
-      function vietOutputConvert(checkString) {
+      async function vietOutputConvert(checkString) {
         // Lowercase and strip punctuation for clean matching
         var cleanSentence = checkString.normalize().replace(/\p{P}/gu, " ").replace(/\s+/g, " ").trim().toLowerCase();
         var wordsInSentence = cleanSentence.split(" ");
