@@ -57,8 +57,8 @@
       function vietOutputConvert(checkString) {
         // Lowercase and strip punctuation for clean matching
         var cleanSentence = checkString.normalize().replace(/\p{P}/gu, " ").replace(/\s+/g, " ").trim().toLowerCase();
-        var words_in_sentence = clean_sentence.split(" ");
-        const extracted_mappings = loadCharactersFromFile("./assets/data/nom.tsv")
+        var wordsInSentence = cleanSentence.split(" ");
+        const extractedMappings = loadCharactersFromFile("./assets/data/nom.tsv")
           .map(line => line.split("\t"))
           .filter(entry => wordsInSentence.includes(entry[1].trim().toLowerCase()))
           .map(entry => {
@@ -68,7 +68,7 @@
 
             return `${chineseChar} | ${vnSyllable} | ${compounds}`;
           });
-        var output = extracted_mappings.join("<br>");
+        var output = extractedMappings.join("<br>");
         output = `Translate the following Vietnamese text into Chinese.<br><br>[Lexical Mappings]<br>${output}<br><br>[Source Text]<br>${checkString}<br><br>[Instructions]<br>1. Scan the Source Text for the context provided by the compound words listed in the Lexical Mappings.<br>2. Use the corresponding Chinese character to form the target translation. Fetch the character listed in the mapping verbatim, without changing its form.<br>3. If the Chinese character column is empty, no conversion is necessary for that syllable.<br><br>[Translation]`
         return output;
       }
