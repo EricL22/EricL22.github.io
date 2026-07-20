@@ -1,8 +1,4 @@
-async function loadCharactersFromFile(file) {
-    const response = await fetch(file);
-    const text = await response.text();
-    return text.split("\n").slice(1);
-}
+import { loadCharactersFromFile } from "./shared.js"
 
 // return array ["a", "b", ...]
 function getAllSimplified(data) {
