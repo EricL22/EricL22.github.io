@@ -49,15 +49,17 @@
             ALLOWED_ATTR: ["class"]
         });
         if (document.getElementById("phon").checked)
-          ziOutput = vietOutputConvert(checkString.normalize().replace(/[^\p{L}\p{N}\s]/gu, ""));
+          ziOutput = vietOutputConvert(checkString);
         else
           ziOutput = cleanHtml;
         hanziOutput.innerHTML = ziOutput;
       }
       
-      // variant of outputConvert optimized for Vietnamese Quoc-Ngu orthography
+      // 
       function vietOutputConvert(checkString) {
-        var output = checkString;
+        // Lowercase and strip punctuation for clean matching
+        var cleanSentence = checkString.normalize().replace(/\p{P}/gu, " ").replace(/\s+/g, " ").trim().toLowerCase();
+        var output = cleanSentence;
         return output;
       }
     </script>
