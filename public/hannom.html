@@ -58,9 +58,9 @@
       // 
       async function vietOutputConvert(checkString) {
         // Lowercase and strip punctuation for clean matching
-        var cleanSentence = checkString.normalize().replace(/\p{P}/gu, " ").replace(/\s+/g, " ").trim().toLowerCase();
+        var cleanSentence = checkString.normalize("NFC").replace(/\p{P}/gu, " ").replace(/\s+/g, " ").trim().toLowerCase();
         var wordsInSentence = cleanSentence.split(" ");
-        const lines = await loadCharactersFromFile(file);
+        const lines = await loadCharactersFromFile("./assets/data/nom.tsv");
         const extractedMappings = lines
           .map(line => line.split("\t"))
           .filter(entry => wordsInSentence.includes(entry[1].trim().toLowerCase()))
