@@ -1,4 +1,4 @@
-import dompurify from 'https://cdn.jsdelivr.net/npm/dompurify@3/+esm'
+import DOMPurify from 'https://cdn.jsdelivr.net/npm/dompurify@3/+esm'
 import { loadCharactersFromFile } from "./shared.js"
 
 window.outputHanNom = async function outputHanNom() {
@@ -12,10 +12,31 @@ window.outputHanNom = async function outputHanNom() {
         ALLOWED_ATTR: ["class"]
     });
     if (document.getElementById("phon").checked)
-        ziOutput = await vietOutputConvert(checkString);
+        ziOutput = await vietOutputConvert(normalizeToNewStyle(checkString));
     else
         ziOutput = cleanHtml;
     hanziOutput.innerHTML = ziOutput;
+}
+
+function normalizeToNewStyle(text) {
+    if (!text) return "";
+    
+    // Mapping of Traditional Style (key) to New Style (value)
+    const newStyleToneMap = {
+        // oa cluster (e.g., hóa -> hoá)
+        "óa": "oá", "òa": "oà", "ỏa": "oả", "õa": "oã", "ọa": "oạ",
+        // oe cluster (e.g., khỏe -> khoẻ)
+        "óe": "oé", "òe": "oè", "ỏe": "oẻ", "õe": "oẽ", "ọe": "oẹ",
+        // uy cluster (e.g., thủy -> thuỷ)
+        "úy": "uý", "ùy": "uỳ", "ủy": "uỷ", "ũy": "uỹ", "ụy": "uỵ"
+    };
+    
+    // 1. Enforce Unicode NFC to prevent broken combined accents
+    let normalized = text.normalize("NFC");
+    
+    // 2. Replace traditional clusters with new style clusters
+    const regex = new RegExp(Object.keys(newStyleToneMap).join("|"), "g");
+    return normalized.replace(regex, (match) => newStyleToneMap[match]);
 }
 
 // Produce a standard prompt for use in the LLM context checker
