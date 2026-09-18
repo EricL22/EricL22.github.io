@@ -34,48 +34,7 @@
     <p id="zi1" class="zi" style="line-height:2em;"></p>
     <p id="demo">Enter a value above and click the button to convert it</p>
 
-    <script src="https://cdn.jsdelivr.net/npm/dompurify@3/dist/purify.min.js"></script>
-    <script type="module">
-      import { loadCharactersFromFile } from "./shared.js"
-      
-      window.outputHanNom = async function outputHanNom() {
-        const paragraph = document.getElementById("demo");
-        var checkString = document.getElementById("fname").value;
-        var hanziOutput = document.getElementById("zi1");
-        var ziOutput = "";
-        paragraph.innerText = "";
-        const cleanHtml = DOMPurify.sanitize(checkString, {
-            ALLOWED_TAGS: ["span"],
-            ALLOWED_ATTR: ["class"]
-        });
-        if (document.getElementById("phon").checked)
-          ziOutput = await vietOutputConvert(checkString);
-        else
-          ziOutput = cleanHtml;
-        hanziOutput.innerHTML = ziOutput;
-      }
-      
-      // 
-      async function vietOutputConvert(checkString) {
-        // Lowercase and strip punctuation for clean matching
-        var cleanSentence = checkString.normalize("NFC").replace(/\p{P}/gu, " ").replace(/\s+/g, " ").trim().toLowerCase();
-        var wordsInSentence = cleanSentence.split(" ");
-        const lines = await loadCharactersFromFile("./assets/data/nom.tsv");
-        const extractedMappings = lines
-          .map(line => line.split("\t"))
-          .filter(entry => wordsInSentence.includes(entry[1].trim().toLowerCase()))
-          .map(entry => {
-            const chineseChar = entry[0];
-            const vnSyllable = entry[1].trim().toLowerCase();
-            const compounds = entry[5].trim();
-
-            return `${chineseChar} | ${vnSyllable} | ${compounds}`;
-          });
-        var output = extractedMappings.join("<br>");
-        output = `Translate the following Vietnamese text into Chinese.<br><br>[Lexical Mappings]<br>${output}<br><br>[Source Text]<br>${checkString}<br><br>[Instructions]<br>1. Scan the Source Text for the context provided by the compound words listed in the Lexical Mappings.<br>2. Use the corresponding Chinese character to form the target translation. Fetch the character listed in the mapping verbatim, without changing its form.<br>3. If the Chinese character column is empty, no conversion is necessary for that syllable. Produce that syllable in the output verbatim.<br>4. Retain all punctuation marks exactly as they appear in the source text, with the sole exception of hyphens, which must be removed. Eliminate spaces only where they do not immediately follow another punctuation mark.<br><br>[Translation]`
-        return output;
-      }
-    </script>
+    <script type="module" src="hannom.js"></script>
     
     <h3><a href="ling.html">Return to main page</a></h3>
 </body>
