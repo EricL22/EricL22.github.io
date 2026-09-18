@@ -56,7 +56,7 @@ async function vietOutputConvert(checkString) {
         return `${chineseChar} | ${vnSyllable} | ${compounds}`;
       });
     var output = extractedMappings.join("<br>");
-    output = `You are performing a deterministic lexical substitution task, NOT a conventional translation task.
+    output = `You are performing a context-sensitive lexical substitution task, NOT a conventional translation task.
 
 Your job is to transform the Vietnamese Source Text according to the Lexical Mappings below.
 
@@ -68,15 +68,57 @@ ${checkString}
 
 [Instructions]
 1. Process the Source Text strictly from left to right.
-2. Identify each Vietnamese syllable and its context.
-3. If a syllable appears in one of the listed compound-word contexts, replace that syllable with the exact Chinese character given in the mapping.
+2. Identify each Vietnamese syllable and its context case-insensitively.
+3. If a syllable appears in one of the listed compound-word contexts, replace that syllable with the exact Chinese character given in the mapping. Capitalization of the Vietnamese source text must not affect whether a mapping applies.
 4. Copy the mapped Chinese character VERBATIM. Do not change its Unicode form, simplify it, replace it with a synonym, or normalize it. Do NOT paraphrase, reorder, omit, combine, or add words.
-5. If a syllable has no applicable mapping, copy that Vietnamese syllable verbatim.
+5. If a syllable appears in one of the listed compound-word contexts, choose the row whose lexical field best matches the actual lexical sense of that occurrence in context. Otherwise, copy that Vietnamese syllable verbatim.
 6. Retain all punctuation marks exactly as they appear in the source text, with the sole exception of hyphens, which must be removed. Eliminate spaces only where they do not immediately follow another punctuation mark.
 7. Output ONLY the transformed text. Do not provide explanations, notes, analysis, or alternatives.
 
-IMPORTANT:
-This is a mechanical substitution task. An unnatural-looking result is acceptable and must NOT be corrected into natural Chinese.
+[Examples]
+Mapping:
+義 | nghĩa | ý nghĩa, nghĩa vụ, tình nghĩa
+
+Example A
+Input: ý nghĩa
+Output: ý 義
+
+Example B
+Input: chủ nghĩa
+Output: chủ 義
+
+Mapping:
+羅 | là | là quần áo, lụa là, ác là, giặt là
+
+Example C
+Input: 羅 một quốc gia
+Output: 羅 một quốc gia
+
+Mapping:
+半 | bán | bán đảo, bắc bán cầu, bán sống bán chết
+島 | đảo | bán đảo, hòn đảo, quần đảo
+
+Example D
+Input: bán đảo
+Output: 半島
+
+Mapping:
+男 | nam | nam nữ, nam sinh
+南 | nam | phương nam, đông nam
+越 | việt | Việt Nam, người Việt, siêu việt
+羅 | là | là quần áo, lụa là, ác là, giặt là
+𱺵 | là | tức là, đó là
+𠬠 | một | một cái, một chiếc, một ít
+國 | quốc | quốc tịch, quốc tế
+家 | gia | gia đình, gia dụng, nho gia
+
+Example E
+Input: Việt Nam
+Output: 越南
+
+Example F
+Input: Việt Nam là một quốc gia.
+Output: 越南𱺵𠬠國家.
 
 [Translation]`
     return output;
