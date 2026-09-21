@@ -12,7 +12,7 @@ window.outputHanNom = async function outputHanNom() {
         ALLOWED_ATTR: ["class"]
     });
     if (document.getElementById("phon").checked)
-        ziOutput = await askGemini(vietOutputConvert(normalizeToNewStyle(checkString)));
+        ziOutput = await askGemini(await vietOutputConvert(normalizeToNewStyle(checkString)));
     else
         ziOutput = cleanHtml;
     hanziOutput.innerHTML = ziOutput;
