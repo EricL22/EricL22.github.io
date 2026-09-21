@@ -15,6 +15,7 @@ window.outputHanNom = async function outputHanNom() {
     showGraphic("loading");
     try {
         ziOutput = await askGemini(await vietOutputConvert(normalizeToNewStyle(checkString)));
+        ziOutput = ziOutput.replaceAll("\n", "<br>");
     } catch (error) {
         showGraphic("error");
     } finally {
