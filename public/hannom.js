@@ -141,10 +141,6 @@ async function askGemini(userPrompt) {
             },
             body: JSON.stringify({ prompt: userPrompt }),
         });
-
-        if (!response.ok) {
-            throw new Error(`Backend returned ${response.status}`);
-        }
         
         const data = await response.json();
         
