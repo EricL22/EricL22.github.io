@@ -154,9 +154,9 @@ async function askGemini(userPrompt) {
 }
 
 function showGraphic(graphicName) {
-    document.getElementById(graphicName).style.display = "block";
+    document.getElementById(graphicName).hidden = false;
 }
 
 function hideGraphic(graphicName) {
-    document.getElementById(graphicName).style.display = "none";
+    document.getElementById(graphicName).hidden = true;
 }
