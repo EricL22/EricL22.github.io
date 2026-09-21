@@ -11,10 +11,15 @@ window.outputHanNom = async function outputHanNom() {
         ALLOWED_TAGS: ["span"],
         ALLOWED_ATTR: ["class"]
     });
-    if (document.getElementById("phon").checked)
+    hideGraphic("error");
+    showGraphic("loading");
+    try {
         ziOutput = await askGemini(await vietOutputConvert(normalizeToNewStyle(checkString)));
-    else
-        ziOutput = cleanHtml;
+    } catch (error) {
+        showGraphic("error");
+    } finally {
+        hideGraphic("loading");
+    }
     hanziOutput.innerHTML = ziOutput;
 }
 
@@ -126,7 +131,7 @@ Output: 越南𱺵𠬠國家.
 
 async function askGemini(userPrompt) {
     try {
-        const vercelUrl = 'https://vercel-backend-kappa-lovat.vercel.app/api/generate';
+        const vercelUrl = "https://vercel-backend-kappa-lovat.vercel.app/api/generate";
         
         const response = await fetch(vercelUrl, {
             method: 'POST',
@@ -146,7 +151,15 @@ async function askGemini(userPrompt) {
         
         return data.text;
     } catch (error) {
-        console.error('Error contacting backend:', error);
+        console.error("Error contacting backend:", error);
         throw error;
     }
+}
+
+function showGraphic(graphicName) {
+    document.getElementById(graphicName).style.display = "block";
+}
+
+function hideGraphic(graphicName) {
+    document.getElementById(graphicName).style.display = "none";
 }
