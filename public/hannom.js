@@ -126,7 +126,7 @@ Output: 越南𱺵𠬠國家.
 
 async function askGemini(userPrompt) {
     try {
-        const vercelUrl = 'https://vercel-backend-kappa-lovat.vercel.app/';
+        const vercelUrl = 'https://vercel-backend-kappa-lovat.vercel.app/api/generate';
         
         const response = await fetch(vercelUrl, {
             method: 'POST',
