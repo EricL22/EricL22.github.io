@@ -55,7 +55,7 @@ async function vietOutputConvert(checkString) {
 
         return `${chineseChar} | ${vnSyllable} | ${compounds}`;
       });
-    var output = extractedMappings.join("<br>");
+    var output = extractedMappings.join("\n");
     output = `You are performing a context-sensitive lexical substitution task, NOT a conventional translation task.
 
 Your job is to transform the Vietnamese Source Text according to the Lexical Mappings below.
