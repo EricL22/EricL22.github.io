@@ -12,7 +12,7 @@ window.outputHanNom = async function outputHanNom() {
         ALLOWED_ATTR: ["class"]
     });
     if (document.getElementById("phon").checked)
-        ziOutput = await vietOutputConvert(normalizeToNewStyle(checkString));
+        ziOutput = await askGemini(vietOutputConvert(normalizeToNewStyle(checkString)));
     else
         ziOutput = cleanHtml;
     hanziOutput.innerHTML = ziOutput;
@@ -122,4 +122,31 @@ Output: 越南𱺵𠬠國家.
 
 [Translation]`
     return output;
+}
+
+async function askGemini(userPrompt) {
+    try {
+        const vercelUrl = 'https://vercel-backend-kappa-lovat.vercel.app/';
+        
+        const response = await fetch(vercelUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ prompt: userPrompt }),
+        });
+
+        if (!response.ok) {
+            throw new Error(`Backend returned ${response.status}`);
+        }
+        
+        const data = await response.json();
+        
+        if (data.error) throw new Error(data.error);
+        
+        return data.text;
+    } catch (error) {
+        console.error('Error contacting backend:', error);
+        throw error;
+    }
 }
