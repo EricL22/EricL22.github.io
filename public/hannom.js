@@ -74,11 +74,12 @@ ${checkString}
 [Instructions]
 1. Process the Source Text strictly from left to right.
 2. Identify each Vietnamese syllable and its context case-insensitively.
-3. If a syllable appears in one of the listed compound-word contexts, replace that syllable with the exact Chinese character given in the mapping. Capitalization of the Vietnamese source text must not affect whether a mapping applies.
+3. Identify each potential Vietnamese lexical item and its context case-insensitively. For each item, consider the candidate Chinese characters provided by the Lexical Mappings. Use the surrounding context to determine which candidate, if any, best fits the actual lexical sense.
 4. Copy the mapped Chinese character VERBATIM. Do not change its Unicode form, simplify it, replace it with a synonym, or normalize it. Do NOT paraphrase, reorder, omit, combine, or add words.
-5. If a syllable appears in one of the listed compound-word contexts, choose the row whose lexical field best matches the actual lexical sense of that occurrence in context. Otherwise, copy that Vietnamese syllable verbatim.
-6. Retain all punctuation marks exactly as they appear in the source text, with the sole exception of hyphens, which must be removed. Eliminate spaces only where they do not immediately follow another punctuation mark.
-7. Output ONLY the transformed text. Do not provide explanations, notes, analysis, or alternatives.
+5. For each mapped Vietnamese lexical item, choose the best applicable Chinese character from the mappings based on context. If only one candidate is provided, always use it. The listed lexical contexts are illustrative, not exhaustive.
+6. Retain all punctuation marks exactly as they appear in the source text, except hyphens: remove a hyphen when all syllables it separates are converted, otherwise replace it with a space. Remove spaces between adjacent converted Han characters, but otherwise preserve spaces exactly as they appear.
+7. Any syllable, word, or character not covered by the above rules must be copied verbatim.
+8. Output ONLY the transformed text. Do not provide explanations, notes, analysis, or alternatives.
 
 [Examples]
 Mapping:
@@ -96,7 +97,7 @@ Mapping:
 羅 | là | là quần áo, lụa là, ác là, giặt là
 
 Example C
-Input: 羅 một quốc gia
+Input: là một quốc gia
 Output: 羅 một quốc gia
 
 Mapping:
@@ -104,8 +105,8 @@ Mapping:
 島 | đảo | bán đảo, hòn đảo, quần đảo
 
 Example D
-Input: bán đảo
-Output: 半島
+Input: Bán-đảo, ca-khúc
+Output: 半島, ca khúc
 
 Mapping:
 男 | nam | nam nữ, nam sinh
