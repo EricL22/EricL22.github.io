@@ -54,14 +54,14 @@ async function replaceWithValidMappings(checkString) {
     //var geminiOutput = await askGemini(vietOutputConvert(inputMappings, checkString));
     return vietOutputConvert(inputMappings, checkString);
     // verify that Gemini outputs JSON, as intended
-    /*let result;
+    let result;
     try {
         result = JSON.parse(geminiOutput);
         if (!Array.isArray(result.replacements)) throw new Error("replacements must be an array");
     } catch (error) {
         console.error("Gemini returned invalid JSON:", error);
     }
-    return buildOutput(tokens, result, mappingObject);*/
+    return buildOutput(tokens, result, mappingObject);
 }
 
 function tokenizeSentence(text) {
@@ -102,7 +102,7 @@ function buildOutput(tokens, geminiResult, mappingObject) {
 
 // Produce a standard prompt for use in the LLM context checker
 function vietOutputConvert(inputMappings, checkString) {
-    output = `You are performing a context-sensitive lexical substitution task, NOT a conventional translation task.
+    var output = `You are performing a context-sensitive lexical substitution task, NOT a conventional translation task.
 
 Your job is to transform the Vietnamese Source Text according to the Lexical Mappings below.
 
