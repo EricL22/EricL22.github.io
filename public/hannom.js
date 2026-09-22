@@ -18,6 +18,7 @@ window.outputHanNom = async function outputHanNom() {
         ziOutput = ziOutput.replaceAll("\n", "<br>");
     } catch (error) {
         showGraphic("error");
+        console.error("", error);
     } finally {
         hideGraphic("loading");
     }
