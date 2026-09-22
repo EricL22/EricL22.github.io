@@ -1,4 +1,4 @@
-import DOMPurify from 'https://cdn.jsdelivr.net/npm/dompurify@3/+esm'
+//import DOMPurify from 'https://cdn.jsdelivr.net/npm/dompurify@3/+esm'
 import { loadCharactersFromFile } from "./shared.js"
 
 window.outputHanNom = async function outputHanNom() {
@@ -7,10 +7,6 @@ window.outputHanNom = async function outputHanNom() {
     var hanziOutput = document.getElementById("zi1");
     var ziOutput = "";
     paragraph.innerText = "";
-    const cleanHtml = DOMPurify.sanitize(checkString, {
-        ALLOWED_TAGS: ["span"],
-        ALLOWED_ATTR: ["class"]
-    });
     hideGraphic("error");
     showGraphic("loading");
     try {
@@ -22,6 +18,10 @@ window.outputHanNom = async function outputHanNom() {
     } finally {
         hideGraphic("loading");
     }
+    /*const cleanHtml = DOMPurify.sanitize(ziOutput, {
+        ALLOWED_TAGS: ["span"],
+        ALLOWED_ATTR: ["class"]
+    });*/
     hanziOutput.innerHTML = ziOutput;
 }
 
