@@ -75,7 +75,7 @@ function buildOutput(tokens, geminiResult, mappingObject) {
     for (const token of tokens) {
         // Preserve punctuation, spaces, numbers, etc.
         if (!/\p{L}/u.test(token)) {
-            if (/^\s+$/.test(token) && lastReplaced) {  // remove space if the last token was replaced
+            if (token === " " && lastReplaced) {  // remove space if the last token was replaced
                 continue;
             }
             output += token;
