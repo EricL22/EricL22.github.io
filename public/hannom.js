@@ -51,6 +51,10 @@ async function replaceWithValidMappings(checkString) {
         return `${chineseChar} | ${vnSyllable} | ${compounds}`;
       });
     var inputMappings = extractedMappings.join("\n");
+    
+    if (document.getElementById("sem").checked)
+        return vietOutputConvert(inputMappings, checkString);
+    
     var geminiOutput = await askGemini(vietOutputConvert(inputMappings, checkString));
     // verify that Gemini outputs JSON, as intended
     let result;
