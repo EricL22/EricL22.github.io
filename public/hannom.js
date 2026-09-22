@@ -53,14 +53,14 @@ async function replaceWithValidMappings(checkString) {
     //var geminiOutput = await askGemini(vietOutputConvert(inputMappings, checkString));
     return vietOutputConvert(inputMappings, checkString);
     // verify that Gemini outputs JSON, as intended
-    let result;
+    /*let result;
     try {
         result = JSON.parse(geminiOutput);
         if (!Array.isArray(result.replacements)) throw new Error("replacements must be an array");
     } catch (error) {
         console.error("Gemini returned invalid JSON:", error);
     }
-    return buildOutput(tokens, result, mappingObject);
+    return buildOutput(tokens, result, mappingObject);*/
 }
 
 function tokenizeSentence(text) {
