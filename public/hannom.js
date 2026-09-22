@@ -51,8 +51,7 @@ async function replaceWithValidMappings(checkString) {
         return `${chineseChar} | ${vnSyllable} | ${compounds}`;
       });
     var inputMappings = extractedMappings.join("\n");
-    //var geminiOutput = await askGemini(vietOutputConvert(inputMappings, checkString));
-    return vietOutputConvert(inputMappings, checkString);
+    var geminiOutput = await askGemini(vietOutputConvert(inputMappings, checkString));
     // verify that Gemini outputs JSON, as intended
     let result;
     try {
@@ -85,11 +84,16 @@ function buildOutput(tokens, geminiResult, mappingObject) {
         }
 
         const word = token.toLowerCase();
-        const replacement = geminiResult.replacements[wordIndex];
+        if (wordIndex < geminiResult.replacements.length) {
+            const replacement = geminiResult.replacements[wordIndex];
 
-        if (mappingObject[word]?.has(replacement)) {
-            output += replacement;
-            lastReplaced = true;
+            if (mappingObject[word]?.has(replacement)) {
+                output += replacement;
+                lastReplaced = true;
+            } else {
+                output += token;
+                lastReplaced = false;
+            }
         } else {
             output += token;
             lastReplaced = false;
@@ -119,7 +123,7 @@ ${checkString}
 4. Copy the mapped Chinese character VERBATIM. Do not change its Unicode form, simplify it, replace it with a synonym, or normalize it. Do NOT paraphrase, reorder, omit, combine, or add words.
 5. For each mapped Vietnamese lexical item, choose the best applicable Chinese character from the mappings based on context. If only one candidate is provided, always use it. The listed lexical contexts are illustrative, not exhaustive.
 6. Treat each contiguous Vietnamese syllable as a separate output unit. Preserve every remaining source syllable in left-to-right order.
-7. Hyphens, spaces, punctuation, and other non-letter separators do not produce output units. They MUST NOT produce elements in the replacements array. 
+7. Hyphens, spaces, punctuation, numbers, and other non-letter characters do not produce output units. They MUST NOT produce elements in the replacements array. 
 8. Any syllable, word, or character not covered by the above rules must be copied verbatim.
 9. Output ONLY the transformed JSON. Do not provide explanations, notes, analysis, or alternatives. Do not wrap the JSON in Markdown code fences. The output MUST be valid JSON matching exactly this schema:
 {
