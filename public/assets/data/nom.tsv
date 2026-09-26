@@ -873,7 +873,8 @@ character	reading	class	reference	encoding	usage
 蟾	chão	【訓】	https://en.wiktionary.org/wiki/ch%C3%A3o#Noun_4	U+87FE	chão chàng
 𥿣	chão	【音】	https://en.wiktionary.org/wiki/ch%C3%A3o#Noun_3	U+25FE3	bện chão
 𨥿	chảo	【音】	https://en.wiktionary.org/wiki/ch%E1%BA%A3o	U+2897F	xanh chảo
-执	chấp	【汉】		U+6267	chấp nhận, chấp chới, bất chấp, chứa chấp, chấp pháp, tranh chấp
+执	chấp	【汉】		U+6267	chấp nhận, bất chấp, chứa chấp, chấp pháp, tranh chấp
+𤌀	chấp	【音】	https://vtudien.com/viet-viet/dictionary/nghia-cua-tu-ch%E1%BA%A5p%20ch%E1%BB%9Bi	U+24300	chấp chới
 𲷰	chắp	【音】	https://en.wiktionary.org/wiki/ch%E1%BA%AFp	U+32DF0	chắp nối, chắp tay
 腊	chạp	【非】	https://en.wiktionary.org/wiki/ch%E1%BA%A1p	U+814A	tháng chạp, giỗ chạp
 	chạp	【声】			chậm chạp
@@ -1028,48 +1029,50 @@ character	reading	class	reference	encoding	usage
 折	chịt	【非】	https://en.wiktionary.org/wiki/ch%E1%BB%8Bt	U+6298	chằng chịt
 恌	chiu	【音】	https://en.wiktionary.org/wiki/chiu#Etymology_2_2	U+604C	chắt chiu
 受	chịu	【非】	https://en.wiktionary.org/wiki/ch%E1%BB%8Bu	U+53D7	chịu đựng, chịu lửa, chịu chơi
-朱	cho				cho phép, làm cho
-㹥	chó				con chó, chó nghiệp vụ
-椆	chò				chò chỉ, cái chò
-𡊲	chỗ				chỗ ngồi, chỗ bạn bè
-𦙴	chỏ				cùi chỏ, ngòn chỏ, chỉ chỏ
-啫	chơ				chơ vơ, lơ chơ
-四	chớ				chớ
-渚	chớ				chớ hề
-䟻	chờ				chờ đợi, chờ mong, chờ xe
-𨔾	chở				chuyên chở, chở hàng, che chở
-𢄂	chợ				đi chợ, chợ trời, phiên chợ, chợ nổi
-𠺷	choạc				loạc choạc
-𥡈	choai				choai choai, ngựa choai
-𤶜	choáng				choáng váng
-𧝎	choàng				áo choàng
-鏯	choảng				loảng choảng
-𤈛	choạng				chập choạng
-𫏈	choạng				loạng choạng
-㑁	choắt				loắt choắt
-𠺷	chóc				chim chóc, chết chóc
-𣘌	chóc				củ chóc
-𡎺	chốc				mấy chốc, chốc nữa, chốc lát, chốc mòng
-𤹙	chốc				ghẻ chốc, chốc đầu
-擉	chọc				chọc trời, châm chọc, chọc tức, chọc tiết
-𡍘	choé				
-㫼	choé				chí choé, đỏ choé
-𦴶	choè				choè choẹt
-𪄦	choè				chích choè
-𲇥	choẹ				chũm choẹ
-𣾵	choẹt				choè choẹt
-椎	choi				loi choi
-熶	chói				sáng chói
-椎	chòi				chòi ra, chòi mòi
-𢊛	chòi				chòi canh, chòi gác
-挃	chối				từ chối
-䒹	chồi				đâm chồi nẩy lộc
-𥫌	chỗi				
-𨔈	chơi				chơi bời, chơi xuân, chơi vơi, chịu chơi, chơi ghi-ta
-䇛	chổi				sao chổi
-㩡	chọi				gà chọi, trứng chọi đá
-𤈪	chới				chới với, chấp chới
-𠱤	chội				chật chội
+畀	cho	【訓】	https://en.wiktionary.org/wiki/cho#Vietnamese	U+7540	cho phép, làm cho
+狗	chó	【訓】	https://en.wiktionary.org/wiki/ch%C3%B3#Vietnamese	U+72D7	con chó, chó nghiệp vụ
+株	chò	【非】	https://en.wiktionary.org/wiki/ch%C3%B2#Etymology_1	U+682A	chò chỉ, cái chò
+処	chỗ	【非】	https://en.wiktionary.org/wiki/ch%E1%BB%97	U+51E6	chỗ ngồi, chỗ bạn bè
+肘	chỏ	【非】	https://en.wiktionary.org/wiki/ch%E1%BB%8F#Vietnamese	U+8098	cùi chỏ, ngòn chỏ, chỉ chỏ
+啫	chơ	【音】	https://en.wiktionary.org/wiki/ch%C6%A1	U+556B	chơ vơ, lơ chơ
+四	chớ	【非】	https://en.wiktionary.org/wiki/ch%E1%BB%9B#Etymology_2	U+56DB	[Số đếm trong tiếng lóng lái lợn]
+啫	chớ	【音】	https://en.wiktionary.org/wiki/ch%E1%BB%9B#Etymology_1	U+556B	chớ hề, [=chứ]
+待	chờ	【訓】	https://en.wiktionary.org/wiki/ch%E1%BB%9D#Etymology_1	U+5F85	chờ đợi, chờ mong, chờ xe
+𨔾	chở	【音】	https://en.wiktionary.org/wiki/ch%E1%BB%9F	U+2853E	chuyên chở, chở hàng, che chở
+市	chợ	【非】	https://en.wiktionary.org/wiki/ch%E1%BB%A3	U+5E02	đi chợ, chợ trời, phiên chợ, chợ nổi
+𬗌	choạc	【音】	https://vtudien.com/viet-viet/dictionary/nghia-cua-tu-lo%E1%BA%A1c%20cho%E1%BA%A1c	U+2C5CC	loạc choạc
+𥡈	choai	【音】	https://en.wiktionary.org/wiki/choai	U+25848	choai choai, ngựa choai
+𤶏	choáng	【訓】	https://en.wiktionary.org/wiki/cho%C3%A1ng	U+24D8F	choáng váng
+𧝎	choàng	【音】	https://en.wiktionary.org/wiki/cho%C3%A0ng#Etymology_1	U+2774E	áo choàng
+	choảng	【声】			loảng choảng
+𤈛	choạng	【音】	https://en.wiktionary.org/wiki/ch%E1%BA%ADp_cho%E1%BA%A1ng	U+2421B	chập choạng
+𫏈	choạng	【音】	https://en.wiktionary.org/wiki/lo%E1%BA%A1ng_cho%E1%BA%A1ng	U+2B3C8	loạng choạng
+㑁	choắt	【音】	https://en.wiktionary.org/wiki/cho%E1%BA%AFt	U+3441	loắt choắt
+	chóc	【声】			chim chóc, chết chóc
+𣘌	chóc	【音】	https://bvnguyentriphuong.com.vn/duoc-lieu/cu-choc-1648192693	U+2360C	củ chóc
+陣	chốc	【訓】	https://en.wiktionary.org/wiki/ch%E1%BB%91c#Etymology_1	U+9663	mấy chốc, chốc nữa, chốc lát, chốc mòng
+𤹙	chốc	【音】	https://en.wiktionary.org/wiki/ch%E1%BB%91c#Etymology_2	U+24E59	ghẻ chốc, chốc đầu
+擉	chọc	【核】	https://en.wiktionary.org/wiki/ch%E1%BB%8Dc	U+64C9	chọc trời, châm chọc, chọc tức, chọc tiết
+𡍘	choé	【音】	https://en.wiktionary.org/wiki/cho%C3%A9#Etymology_3	U+21358	[=ché]
+𠶜	choé	【音】	https://en.wiktionary.org/wiki/cho%C3%A9#Etymology_1	U+20D9C	chí choé
+㫼	choé	【核】	https://en.wiktionary.org/wiki/cho%C3%A9#Etymology_2	U+3AFC	đỏ choé
+𦴶	choè	【音】	https://vtudien.com/viet-viet/dictionary/nghia-cua-tu-ch%C3%B2e%20cho%E1%BA%B9t	U+26D36	chòe choẹt
+𪄦	choè	【音】	https://en.wiktionary.org/wiki/ch%C3%ADch_cho%C3%A8	U+2A126	chích choè
+𲇥	choẹ	【音】	https://en.wiktionary.org/wiki/ch%C5%A9m_cho%E1%BA%B9	U+321E5	chũm choẹ
+𣾵	choẹt	【音】	https://vtudien.com/viet-viet/dictionary/nghia-cua-tu-ch%C3%B2e%20cho%E1%BA%B9t	U+23FB5	chòe choẹt
+踓	choi	【音】	https://en.wiktionary.org/wiki/loi_choi	U+8E13	loi choi
+熶	chói	【核】	https://en.wiktionary.org/wiki/ch%C3%B3i#Vietnamese	U+71B6	sáng chói
+㔼	chòi	【音】	https://en.wiktionary.org/wiki/ch%C3%B2i#Etymology_2	U+353C	chòi ra, chòi mòi
+𢊛	chòi	【核】	https://en.wiktionary.org/wiki/ch%C3%B2i#Etymology_1	U+2229B	chòi canh, chòi gác
+恎	chối	【音】	https://en.wiktionary.org/wiki/ch%E1%BB%91i	U+604E	từ chối
+䒹	chồi	【音】	https://en.wiktionary.org/wiki/ch%E1%BB%93i	U+44B9	đâm chồi nẩy lộc
+𥫌	chỗi	【音】	https://en.wiktionary.org/wiki/tr%E1%BB%97i	U+25ACC	[=trỗi]
+玩	chơi	【訓】	https://en.wiktionary.org/wiki/ch%C6%A1i	U+73A9	chơi bời, chơi xuân, chơi vơi, chịu chơi, chơi ghi-ta
+帚	chổi	【訓】	https://en.wiktionary.org/wiki/ch%E1%BB%95i	U+5E1A	sao chổi
+鬥	chọi	【訓】	https://en.wiktionary.org/wiki/ch%E1%BB%8Di	U+9B25	gà chọi, trứng chọi đá
+	chới	【声】			chới với
+𤈪	chới	【音】	https://vtudien.com/viet-viet/dictionary/nghia-cua-tu-ch%E1%BA%A5p%20ch%E1%BB%9Bi	U+2422A	chấp chới
+	chội	【声】			chật chội
 笘	chòm				chòm sao, chòm xóm, chòm râu, chòm cây
 撍	chôm				chôm chỉa
 𨇸	chồm				tốc chăn chồm dậy
